@@ -1,0 +1,2 @@
+6/26/2023
+JWTDOWN was indeed a challenge. After the team and I realized that all we had to do to create an account was to insert it in to the database the rest was smooth sailing. Or so I thought. I was definitely stumped on how to make the functions work since ideally, right after creation, you'd want that user to be signed in. It did not occur to me that after creation we had their info in the database. After the 15 minute break I came back and was able to find the account we just created and sign in. I'm happy my team is helpful, and excited for the challenges to come.
