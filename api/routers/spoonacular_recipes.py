@@ -1,14 +1,16 @@
-# from fastapi import APIRouter, Depends
-# from queries.tasty_reecipes import RecipesList, RecipesOut, RecipesRepo
+from fastapi import APIRouter, Depends
+from queries.spoonacular_recipes import RecipesOut, RecipesRepo
+from typing import List
 
 
-# router = APIRouter()
+router = APIRouter()
 
-# @router.get("/api/recipes", response_model=RecipesList)
-# def list_recipes(
-#     repo: RecipesRepo = Depends()
-# ):
-#     return repo.list_recipes()
+
+@router.get("/api/recipes", response_model=List[RecipesOut])
+def list_recipes(
+    repo: RecipesRepo = Depends()
+):
+    return repo.list_recipes()
 
 # @router.get("/api/recipes/{recipe_id}", response_model=RecipesOut)
 # def list_one_recipe(recipe_id:int,

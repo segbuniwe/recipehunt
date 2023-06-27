@@ -39,9 +39,12 @@ class RecipesRepo(Queries):
     COLLECTION = "recipes"
 
     def list_recipes(self):
-        url = "GET https://api.spoonacular.com/recipes/complexSearch"
-        params = SPOONACULAR_API_KEY
-        query = "chicken"
-        res = requests.get(url, params=params, query=query)
+        url = "https://api.spoonacular.com/recipes/complexSearch"
+        params = {
+            "apiKey": SPOONACULAR_API_KEY,
+            "query": "chicken"
+        }
+        res = requests.get(url, params=params)
         data = res.json()
-        return data["results"]
+        print(data)
+        return data["result"]

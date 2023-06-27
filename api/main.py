@@ -8,7 +8,7 @@ app = FastAPI()
 
 app.include_router(account.router, tags=["account"])
 app.include_router(authenticator.router, tags=["auth"])
-# app.include_router(spoonacular_recipes.router, tags=["spoonacular recipes"])
+app.include_router(spoonacular_recipes.router, tags=["spoonacular recipes"])
 app.include_router(tasty_recipes.router, tags=["tasty recipes"])
 
 app.add_middleware(
