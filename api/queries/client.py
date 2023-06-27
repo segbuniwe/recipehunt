@@ -9,5 +9,5 @@ client = pymongo.MongoClient(MONGO_URL)
 class Queries:
     @property
     def collection(self):
-        db = client[self.DB_NAME]
+        db = client["recipehunt"]
         return db[self.COLLECTION]

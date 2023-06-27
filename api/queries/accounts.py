@@ -1,11 +1,6 @@
 from pydantic import BaseModel
 from queries.client import Queries
-from pymongo import MongoClient
 
-
-# client = MongoClient("mongodb://admin:password@mongo:27017")
-# db = client["recipehunt"]
-# collection = db["accounts"]
 
 
 class DuplicateAccountError(Exception):
@@ -29,10 +24,9 @@ class AccountOutWithPassword(AccountOut):
 
 
 class AccountRepo(Queries):
-    DB_NAME = "recipehunt"
     COLLECTION = "accounts"
 
-    def get(self, email: str) -> AccountOutWithPassword:
+    def get_account(self, email: str) -> AccountOutWithPassword:
         account = self.collection.find_one({"email": email})
         account["id"] = str(account["_id"])
         return AccountOutWithPassword(**account)
