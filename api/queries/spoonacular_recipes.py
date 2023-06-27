@@ -10,25 +10,29 @@ class RecipesIn(BaseModel):
 
 class RecipesOut(RecipesIn):
     id: int
-    # image: str
-    # servings: int
-    # readyInMinutes: int
-    # healthScore: int
-    # pricePerServing: int
-    # cheap: bool
-    # dairyFree: bool
-    # glutenFree: bool
-    # instructions: str
-    # ketogenic: bool
-    # vegan: bool
-    # vegetarian: bool
-    # veryHealthy: bool
-    # veryPopular: bool
-    # extendedIngredients: list
-    # summary: str
-    # analyzedInstructions: list
-    # cuisines: list
-    # diets: list
+    image: str
+
+
+class RecipeOut(RecipesIn):
+    id: int
+    image: str
+    servings: int
+    readyInMinutes: int
+    healthScore: int
+    pricePerServing: int
+    cheap: bool
+    dairyFree: bool
+    glutenFree: bool
+    instructions: str
+    vegan: bool
+    vegetarian: bool
+    veryHealthy: bool
+    veryPopular: bool
+    extendedIngredients: list
+    summary: str
+    analyzedInstructions: list
+    cuisines: list
+    diets: list
 
 
 # class RecipesList(BaseModel):
@@ -42,9 +46,17 @@ class RecipesRepo(Queries):
         url = "https://api.spoonacular.com/recipes/complexSearch"
         params = {
             "apiKey": SPOONACULAR_API_KEY,
-            "query": "chicken"
+            "query": "beef"
         }
         res = requests.get(url, params=params)
         data = res.json()
-        print(data)
-        return data["result"]
+        return data["results"]
+
+    def get_recipe_by_id(self, recipe_id:int):
+        url = f"https://api.spoonacular.com/recipes/{recipe_id}/information"
+        params = {
+            "apiKey": SPOONACULAR_API_KEY,
+        }
+        res = requests.get(url, params=params)
+        data = res.json()
+        return data

@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends
-from queries.spoonacular_recipes import RecipesOut, RecipesRepo
+from queries.spoonacular_recipes import RecipesOut, RecipeOut, RecipesRepo
 from typing import List
 
 
@@ -12,7 +12,7 @@ def list_recipes(
 ):
     return repo.list_recipes()
 
-# @router.get("/api/recipes/{recipe_id}", response_model=RecipesOut)
-# def list_one_recipe(recipe_id:int,
-#                     repo: RecipesRepo = Depends()):
-#     return repo.get_recipe_by_id(recipe_id)
+@router.get("/api/recipes/{recipe_id}", response_model=RecipeOut)
+def list_one_recipe(recipe_id:int,
+                    repo: RecipesRepo = Depends()):
+    return repo.get_recipe_by_id(recipe_id)
