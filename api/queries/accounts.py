@@ -2,7 +2,6 @@ from pydantic import BaseModel
 from queries.client import Queries
 
 
-
 class DuplicateAccountError(Exception):
     pass
 
