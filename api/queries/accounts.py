@@ -18,6 +18,7 @@ class AccountOut(BaseModel):
     full_name: str
 
 
+
 class AccountOutWithPassword(AccountOut):
     hashed_password: str
 
