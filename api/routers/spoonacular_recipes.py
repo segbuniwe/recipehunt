@@ -12,7 +12,8 @@ def list_recipes(
 ):
     return repo.list_recipes()
 
+
 @router.get("/api/recipes/{recipe_id}", response_model=RecipeOut)
-def list_one_recipe(recipe_id:int,
+def list_one_recipe(recipe_id: int,
                     repo: RecipesRepo = Depends()):
     return repo.get_recipe_by_id(recipe_id)

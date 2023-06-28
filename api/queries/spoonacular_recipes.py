@@ -52,11 +52,12 @@ class RecipesRepo(Queries):
         data = res.json()
         return data["results"]
 
-    def get_recipe_by_id(self, recipe_id:int):
+    def get_recipe_by_id(self, recipe_id: int):
         url = f"https://api.spoonacular.com/recipes/{recipe_id}/information"
         params = {
             "apiKey": SPOONACULAR_API_KEY,
         }
         res = requests.get(url, params=params)
         data = res.json()
+        
         return data
