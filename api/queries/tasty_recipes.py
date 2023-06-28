@@ -44,5 +44,4 @@ class TastyRecipesRepo(Queries):
 
         response = requests.get(url, headers=headers, params=querystring)
         data = response.json()
-        print(data)
         return data["results"]
