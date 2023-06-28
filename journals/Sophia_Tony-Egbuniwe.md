@@ -13,3 +13,17 @@ Goals For Tomorrow:
 - Finish up authentication (DuplicateError)
 - Finish URD for ingredients
 - Start CRUD for favorites
+
+# 06/28/2023
+Goals:
+- Finished authentication (DuplicateError message was added to specifiy unique email/username, GetToken)
+- Finished CRUD for ingredients
+- Finished CRUD for favorites
+- Created post and put requests for ratings
+
+Today we worked as a group to finish adding the little details that we missed to the auth section such as raising the DuplicateError message if someone tries to create an account with an already in use email. We added the get token path so that we could see the token of the current looged in user. We also finished up the CRUD functionality for both the ingredients collection and the favorites collection so that both are associated with whoever the logged in user is. Javier and I took on the job of creating the post and put paths for a new ratings collection. We were able to create post and put paths for this possible ratings section that has an associated recipe_id and and account_id. We hope to use a useParams in the frontend that can hold the recipe_id of the called 3rd party api and then use that to create an association with the ratings. There were times of many mistakes today especially with KeyErrors and value is not of type dict, but we were able to look back at our code and figure out where the problems may have come from.
+
+Goals For Tomorrow:
+- Start Frontend Authorization
+- Start Login page, Signup page, Main page in Raect
+- Possibly work on backend to make calls to youtube through spoonacular
