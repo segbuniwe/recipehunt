@@ -14,6 +14,11 @@ class RatingOut(RatingIn):
     recipe_id: str
 
 
+class RatingOutWithoutRecipeId(RatingIn):
+    id: str
+    account_id: str
+
+
 class Ratings(BaseModel):
     ratings: List[RatingOut]
 
@@ -28,17 +33,15 @@ class RatingRepo(Queries):
         rating["id"] = str(rating["_id"])
         return RatingOut(**rating)
 
-    def update_rating(self, account_id: str, rating: RatingIn, rating_id: str, recipe_id: int):
+    def update_rating(self, account_id: str, rating: RatingIn, rating_id: str):
         updated_rating = rating
         self.collection.update_one(
             {
                 "account_id": account_id,
                 "_id": ObjectId(rating_id),
-                "recipe_id": recipe_id
             },
             {"$set": updated_rating}
         )
         updated_rating["id"] = rating_id
         updated_rating["account_id"] = account_id
-        updated_rating["recipe_id"] = recipe_id
-        return RatingOut(**updated_rating)
+        return RatingOutWithoutRecipeId(**updated_rating)
