@@ -33,4 +33,7 @@ Today was a bit more tough for me. Initially Riley went through an Authenticatio
 6/29/2023
 
 Standup:
-    -
+
+    Goals:
+    - Building out basic of version of main page
+    - Building out signup and login pages
