@@ -1,6 +1,11 @@
 from fastapi import APIRouter, Depends
 from authenticator import authenticator
-from queries.ratings import RatingIn, RatingOut, RatingRepo
+from queries.ratings import (
+    RatingIn,
+    RatingOut,
+    RatingRepo,
+    RatingOutWithoutRecipeId
+)
 
 
 router = APIRouter()
@@ -17,7 +22,10 @@ def create_rating(
     return repo.create_rating(account_id, rating.dict(), recipe_id)
 
 
-@router.put("/api/ratings/{rating_id}", response_model=RatingOut)
+@router.put(
+        "/api/ratings/{rating_id}",
+        response_model=RatingOutWithoutRecipeId
+    )
 def update_rating(
     rating: RatingIn,
     rating_id: str,
