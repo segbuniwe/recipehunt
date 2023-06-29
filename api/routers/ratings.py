@@ -4,14 +4,16 @@ from queries.ratings import (
     RatingIn,
     RatingOut,
     RatingRepo,
-    RatingOutWithoutRecipeId
+    RatingOutWithoutRecipeId,
+    Ratings
 )
+from typing import List
 
 
 router = APIRouter()
 
 
-@router.post("/api/rated_recipes/{recipe_id}", response_model=RatingOut)
+@router.post("/api/recipes/{recipe_id}/ratings", response_model=RatingOut)
 def create_rating(
     recipe_id: int,
     rating: RatingIn,
@@ -34,3 +36,11 @@ def update_rating(
 ):
     account_id = account_data["id"]
     return repo.update_rating(account_id, rating.dict(), rating_id)
+
+@router.get("/api/ratings/mine", response_model=Ratings)
+def get_list_by_account(
+                        account_data: dict = Depends(authenticator.get_current_account_data),
+                        repo: RatingRepo = Depends(),
+):
+    account_id=account_data["id"]
+    return {"ratings": repo.get_list_ratings_by_account(account_id)}

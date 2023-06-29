@@ -45,3 +45,10 @@ class RatingRepo(Queries):
         updated_rating["id"] = rating_id
         updated_rating["account_id"] = account_id
         return RatingOutWithoutRecipeId(**updated_rating)
+
+    def get_list_ratings_by_account(self, account_id:str):
+        results = []
+        for rating in self.collection.find({"account_id": account_id}):
+            rating["id"] = str(rating["_id"])
+            results.append(rating)
+        return results
