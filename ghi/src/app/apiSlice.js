@@ -29,8 +29,8 @@ export const recipeHuntApi = createApi({
                 body,
                 credentials: 'include',
                 headers: {
-                    'Content-type': 'application/json'
-                }
+                    'Content-Type': 'application/json',
+                },
             }),
             invalidatesTags: ['Account']
         }),
