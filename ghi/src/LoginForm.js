@@ -1,15 +1,18 @@
-import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useLoginMutation } from "./app/apiSlice";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = useToken();
+  const [login] = useLoginMutation();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login(username, password);
-    e.target.reset();
+    login({username, password});
+    console.log('login');
+    navigate("/");
   };
 
   return (
@@ -18,11 +21,12 @@ const LoginForm = () => {
       <div className="card-body">
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className="mb-3">
-            <label className="form-label">Username:</label>
+            <label className="form-label">Email:</label>
             <input
               name="username"
               type="text"
               className="form-control"
+              value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
@@ -32,6 +36,7 @@ const LoginForm = () => {
               name="password"
               type="password"
               className="form-control"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>

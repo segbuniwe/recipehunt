@@ -1,5 +1,4 @@
 import { useState } from "react";
-import useToken from "@galvanize-inc/jwtdown-for-react";
 import { useNavigate } from "react-router-dom";
 import { useSignupMutation } from "./app/apiSlice";
 
@@ -19,7 +18,7 @@ const SignUpForm = () => {
       first_name: first,
       last_name: last,
     };
-    signup({email,password})
+    signup(accountData);
     navigate("/");
   };
 
@@ -29,44 +28,48 @@ const SignUpForm = () => {
       <div className="card-body">
         <form onSubmit={(e) => handleRegistration(e)}>
           <div className="mb-3">
-            <label className="form-label">email</label>
+            <label className="form-label">Email</label>
             <input
               name="email"
               type="text"
               className="form-control"
+              value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
             />
           </div>
           <div className="mb-3">
-            <label className="form-label">password</label>
+            <label className="form-label">Password</label>
             <input
               name="password"
               type="password"
               className="form-control"
+              value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
             />
           </div>
           <div className="mb-3">
-            <label className="form-label">first</label>
+            <label className="form-label">First Name</label>
             <input
               name="first_name"
               type="text"
               className="form-control"
+              value={first}
               onChange={(e) => {
                 setFirst(e.target.value);
               }}
             />
           </div>
           <div className="mb-3">
-            <label className="form-label">last</label>
+            <label className="form-label">Last Name</label>
             <input
               name="last_name"
               type="text"
               className="form-control"
+              value={last}
               onChange={(e) => {
                 setLast(e.target.value);
               }}

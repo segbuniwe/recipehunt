@@ -6,24 +6,30 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@galvanize-inc/jwtdown-for-react";
 import SignUpForm from "./SignUpForm.js";
 import LoginForm from "./LoginForm.js";
+import Nav from "./Nav.js";
+import MainPage from "./MainPage.js";
+
+
 
 
 
 function App() {
     return (
         <>
-        <div className="container">
+
             <BrowserRouter>
+            <div className="container">
+            <Nav />
                 <AuthProvider>
                 {/* <TitleBar /> */}
                 <Routes>
-                    {/* <Route exact path="/" element={<Main />}></Route> */}
+                    <Route exact path="/" element={<MainPage />}></Route>
                     <Route exact path="/signup" element={<SignUpForm />}></Route>
                     <Route exact path="/login" element={<LoginForm />}></Route>
                 </Routes>
                 </AuthProvider>
+                </div>
             </BrowserRouter>
-        </div>
         </>
     );
 }
