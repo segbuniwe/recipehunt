@@ -27,3 +27,15 @@ Goals For Tomorrow:
 - Start Frontend Authorization
 - Start Login page, Signup page, Main page in Raect
 - Possibly work on backend to make calls to youtube through spoonacular
+
+# 06/29/2023
+Goals:
+- Made our ratings routers fit the RESTful schema with their endpoints
+- Added query and router to get ratings for specific account user
+- Fixed update ratings to be updated solely by the ratings id
+- Created signup page on React
+
+Today we worked as a group to finish up the queries and routers for the ratings collection. After talking with Riley, we realized that our enpoints in the ratings router were not RESTful so we had to make them RESTful. This led us to a problem with our update ratings put request. We originally had the ratings be updated by the recipe id it was associated with which was incorrect. I was able to come up with a solution for it by making a new pydantic class model that asks for everything for the recipe id since we don't need that updated. All we wanted updated was the rating_in associated with a specific account user. My solution fixed this and then we were able to finish all of the other RESTful endpoints that we needed. We then decided to start on the frontend by working on the signup page and login page. Using the information in the frontend section in Learn, we were able to figure out how to get the signup form to function. We were able to put in the necessary details and saw that account be added to our monogo database. The login was difficult for us, but after talking to Riley we decided to put a pause on doing frontend stuff until after summer break and seeing more of his lectures.
+
+Goals For Tomorrow:
+- Add bootstrap to signup page on React to practice using bootstrap
