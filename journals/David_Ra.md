@@ -13,6 +13,11 @@ Riley's walkthrough of the backend using mongoDB was a tremendous help and we we
 -created ingredient file for routers and queries,
 -created the ability to let a user rate a recipe using keys from an API to see as a proof of concept
 
-What to do tomorrow:
--start on frontend
--main, login, signup
+7/10
+Went over previous concepts in FastAPI and looked into how to use/implement modals for react. Did not code in the module 3 project. Spent time recalibrating on things that diminished over the week break.
+
+7/11
+Finished the functionality for the login, logout, signin, and signup pages for RecipeHunt. Also built the authentication for user accounts using redux. Created the baseline for the main page and completed the functionality of it.
+
+Tomorrow:
+-Details page
