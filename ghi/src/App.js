@@ -8,6 +8,7 @@ import SignUpForm from "./SignUpForm.js";
 import LoginForm from "./LoginForm.js";
 import Nav from "./Nav.js";
 import MainPage from "./MainPage.js";
+import RecipeDetails from "./RecipeDetails.js";
 
 function App() {
     return (
