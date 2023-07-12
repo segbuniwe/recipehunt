@@ -10,3 +10,7 @@ Today went really well! We were able to integrate the usage of both Spoontacular
 6/28/2023
 
 Another great day. We were able to implement two features, favorites and ratings tied to our users account. Favorites came with full CRUD functionality where as ratings only has create, and update for now. Getting the JWTDOWN library to be in sync with our models has been kind of tricky, and honestly the only thing holding us back from wrapping up today even faster. Tomorrow we plan on starting on our front end since I believe 99% of our back end is done. Super excited to start the front end, I think it appealing to see my work change in front of my eyes, but yeah overall a solid day for the group and myself!
+
+7/11/23
+
+A passive day for me. Today I was in the passenger seat as I saw my teammates handle the front end authentication using RTK queries. Much of that concept is still vague to me and I need to ensure I get back on track to be a contributing force to my teammates.
