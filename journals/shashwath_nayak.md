@@ -37,3 +37,29 @@ Standup:
     Goals:
     - Building out basic of version of main page
     - Building out signup and login pages
+
+6/30/2023
+
+7/10/2023
+
+7/11/2023
+
+Standup:
+
+    Goals:
+    - Build out the Frontend Authentication ✅
+    - Build out basic version of main page ✅
+    - Building out signup and login pages ✅
+    - Log in, Sign up, and Log out via frontend ✅
+
+
+We were able to get a good amount done today after Riley's lectures. We decided to use Redux vs just going to separate States to build out our frontend, and with this we were able to get our login, signup, and logout funtionalities working on the frontend. Sophia took a majority of the day coding while the rest of us observed. We went back through Riley's code sequences to figure out what we needed for our frontend authentication, and we adjusted the initial code that we had in order to build out the authentication functionality. We also built our a basic home page for our routes to route to for logging in, logging out, and signing up.
+
+7/12/2023
+
+Standup:
+
+    Goals:
+    - Building the Details Page
+    - Ingredients List (Saving for later)
+    - Favorites List (Saving for later)
