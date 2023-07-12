@@ -14,3 +14,7 @@ Another great day. We were able to implement two features, favorites and ratings
 7/11/23
 
 A passive day for me. Today I was in the passenger seat as I saw my teammates handle the front end authentication using RTK queries. Much of that concept is still vague to me and I need to ensure I get back on track to be a contributing force to my teammates.
+
+7/12/23
+
+Understanding React Redux a bit more thanks to my teammates. It does seem much simpler than writing out code for the frontend that we already have in our backend. Redux really took a lot of that boiler plate stuff out the way so we can easily make api calls from the front to the back to the api without fetching. Proud of our team, we got some really good learners in here who stick to the material and I'm enjoying learning from them. I was able to play around with bootstrap to make our Recipe Details page look somewhat like our excalidraw wireframe. Definitely still in its rough draft stage but in the 45 minutes I spent looking at bootstrap docs, I can easily knock out the rest tomorrow.
