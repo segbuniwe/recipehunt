@@ -8,6 +8,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
 
   const handleRegistration = (e) => {
@@ -18,6 +19,10 @@ const SignUpForm = () => {
       first_name: first,
       last_name: last,
     };
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
     signup(accountData);
     navigate("/");
   };
@@ -36,18 +41,6 @@ const SignUpForm = () => {
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
-              }}
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Password</label>
-            <input
-              name="password"
-              type="password"
-              className="form-control"
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
               }}
             />
           </div>
@@ -72,6 +65,30 @@ const SignUpForm = () => {
               value={last}
               onChange={(e) => {
                 setLast(e.target.value);
+              }}
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Password</label>
+            <input
+              name="password"
+              type="password"
+              className="form-control"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Confirm Password</label>
+            <input
+              name="confirm_password"
+              type="password"
+              className="form-control"
+              value={confirmPassword}
+              onChange={(e) => {
+                setConfirmPassword(e.target.value);
               }}
             />
           </div>
