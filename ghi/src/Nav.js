@@ -24,7 +24,7 @@ function Nav() {
                     {!account && <li>
                         <NavLink className="nav-link" aria-current="page" to='/login'>Login</NavLink>
                     </li>}
-                    {account && <button onClick={logout}>Logout</button>}
+                    {account && <button className="btn btn-danger" onClick={logout}>Logout</button>}
                 </ul>
                 </div>
             </div>

@@ -8,7 +8,6 @@ import SignUpForm from "./SignUpForm.js";
 import LoginForm from "./LoginForm.js";
 import Nav from "./Nav.js";
 import MainPage from "./MainPage.js";
-import DetailsPage from "./DetailsPage.js";
 
 function App() {
     return (
@@ -36,8 +35,8 @@ function App() {
                             ></Route>
                             <Route
                                 exact
-                                path="/details"
-                                element={<DetailsPage />}
+                                path="/recipe/:recipeId"
+                                element={<RecipeDetails />}
                             ></Route>
                         </Routes>
                     </AuthProvider>

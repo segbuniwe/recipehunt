@@ -39,3 +39,16 @@ Today we worked as a group to finish up the queries and routers for the ratings 
 
 Goals For Tomorrow:
 - Add bootstrap to signup page on React to practice using bootstrap
+
+# 07/11/2023
+Goals:
+- Made a signup form using React Redux
+- Made a login form using React Redux
+- Made a simple functional main page for project
+- Made a Navbar using React Redux
+- Made Navbar change what it shows based off of logged in status (can see login and signup if not logged in only; can see logout button if logged in)
+
+Today we worked as a group to start on the frontend of our project. I took lead in working on this for us today, and shared my screen so my team could see what I was doing and offer up suggestions. We were able to create a main page, signup page, and login page so that when a user signs up they are automatically logged in and taken to the main page. This also changes what they see in the navbar. The user can logout by hitting the logout button in the nav. Once logged out, they can see the signup and login links again which they can use to do either of them.
+
+Goals For Tomorrow:
+- Create detail page for specific recipe
