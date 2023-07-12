@@ -9,7 +9,36 @@ function RecipeDetails() {
         return <p>Loading...</p>
     }
     return (
-        <h1>{data.title}</h1>
+        <div className="container">
+            <h1 className="text-center mt-3">{data.title}</h1>
+            <p className="text-center">Rating/Stars Goes Here</p>
+            <div className="text-center mt-3">
+                <img src={data.image} alt={data.title} />
+            </div>
+            <div className="row mx-md-n5 mt-5">
+                <p className="text-center">Summary Goes here</p>
+            </div>
+            <div className="mt-4">
+                <div className="border border-primary p-3">
+                    <div className="row">
+                        <div className="col text-left">
+                            <p>Ready in Minutes: {data.readyInMinutes}</p>
+                        </div>
+                        <div className="col text-end">
+                            <p>Servings: {data.servings}</p>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col text-left">
+                            <p>whatever you want here </p>
+                        </div>
+                        <div className="col text-end">
+                            <p>Whatever you want here</p>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        </div>
     );
 }
 
