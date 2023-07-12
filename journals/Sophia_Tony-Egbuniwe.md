@@ -52,3 +52,13 @@ Today we worked as a group to start on the frontend of our project. I took lead 
 
 Goals For Tomorrow:
 - Create detail page for specific recipe
+
+# 07/12/2023
+Goals:
+- Made a recipe detail page to see details for specific recipe using React Redux
+- Used useParams to get recipeId from the url path and based off of that recipeId the recipe's title and image for now is shown
+
+Today we worked as a group to work on the frontend of our project and created a detail page of a recipe. Today, we had a lot of moving parts that each person wanted to try and code so a lot of us shared our screens at some point and typed code. We were able to create a basic detail page that shows the title of the recipe and an associated image. We were able to do this using React Redux to access our fastAPI backend that we made for our spoonacular API. Through that, we used useParams to hook onto the recipeId shown in the url path and from that recipeId, the detail page showed a specific recipe's title and image.
+
+Goals For Tomorrow:
+- Create search page for recipes that have filter and sort options
