@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-export const recipeHuntApi = createApi({
+export const accountApi = createApi({
     reducerPath: 'recipeHuntApi',
     baseQuery: fetchBaseQuery({
         baseUrl: process.env.REACT_APP_API_HOST
@@ -56,4 +56,4 @@ export const {
     useLogoutMutation,
     useLoginMutation,
     useSignupMutation,
-} = recipeHuntApi;
+} = accountApi;

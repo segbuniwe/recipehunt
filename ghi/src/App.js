@@ -8,6 +8,7 @@ import SignUpForm from "./SignUpForm.js";
 import LoginForm from "./LoginForm.js";
 import Nav from "./Nav.js";
 import MainPage from "./MainPage.js";
+import RecipeDetails from "./RecipeDetails.js";
 
 
 
@@ -26,6 +27,7 @@ function App() {
                     <Route exact path="/" element={<MainPage />}></Route>
                     <Route exact path="/signup" element={<SignUpForm />}></Route>
                     <Route exact path="/login" element={<LoginForm />}></Route>
+                    <Route exact path="/recipe/:recipeId" element={<RecipeDetails />}></Route>
                 </Routes>
                 </AuthProvider>
                 </div>
