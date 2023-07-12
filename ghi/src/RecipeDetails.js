@@ -9,7 +9,10 @@ function RecipeDetails() {
         return <p>Loading...</p>
     }
     return (
+        <>
         <h1>{data.title}</h1>
+        <img src={data.image} />
+        </>
     );
 }
 
