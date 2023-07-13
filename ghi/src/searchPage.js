@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useGetRecipesQuery } from "./app/recipeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { reset, filter } from "./app/searchSlice";
+import { Link } from "react-router-dom";
 
 function SearchPage() {
   const[search, setSearch] = useState('');
@@ -57,7 +58,11 @@ function SearchPage() {
           <small className='text-body-secondary'>{searchCriteria}</small>
       </h1>
       <div className="row mt-3">
-          {filteredRecipes().map(recipe => <p key={recipe.id}>{recipe.title}</p>)}
+          {filteredRecipes().map(recipe => {
+            return (
+            <Link to={`/recipe/${recipe.id}`}>{recipe.title}</Link>
+            )}
+          )}
       </div>
     </div>
     </>
