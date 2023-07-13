@@ -12,7 +12,13 @@ export const recipeApi = createApi({
                 credentials: "include",
             }),
         }),
+        getRecipes: builder.query({
+            query: () => ({
+                url: "/api/recipes/",
+                credentials: "include",
+            }),
+        }),
     }),
 });
 
-export const { useGetRecipeByIdQuery } = recipeApi;
+export const { useGetRecipeByIdQuery, useGetRecipesQuery } = recipeApi;
