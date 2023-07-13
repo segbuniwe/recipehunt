@@ -9,7 +9,7 @@ import LoginForm from "./LoginForm.js";
 import Nav from "./Nav.js";
 import MainPage from "./MainPage.js";
 import RecipeDetails from "./RecipeDetails.js";
-
+import SearchPage from "./searchPage.js";
 
 
 
@@ -28,6 +28,7 @@ function App() {
                     <Route exact path="/signup" element={<SignUpForm />}></Route>
                     <Route exact path="/login" element={<LoginForm />}></Route>
                     <Route exact path="/recipe/:recipeId" element={<RecipeDetails />}></Route>
+                    <Route exact path="/search" element={<SearchPage />}></Route>
                 </Routes>
                 </AuthProvider>
                 </div>
