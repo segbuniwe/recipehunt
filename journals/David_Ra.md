@@ -19,5 +19,8 @@ Went over previous concepts in FastAPI and looked into how to use/implement moda
 7/11
 Finished the functionality for the login, logout, signin, and signup pages for RecipeHunt. Also built the authentication for user accounts using redux. Created the baseline for the main page and completed the functionality of it.
 
-Tomorrow:
--Details page
+7/12
+Created the Details page for RecipeHunt. Decided on using React Redux to build the frontend. added apiSlice.js, recipeSlice.js, store.js, and RecipeDetails.js. My teammates are truly great. Also found out that spoonacular has two different API keys that somehow work on multiple parts of their website.
+
+tomorrow:
+-ingredients?/ more functionality for the main page

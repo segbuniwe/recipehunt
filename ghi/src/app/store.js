@@ -14,7 +14,5 @@ export const store = configureStore({
             .concat(accountApi.middleware)
             .concat(recipeApi.middleware),
 });
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(accountApi.middleware).concat(recipeApi.middleware),
-})
 
 setupListeners(store.dispatch);
