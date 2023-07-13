@@ -46,7 +46,7 @@ class RecipesRepo(Queries):
         url = "https://api.spoonacular.com/recipes/complexSearch"
         params = {
             "apiKey": SPOONACULAR_API_KEY,
-            "query": "beef"
+            "number": 100,
         }
         res = requests.get(url, params=params)
         data = res.json()
@@ -59,5 +59,5 @@ class RecipesRepo(Queries):
         }
         res = requests.get(url, params=params)
         data = res.json()
-        
+
         return data
