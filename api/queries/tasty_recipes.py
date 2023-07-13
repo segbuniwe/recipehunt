@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from queries.client import Queries
 import requests
 from keys import TASTY_API_KEY
+from typing import Optional
 
 
 class TastyRecipesIn(BaseModel):
@@ -12,7 +13,7 @@ class TastyRecipesOut(TastyRecipesIn):
     id: int
     # cook_time_minutes: int
     tags: list
-    video_url: str
+    video_url: Optional[str]
     # prep_time_minutes: int
     thumbnail_url: str
     num_servings: int
