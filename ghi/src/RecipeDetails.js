@@ -38,6 +38,26 @@ function RecipeDetails() {
           </div>
         </div>
       </div>
+      <div className="mt-4">
+        <div className="row">
+          <div className="col">
+            <h3>Ingredients</h3>
+            <ul>
+              <li>Ingredient 1</li>
+              <li>Ingredient 2</li>
+              <li>Ingredient 3</li>
+            </ul>
+          </div>
+          <div className="col text-end">
+            <h3>Instructions</h3>
+            <ol>
+              <li>Step 1:</li>
+              <li>Step 2:</li>
+              <li>Step 3:</li>
+            </ol>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
