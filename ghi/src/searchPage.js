@@ -32,7 +32,7 @@ function SearchPage() {
           <div className="col">
                 <input
                     className="form-control form-control-lg"
-                    type="text"
+                    type="text"gi
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                 />
