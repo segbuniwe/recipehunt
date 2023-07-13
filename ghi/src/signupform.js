@@ -1,15 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSignupMutation } from "./app/apiSlice";
+import AlertMessage from "./AlertMessage";
 
 const SignUpForm = () => {
-  const [signup] = useSignupMutation();
+  const [signup, signupResult] = useSignupMutation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
+  const [alertMessage, setAlertMessage] = useState("");
+
+  useEffect(() => {
+    if (signupResult.error) {
+      if (signupResult.error.status == 400) {
+        setAlertMessage(signupResult.error.data.detail);
+      }
+    }
+    if (signupResult.isSuccess) {
+      navigate("/");
+    }
+  }, [signupResult]);
 
   const handleRegistration = (e) => {
     e.preventDefault();
@@ -20,16 +33,16 @@ const SignUpForm = () => {
       last_name: last,
     };
     if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+      setAlertMessage("Passwords do not match");
       return;
     }
     signup(accountData);
-    navigate("/");
   };
 
   return (
     <div className="card text-bg-light mb-3">
       <h5 className="card-header">Signup</h5>
+      {alertMessage && <AlertMessage>{alertMessage}</AlertMessage>}
       <div className="card-body">
         <form onSubmit={(e) => handleRegistration(e)}>
           <div className="mb-3">

@@ -5,8 +5,7 @@ from bson.objectid import ObjectId
 
 
 class FavoritesIn(BaseModel):
-    recipe_name: str
-    image: str
+    recipe_id: int
 
 
 class FavoritesOut(FavoritesIn):

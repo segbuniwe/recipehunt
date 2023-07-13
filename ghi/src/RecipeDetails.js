@@ -1,9 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useGetRecipeByIdQuery } from "./app/recipeSlice";
+import FavoritesButton from "./FavoritesButton";
+import { useGetAccountQuery } from "./app/apiSlice";
+import { Link } from "react-router-dom";
 
 function RecipeDetails() {
   const { recipeId } = useParams();
   const { data, isLoading } = useGetRecipeByIdQuery(recipeId);
+  const { data: account } = useGetAccountQuery();
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -17,6 +21,9 @@ function RecipeDetails() {
       </div>
       <div className="row mx-md-n5 mt-5">
         <p className="text-center">Summary Goes here</p>
+      </div>
+      <div className="text-center mt-3">
+        {account ? <FavoritesButton /> : <Link to={"/login"}>Login to add to favorites</Link>}
       </div>
       <div className="mt-4">
         <div className="border border-primary p-3">
@@ -43,20 +50,30 @@ function RecipeDetails() {
           <div className="col">
             <h3>Ingredients</h3>
             <ul>
-              <li>Ingredient 1</li>
-              <li>Ingredient 2</li>
-              <li>Ingredient 3</li>
+              { data.extendedIngredients.map((ingredient) => (
+                <li>{ingredient.original}</li>
+              ))}
             </ul>
+
           </div>
           <div className="col text-end">
             <h3>Instructions</h3>
             <ol>
-              <li>Step 1:</li>
-              <li>Step 2:</li>
-              <li>Step 3:</li>
+              { data.analyzedInstructions[0].steps.map((step) => (
+                <li>{step.step}</li>
+              ))}
             </ol>
           </div>
         </div>
+      </div>
+      <div className="text-center mt-3">
+        <img src={data.image} alt={data.title} />
+      </div>
+      <div className="text-center mt-3">
+        <h3>Reviews</h3>
+      </div>
+      <div className="text-center mt-3">
+        <button className="btn btn-primary">Write a review</button>
       </div>
     </div>
   );
