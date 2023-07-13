@@ -22,5 +22,12 @@ Finished the functionality for the login, logout, signin, and signup pages for R
 7/12
 Created the Details page for RecipeHunt. Decided on using React Redux to build the frontend. added apiSlice.js, recipeSlice.js, store.js, and RecipeDetails.js. My teammates are truly great. Also found out that spoonacular has two different API keys that somehow work on multiple parts of their website.
 
-tomorrow:
--ingredients?/ more functionality for the main page
+7/13
+Created the functionality to favorite a recipe and add it to your account page.
+Added apiSlice, recipeSlice, searchSlice.
+
+Tomorrow:
+
+-ask Riley about how to let customers/user not run into the error
+-profile page
+-ingredients that go with the profile page
