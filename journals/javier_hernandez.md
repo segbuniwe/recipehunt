@@ -18,3 +18,13 @@ A passive day for me. Today I was in the passenger seat as I saw my teammates ha
 7/12/23
 
 Understanding React Redux a bit more thanks to my teammates. It does seem much simpler than writing out code for the frontend that we already have in our backend. Redux really took a lot of that boiler plate stuff out the way so we can easily make api calls from the front to the back to the api without fetching. Proud of our team, we got some really good learners in here who stick to the material and I'm enjoying learning from them. I was able to play around with bootstrap to make our Recipe Details page look somewhat like our excalidraw wireframe. Definitely still in its rough draft stage but in the 45 minutes I spent looking at bootstrap docs, I can easily knock out the rest tomorrow.
+
+7/13/23
+
+Implementations we made today -
+1. Fixed vaildation error when calling List Tasty API Recipes.
+2. We worked as a team on to complete the Favorites button.
+3. I styled the recipe details page a bit more.
+4. Implemented search page for recipes.
+
+I feel really good about today. I've been slacking on Redux knowledge but I took it head on today to gain some experience. Thankful for my knowledgable team members who were able to help me through every step of the way. Even though using the Redux library isn't natural to me, some troubleshooting aspects are. Really starting to see my programming skills come to life because of Redux troubleshooting. We got a lot done today, Realized Spoonacular's API is a bit lackluster when it comes to the images of their recipes, so that leaves the debate of wether or not to focus on our other API resource, Tasty. Tasty alone also has its drawbacks but that's up for discussion with the team. Favorites button was fun to implement, I can't believe we got stuck on the delete URL and that Riley was able to identify the problem almost immediately. Overall super productive day, and I'm we can see the app coming to life.
