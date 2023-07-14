@@ -28,7 +28,7 @@ export const recipeApi = createApi({
         }),
         favorites: builder.mutation({
             query: (body) => ({
-                url: `/api/favorites`,
+                url: `/api/favorites/`,
                 method: "POST",
                 body,
                 credentials: "include",

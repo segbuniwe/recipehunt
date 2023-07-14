@@ -13,7 +13,7 @@ class TastyRecipesOut(TastyRecipesIn):
     id: int
     # cook_time_minutes: int
     tags: list
-    # video_url: Optional[str]
+    video_url: Optional[str]
     # prep_time_minutes: int
     thumbnail_url: str
     num_servings: int

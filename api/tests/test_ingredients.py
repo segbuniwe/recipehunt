@@ -32,6 +32,9 @@ class FakeIngredientsQueries:
             }
         ]
 
+    def delete(self, ingredient_id: str, account_id: str):
+        return True
+
 
 def test_create_ingredient():
     app.dependency_overrides[IngredientsRepo] = FakeIngredientsQueries
@@ -78,3 +81,17 @@ def test_list_ingredients():
             }
         ]
     }
+
+
+def test_delete_ingredient():
+    app.dependency_overrides[IngredientsRepo] = FakeIngredientsQueries
+    app.dependency_overrides[
+        authenticator.get_current_account_data
+    ] = fake_get_current_account_data
+
+    res = client.delete("/api/ingredients/98765")
+    data = res.json()
+    print(data)
+
+    assert res.status_code == 200
+    assert True == data
