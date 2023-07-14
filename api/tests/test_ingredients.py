@@ -21,6 +21,17 @@ class FakeIngredientsQueries:
         ingredient["account_id"] = account_id
         return ingredient
 
+    def get_all_for_account(self, account_id: str):
+        return [
+            {
+                "name": "thyme",
+                "amount": 2,
+                "unit": "teaspoons",
+                "id": "98765",
+                "account_id": account_id,
+            }
+        ]
+
 
 def test_create_ingredient():
     app.dependency_overrides[IngredientsRepo] = FakeIngredientsQueries
@@ -44,3 +55,26 @@ def test_create_ingredient():
         "unit": "teaspoons",
     }
     assert res.status_code == 200
+
+
+def test_list_ingredients():
+    app.dependency_overrides[IngredientsRepo] = FakeIngredientsQueries
+    app.dependency_overrides[
+        authenticator.get_current_account_data
+    ] = fake_get_current_account_data
+
+    res = client.get("/api/ingredients/mine")
+    data = res.json()
+
+    assert res.status_code == 200
+    assert data == {
+        "ingredients": [
+            {
+                "name": "thyme",
+                "amount": 2,
+                "unit": "teaspoons",
+                "id": "98765",
+                "account_id": "1234",
+            }
+        ]
+    }
