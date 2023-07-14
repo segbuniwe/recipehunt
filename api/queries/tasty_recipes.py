@@ -13,7 +13,7 @@ class TastyRecipesOut(TastyRecipesIn):
     id: int
     # cook_time_minutes: int
     tags: list
-    video_url: Optional[str]
+    # video_url: Optional[str]
     # prep_time_minutes: int
     thumbnail_url: str
     num_servings: int
@@ -40,7 +40,7 @@ class TastyRecipesRepo(Queries):
 
         headers = {
             "X-RapidAPI-Key": TASTY_API_KEY,
-            "X-RapidAPI-Host": "tasty.p.rapidapi.com"
+            "X-RapidAPI-Host": "tasty.p.rapidapi.com",
         }
 
         response = requests.get(url, headers=headers, params=querystring)
