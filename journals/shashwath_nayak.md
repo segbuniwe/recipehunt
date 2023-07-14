@@ -60,6 +60,21 @@ We were able to get a good amount done today after Riley's lectures. We decided 
 Standup:
 
     Goals:
-    - Building the Details Page
+    - Building the Details Page ✅
     - Ingredients List (Saving for later)
     - Favorites List (Saving for later)
+
+We worked on building out the detail page today. We initially decided to do the details page using useState vs. using Redux, but immediately came to realize that we were going to run into issues with the url for the API. After running back and forth with trying to add the apikey to the .env and trying to pull the list using the url through useState, Sophia and I looked into redux to find that we could use routers to pull data from the backend while utilizing redux and we would not need to call the API url on the frontend. We were able to switch over the redux and get the Details page to pull the our API data by the ID of the recipe we were looking for.
+
+7/13/2023
+
+Standup:
+
+    Goals:
+    - Favorites Functionality ✅
+    - Search Functionality ✅
+    - Build out the Recipes List (on search page) ✅
+    - Build out a Search Page(initial) ✅
+
+
+Today we started off by building out a redux path to pull a list of the recipes from our API using redux for the initial search page. From there, we built out a Search function utilizing useDispatch and useSelector to handle the submit for the search click, grab that returned value, and compare to the list to bring back our filtered list with the search criteria. After this, we moved towards creating the favorities functionality where we utilized our backend favorites functions to pull the recipe_id and add the recipe to our favorites list via a favorites button. We struggled a bit with the favorites button and the unfavorite button because our buttons were not toggling correctly at first once we got the recipe to be added to a favorites list. We spoke with Riley, and he assisted with getting our toggle switch to work by changing the exactness of type were were checking with our filter, and he helped us with the unfavorite button by correcting the the input that we were putting in (initially an objectID when we just needed a string).

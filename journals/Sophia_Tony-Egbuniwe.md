@@ -62,3 +62,15 @@ Today we worked as a group to work on the frontend of our project and created a 
 
 Goals For Tomorrow:
 - Create search page for recipes that have filter and sort options
+
+# 07/13/2023
+Goals:
+- Created a favorites button that when clicked on toggles between Add Favorite (POST to favorites list) and Remove Favorite (DELETE from favorites list)
+- Added ability to see button on basis of if you have an account or not
+- Added error handling to login and signup forms
+- Created search page with links to associated recipe detail page
+
+Today we worked as a group to get a basic frontend search page and added more functionality to our recipe details page. We made our search page so that when you type in a search criteria the page returns a list of links to a specific recipe along with the recipe's name. We plan to add more CSS and functionality later like images, but wanted to get the basic look down before adding any extras. We also added the ability for a logged in user to see the favorites button. Once they click the button the recipe is added to their favorites list and they can now unfavorite the recipe if they choose too. I also took the lead on adding error handling to our login and signup forms (status 401, 422 for login and status 400 for signup). We took turns sharing our screens today, so many of us made pushes and commits today.
+
+Goals For Tomorrow:
+- Create profile page for each account
