@@ -17,17 +17,14 @@ Riley's walkthrough of the backend using mongoDB was a tremendous help and we we
 Went over previous concepts in FastAPI and looked into how to use/implement modals for react. Did not code in the module 3 project. Spent time recalibrating on things that diminished over the week break.
 
 7/11
-Finished the functionality for the login, logout, signin, and signup pages for RecipeHunt. Also built the authentication for user accounts using redux. Created the baseline for the main page and completed the functionality of it.
+We finished the functionality for the login, logout, signin, and signup pages for RecipeHunt. Also built the authentication for user accounts using redux. Created the baseline for the main page and completed the functionality of it.
 
 7/12
-Created the Details page for RecipeHunt. Decided on using React Redux to build the frontend. added apiSlice.js, recipeSlice.js, store.js, and RecipeDetails.js. My teammates are truly great. Also found out that spoonacular has two different API keys that somehow work on multiple parts of their website.
+We created the Details page for RecipeHunt. Decided on using React Redux to build the frontend. added apiSlice.js, recipeSlice.js, store.js, and RecipeDetails.js. My teammates are truly great. Also found out that spoonacular has two different API keys that somehow work on multiple parts of their website.
 
 7/13
-Created the functionality to favorite a recipe and add it to your account page.
-Added apiSlice, recipeSlice, searchSlice.
+We created the functionality to favorite a recipe and add it to your account page.
+Added apiSlice, recipeSlice, searchSlice. Javier and Sophia were able to dice out how to add the "Unfavorite" button on the frontend as well.
 
-Tomorrow:
-
--ask Riley about how to let customers/user not run into the error
--profile page
--ingredients that go with the profile page
+7/14
+We created the test units for RecipeHunt such as test_create, test_delete, test_get_all_ingredients

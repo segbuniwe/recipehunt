@@ -13,7 +13,7 @@ def list_recipes(
     return repo.list_recipes_by_name()
 
 
-# @router.get("/api/recipes/{recipe_id}", response_model=RecipesOut)
-# def list_one_recipe(recipe_id:int,
-#                     repo: RecipesRepo = Depends()):
-#     return repo.get_recipe_by_id(recipe_id)
+@router.get("/api/tasty-recipes/{recipe_id}", response_model=TastyRecipesOut)
+def list_one_recipe(recipe_id:str,
+                    repo: TastyRecipesRepo = Depends()):
+    return repo.get_recipe_by_id(recipe_id)
