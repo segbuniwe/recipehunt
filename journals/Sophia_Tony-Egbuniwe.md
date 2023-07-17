@@ -74,3 +74,13 @@ Today we worked as a group to get a basic frontend search page and added more fu
 
 Goals For Tomorrow:
 - Create profile page for each account
+
+# 07/14/2023
+Goals:
+- Created unit tests for tasty api and ingredients
+
+Today we worked as a group to get make our unit tests since we went over that in lecture today. This went well for us. We each took a turn sharing our screen and writing one component of the unit tests required for the grade. In total we wrote unit tests for CRD for ingredients and GET for the tasty api list.
+
+Goals For Tomorrow:
+- Create profile page for each account
+- Switch from spoonacular api to tasty api since the images are better on tasty
