@@ -11,6 +11,7 @@ import MainPage from "./MainPage.js";
 import RecipeDetails from "./RecipeDetails.js";
 import SearchPage from "./searchPage.js";
 import RatingsForm from "./RatingsForm.js";
+import ProfilePage from "./ProfilePage.js";
 
 function App() {
     return (
@@ -50,6 +51,11 @@ function App() {
                                 exact
                                 path="/ratings/:recipeId"
                                 element={<RatingsForm />}
+                            ></Route>
+                            <Route
+                                exact
+                                path = "/profile/mine"
+                                element={<ProfilePage />}
                             ></Route>
                         </Routes>
                     </AuthProvider>

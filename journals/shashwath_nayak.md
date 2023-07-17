@@ -86,5 +86,13 @@ Standup:
     Goals:
     - Unit Tests (individual commits) ✅
     - Tasty API backend ✅
+
+
+
+7/17/2023
+
+Standup:
+
+    Goals:
     - Replace Spoonacular with Tasty
     - Profile Page (Favorites List and Ingredients List, add Ingredients Form)
