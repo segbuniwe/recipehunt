@@ -11,7 +11,6 @@ const FavoritesButton = () => {
   const [deleteFavorite] = useDeleteFavoritesMutation();
   const { recipeId } = useParams();
   const { data: recipe } = useGetRecipeByIdQuery(recipeId);
-  console.log(favorites);
 
   useEffect(() => {
     if (favorites) {
