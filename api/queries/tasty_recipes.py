@@ -13,12 +13,16 @@ class TastyRecipesOut(TastyRecipesIn):
     id: int
     # cook_time_minutes: int
     tags: list
-    video_url: Optional[str]
+    original_video_url: Optional[str]
     # prep_time_minutes: int
     thumbnail_url: str
     num_servings: int
     instructions: list
     description: str
+    sections: list
+    cook_time_minutes: Optional[int]
+    prep_time_minutes: Optional[int]
+    total_time_minutes: Optional[int]
     # total_time_minutes: int
 
 
@@ -34,8 +38,7 @@ class TastyRecipesRepo(Queries):
 
         querystring = {
             "from": "0",
-            "size": "20",
-            "tags": "under_30_minutes",
+            "size": "100",
         }
 
         headers = {

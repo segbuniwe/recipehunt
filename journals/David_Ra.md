@@ -27,4 +27,6 @@ We created the functionality to favorite a recipe and add it to your account pag
 Added apiSlice, recipeSlice, searchSlice. Javier and Sophia were able to dice out how to add the "Unfavorite" button on the frontend as well.
 
 7/14
-We created the test units for RecipeHunt such as test_create, test_delete, test_get_all_ingredients
+We created the test units for RecipeHunt such as test_create, test_delete, test_get_all_ingredients. We added backend functionality for the TastyAPI to get a single recipe.
+
+7/17
