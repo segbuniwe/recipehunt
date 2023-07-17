@@ -14,6 +14,6 @@ def list_recipes(
 
 
 @router.get("/api/tasty-recipes/{recipe_id}", response_model=TastyRecipesOut)
-def list_one_recipe(recipe_id:str,
+def list_one_recipe(recipe_id: str,
                     repo: TastyRecipesRepo = Depends()):
     return repo.get_recipe_by_id(recipe_id)
