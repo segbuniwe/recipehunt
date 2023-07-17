@@ -27,6 +27,9 @@ function Nav() {
                     {account && <li>
                         <NavLink className="nav-link" aria-current="page" to='/search'>Search Recipes</NavLink>
                     </li>}
+                    {account && <li>
+                        <NavLink className="nav-link" aria-current="page" to='/profile/mine'>My Account</NavLink>
+                    </li>}
                     {account && <button className="btn btn-danger" onClick={logout}>Logout</button>}
                 </ul>
                 </div>
