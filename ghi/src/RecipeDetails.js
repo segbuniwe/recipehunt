@@ -8,31 +8,36 @@ function RecipeDetails() {
     const { recipeId } = useParams();
     const { data, isLoading } = useGetRecipeByIdQuery(recipeId);
     const { data: account } = useGetAccountQuery();
+    console.log(data);
 
     if (isLoading) {
         return <p>Loading...</p>;
     }
     return (
         <div className="container">
-            <h1 className="text-center mt-3">{data.title}</h1>
+            <h1 className="text-center mt-3">{data.name}</h1>
             <p className="text-center">Rating/Stars Goes Here</p>
             <div className="text-center mt-3">
-                <img src={data.image} alt={data.title} />
+                <img src={data.thumbnail_url} alt={data.name} />
             </div>
             <div className="row mx-md-n5 mt-5">
-                <p className="text-center">Summary Goes here</p>
+                <p className="text-center">{data.description}</p>
             </div>
             <div className="text-center mt-3">
-                {account ? <FavoritesButton /> : <Link to={"/login"}>Login to add to favorites</Link>}
+                {account ? (
+                    <FavoritesButton />
+                ) : (
+                    <Link to={"/login"}>Login to add to favorites</Link>
+                )}
             </div>
             <div className="mt-4">
                 <div className="border border-primary p-3">
                     <div className="row">
                         <div className="col text-left">
-                            <p>Ready in Minutes: {data.readyInMinutes}</p>
+                            <p>Ready in Minutes: {data.total_time_minutes}</p>
                         </div>
                         <div className="col text-end">
-                            <p>Servings: {data.servings}</p>
+                            <p>Servings: {data.num_servings}</p>
                         </div>
                     </div>
                     <div className="row">
@@ -50,24 +55,34 @@ function RecipeDetails() {
                     <div className="col">
                         <h3>Ingredients</h3>
                         <ul>
-                            {data.extendedIngredients.map((ingredient) => (
-                                <li>{ingredient.original}</li>
-                            ))}
+                            {data.sections.map((section) =>
+                                section.components.map((component) => (
+                                    <li>{component.raw_text}</li>
+                                ))
+                            )}
                         </ul>
-
                     </div>
                     <div className="col text-end">
                         <h3>Instructions</h3>
                         <ol>
-                            {data.analyzedInstructions[0].steps.map((step) => (
-                                <li>{step.step}</li>
+                            {data.instructions.map((step) => (
+                                <li>{step.display_text}</li>
                             ))}
                         </ol>
                     </div>
                 </div>
             </div>
             <div className="text-center mt-3">
-                <img src={data.image} alt={data.title} />
+                {data.original_video_url ? (
+                    <video width="320" height="240" controls>
+                        <source
+                            src={data.original_video_url}
+                            type="video/mp4"
+                        />
+                    </video>
+                ) : (
+                    <p>This video does not exist</p>
+                )}
             </div>
             <div className="text-center mt-3">
                 <h3>Reviews</h3>

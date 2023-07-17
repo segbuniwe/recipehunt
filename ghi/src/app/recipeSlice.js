@@ -8,13 +8,13 @@ export const recipeApi = createApi({
     endpoints: (builder) => ({
         getRecipeById: builder.query({
             query: (recipeId) => ({
-                url: `/api/recipes/${recipeId}`,
+                url: `/api/tasty-recipes/${recipeId}`,
                 credentials: "include",
             }),
         }),
         getRecipes: builder.query({
             query: () => ({
-                url: "/api/recipes/",
+                url: "/api/tasty-recipes",
                 credentials: "include",
             }),
         }),
