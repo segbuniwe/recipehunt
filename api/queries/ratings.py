@@ -13,6 +13,8 @@ class RatingOut(RatingIn):
     id: str
     account_id: str
     recipe_id: str
+    account_first_name: str
+    account_last_name: str
 
 
 class RatingOutWithoutRecipeId(RatingIn):
@@ -27,8 +29,17 @@ class Ratings(BaseModel):
 class RatingRepo(Queries):
     COLLECTION = "rated_recipes"
 
-    def create_rating(self, account_id: str, rating: RatingIn, recipe_id: str):
+    def create_rating(
+            self,
+            account_id: str,
+            rating: RatingIn,
+            recipe_id: str,
+            account_first_name: str,
+            account_last_name: str,
+    ):
         rating["account_id"] = account_id
+        rating["account_first_name"] = account_first_name
+        rating["account_last_name"] = account_last_name
         rating["recipe_id"] = recipe_id
         self.collection.insert_one(rating)
         rating["id"] = str(rating["_id"])

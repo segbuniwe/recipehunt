@@ -10,7 +10,7 @@ function RecipeDetails() {
     const { data, isLoading } = useGetRecipeByIdQuery(recipeId);
     const { data: account } = useGetAccountQuery();
     const { data: ratings } = useGetAllRatingsQuery(recipeId);
-    console.log(data);
+    console.log(ratings);
 
     if (isLoading) {
         return <p>Loading...</p>;
@@ -107,12 +107,21 @@ function RecipeDetails() {
                 </div>
             </div>
             {ratings.length > 0 ?
-            (ratings.map((rating) => {
-                return (
-                    <p>{rating.comments} {rating.rating}</p>
-                );
-            })) : (<p>No comments for this recipe</p>)
-        }
+                (ratings.map((rating) => {
+                    return (
+                        <div>
+                            <p>
+                                {rating.comments} {rating.rating}
+                                <div>
+                                <small>
+                                    {rating.account_first_name} {rating.account_last_name}
+                                </small>
+                                </div>
+                            </p>
+                        </div>
+                    );
+                })) : (<p>No comments for this recipe</p>)
+            }
         </div>
     );
 }

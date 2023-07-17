@@ -19,7 +19,15 @@ def create_rating(
     repo: RatingRepo = Depends(),
 ):
     account_id = account_data["id"]
-    return repo.create_rating(account_id, rating.dict(), recipe_id)
+    account_first_name = account_data["first_name"]
+    account_last_name = account_data["last_name"]
+    return repo.create_rating(
+        account_id,
+        rating.dict(),
+        recipe_id,
+        account_first_name,
+        account_last_name
+    )
 
 
 @router.put(
