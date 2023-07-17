@@ -6,6 +6,8 @@ from bson.objectid import ObjectId
 
 class FavoritesIn(BaseModel):
     recipe_id: int
+    name: str
+    thumbnail_url: str
 
 
 class FavoritesOut(FavoritesIn):
@@ -35,26 +37,15 @@ class FavoritesRepo(Queries):
 
     def delete(self, favorite_id: str, account_id: str):
         result = self.collection.delete_one(
-            {
-                "_id": ObjectId(favorite_id),
-                "account_id": account_id
-            }
+            {"_id": ObjectId(favorite_id), "account_id": account_id}
         )
         return result.deleted_count > 0
 
-    def update(
-            self,
-            favorite_id: str,
-            favorite: FavoritesIn,
-            account_id: str
-    ):
+    def update(self, favorite_id: str, favorite: FavoritesIn, account_id: str):
         updated_favorite = favorite
         self.collection.update_one(
-            {
-                "_id": ObjectId(favorite_id),
-                "account_id": account_id
-            },
-            {"$set": updated_favorite}
+            {"_id": ObjectId(favorite_id), "account_id": account_id},
+            {"$set": updated_favorite},
         )
         updated_favorite["id"] = favorite_id
         updated_favorite["account_id"] = account_id
