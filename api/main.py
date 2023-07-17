@@ -2,7 +2,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from authenticator import authenticator
-from routers import account, spoonacular_recipes, tasty_recipes, ingredients, favorites, ratings
+from routers import (
+    account,
+    spoonacular_recipes,
+    tasty_recipes,
+    ingredients,
+    favorites,
+    ratings
+    )
 
 app = FastAPI()
 

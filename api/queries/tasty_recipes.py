@@ -47,13 +47,12 @@ class TastyRecipesRepo(Queries):
         data = response.json()
         return data["results"]
 
-    def get_recipe_by_id(self, recipe_id:str):
+    def get_recipe_by_id(self, recipe_id: str):
         url = f"https://tasty.p.rapidapi.com/recipes/get-more-info?id={recipe_id}"
-
 
         headers = {
             "X-RapidAPI-Key": TASTY_API_KEY,
-            "X-RapidAPI-Host": "tasty.p.rapidapi.com"
+            "X-RapidAPI-Host": "tasty.p.rapidapi.com",
         }
         res = requests.get(url, headers=headers)
         data = res.json()

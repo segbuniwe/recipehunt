@@ -7,8 +7,6 @@ from queries.ratings import (
     RatingOutWithoutRecipeId,
     Ratings
 )
-from typing import List
-
 
 router = APIRouter()
 
@@ -37,10 +35,11 @@ def update_rating(
     account_id = account_data["id"]
     return repo.update_rating(account_id, rating.dict(), rating_id)
 
+
 @router.get("/api/ratings/mine", response_model=Ratings)
 def get_list_by_account(
-                        account_data: dict = Depends(authenticator.get_current_account_data),
-                        repo: RatingRepo = Depends(),
+    account_data: dict = Depends(authenticator.get_current_account_data),
+    repo: RatingRepo = Depends(),
 ):
-    account_id=account_data["id"]
+    account_id = account_data["id"]
     return {"ratings": repo.get_list_ratings_by_account(account_id)}

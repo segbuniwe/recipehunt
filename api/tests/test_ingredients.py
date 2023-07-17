@@ -94,4 +94,4 @@ def test_delete_ingredient():
     print(data)
 
     assert res.status_code == 200
-    assert True == data
+    assert data is True
