@@ -84,5 +84,7 @@ Today we started off by building out a redux path to pull a list of the recipes 
 Standup:
 
     Goals:
-    - Unit Tests (individual)
-    -
+    - Unit Tests (individual commits) ✅
+    - Tasty API backend ✅
+    - Replace Spoonacular with Tasty
+    - Profile Page (Favorites List and Ingredients List, add Ingredients Form)

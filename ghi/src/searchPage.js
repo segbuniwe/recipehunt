@@ -18,7 +18,7 @@ function SearchPage() {
 
   const filteredRecipes = () => {
         if (searchCriteria) {
-            return data.filter(recipe => recipe.title.toLowerCase().includes(searchCriteria))
+            return data.filter(recipe => recipe.name.toLowerCase().includes(searchCriteria))
         } else {
             return data;
         }
@@ -60,7 +60,7 @@ function SearchPage() {
       <div className="row mt-3">
           {filteredRecipes().map(recipe => {
             return (
-            <Link to={`/recipe/${recipe.id}`}>{recipe.title}</Link>
+            <Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
             )}
           )}
       </div>
