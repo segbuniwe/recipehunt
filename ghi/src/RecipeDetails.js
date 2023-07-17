@@ -1,13 +1,15 @@
 import { useParams } from "react-router-dom";
-import { useGetRecipeByIdQuery } from "./app/recipeSlice";
+import { useGetRecipeByIdQuery, useGetAllRatingsQuery } from "./app/recipeSlice";
 import FavoritesButton from "./FavoritesButton";
 import { useGetAccountQuery } from "./app/apiSlice";
 import { Link } from "react-router-dom";
+import RatingsForm from "./RatingsForm";
 
 function RecipeDetails() {
     const { recipeId } = useParams();
     const { data, isLoading } = useGetRecipeByIdQuery(recipeId);
     const { data: account } = useGetAccountQuery();
+    const { data: ratings } = useGetAllRatingsQuery(recipeId);
     console.log(data);
 
     if (isLoading) {
@@ -18,7 +20,7 @@ function RecipeDetails() {
             <h1 className="text-center mt-3">{data.name}</h1>
             <p className="text-center">Rating/Stars Goes Here</p>
             <div className="text-center mt-3">
-                <img src={data.thumbnail_url} alt={data.name} />
+                <img className="img-thumbnail" src={data.thumbnail_url} alt={data.name} />
             </div>
             <div className="row mx-md-n5 mt-5">
                 <p className="text-center">{data.description}</p>
@@ -88,8 +90,29 @@ function RecipeDetails() {
                 <h3>Reviews</h3>
             </div>
             <div className="text-center mt-3">
-                <button className="btn btn-primary">Write a review</button>
+                <Link className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" to={`/ratings/${recipeId}`}>Write a review</Link>
             </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Leave Review</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <RatingsForm />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {ratings.length > 0 ?
+            (ratings.map((rating) => {
+                return (
+                    <p>{rating.comments} {rating.rating}</p>
+                );
+            })) : (<p>No comments for this recipe</p>)
+        }
         </div>
     );
 }

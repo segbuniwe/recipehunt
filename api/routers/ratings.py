@@ -13,7 +13,7 @@ router = APIRouter()
 
 @router.post("/api/recipes/{recipe_id}/ratings", response_model=RatingOut)
 def create_rating(
-    recipe_id: int,
+    recipe_id: str,
     rating: RatingIn,
     account_data: dict = Depends(authenticator.get_current_account_data),
     repo: RatingRepo = Depends(),
@@ -43,3 +43,11 @@ def get_list_by_account(
 ):
     account_id = account_data["id"]
     return {"ratings": repo.get_list_ratings_by_account(account_id)}
+
+
+@router.get("/api/recipes/{recipe_id}/ratings", response_model=Ratings)
+def get_list_of_all_ratings_by_recipe(
+    recipe_id: str,
+    repo: RatingRepo = Depends(),
+):
+    return {"ratings": repo.get_list_ratings(recipe_id)}

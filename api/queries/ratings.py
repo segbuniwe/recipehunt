@@ -6,6 +6,7 @@ from bson.objectid import ObjectId
 
 class RatingIn(BaseModel):
     rating: int = Field(..., ge=1, le=5)
+    comments: str
 
 
 class RatingOut(RatingIn):
@@ -26,7 +27,7 @@ class Ratings(BaseModel):
 class RatingRepo(Queries):
     COLLECTION = "rated_recipes"
 
-    def create_rating(self, account_id: str, rating: RatingIn, recipe_id: int):
+    def create_rating(self, account_id: str, rating: RatingIn, recipe_id: str):
         rating["account_id"] = account_id
         rating["recipe_id"] = recipe_id
         self.collection.insert_one(rating)
@@ -49,6 +50,13 @@ class RatingRepo(Queries):
     def get_list_ratings_by_account(self, account_id: str):
         results = []
         for rating in self.collection.find({"account_id": account_id}):
+            rating["id"] = str(rating["_id"])
+            results.append(rating)
+        return results
+
+    def get_list_ratings(self, recipe_id: str):
+        results = []
+        for rating in self.collection.find({"recipe_id": recipe_id}):
             rating["id"] = str(rating["_id"])
             results.append(rating)
         return results

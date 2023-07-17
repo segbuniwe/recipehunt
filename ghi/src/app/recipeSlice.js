@@ -28,7 +28,7 @@ export const recipeApi = createApi({
         }),
         favorites: builder.mutation({
             query: (body) => ({
-                url: `/api/favorites/`,
+                url: `/api/favorites`,
                 method: "POST",
                 body,
                 credentials: "include",
@@ -46,6 +46,26 @@ export const recipeApi = createApi({
             }),
             invalidatesTags: ["Favorites"],
         }),
+        getAllRatings: builder.query({
+            query: (recipe_id) => ({
+                url: `/api/recipes/${recipe_id}/ratings`,
+                credentials: "include",
+            }),
+            transformResponse: (response) => response.ratings,
+            providesTags: ["Ratings"],
+        }),
+        ratings: builder.mutation({
+            query: ({body: body, recipe_id: recipe_id}) => ({
+                url: `/api/recipes/${recipe_id}/ratings`,
+                method: "POST",
+                body,
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }),
+            invalidatesTags: ["Ratings"],
+        }),
     }),
 });
 
@@ -55,4 +75,6 @@ export const {
     useGetFavoritesQuery,
     useFavoritesMutation,
     useDeleteFavoritesMutation,
+    useRatingsMutation,
+    useGetAllRatingsQuery,
 } = recipeApi;

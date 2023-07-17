@@ -10,6 +10,7 @@ import Nav from "./Nav.js";
 import MainPage from "./MainPage.js";
 import RecipeDetails from "./RecipeDetails.js";
 import SearchPage from "./searchPage.js";
+import RatingsForm from "./RatingsForm.js";
 
 function App() {
     return (
@@ -44,6 +45,11 @@ function App() {
                                 exact
                                 path="/search"
                                 element={<SearchPage />}
+                            ></Route>
+                            <Route
+                                exact
+                                path="/ratings/:recipeId"
+                                element={<RatingsForm />}
                             ></Route>
                         </Routes>
                     </AuthProvider>
