@@ -84,3 +84,16 @@ Today we worked as a group to get make our unit tests since we went over that in
 Goals For Tomorrow:
 - Create profile page for each account
 - Switch from spoonacular api to tasty api since the images are better on tasty
+
+# 07/17/2023
+Goals:
+- Created reviews modal form on front end
+- Mapped out reviews to see comments and ratings that all users left for a specific recipe
+- Added ability to see account user's first and last name for the rating they left
+- Rearranged backend and frontend to use tasty api instead of spoonacular api since the spoonacular images were really bad
+
+Today we worked as a group to add to more aspects of our front-end through React. We were able to switch over our frontend to reflect the tasty api since we felt that it had better resources such as better images and an actual video url. David shared his screen and wrote the code as we all contributed ideas for how to get everything set up. Javier was clutch in showing us how to do a nested map in the JSX file since we had to go deep inwards to retrieve the total ingredients list that we needed for the recipe. I then shared my screen and started writing the code for the ratings section while my team helped me along. We were able to add some necessary details to the backend like a comments section to the RatingsIn and more account information from the account_data. We also created a modal form so that only logged in users can leave a review on a recipe. Once the review is left it is populated into the ratings map that showcases the reviews for everyone to see. We then started working on our profile page, the favorites carousel in particular. We got stuck on how to get access to all the needed information about a recipe since our favorites button only receives the recipe_id and nothing else, but after talking with Riley, we have a better idea of how to at least start tackling that issue (by using props).
+
+Goals For Tomorrow:
+- Finish working on carousel of favorites on profile page
+- Add ingredients list and form to profile page

@@ -29,7 +29,7 @@ function RecipeDetails() {
                 {account ? (
                     <FavoritesButton />
                 ) : (
-                    <Link to={"/login"}>Login to add to favorites</Link>
+                    <Link className="btn btn-primary" to={"/login"}>Login to add to favorites</Link>
                 )}
             </div>
             <div className="mt-4">
@@ -89,9 +89,13 @@ function RecipeDetails() {
             <div className="text-center mt-3">
                 <h3>Reviews</h3>
             </div>
-            <div className="text-center mt-3">
-                <Link className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" to={`/ratings/${recipeId}`}>Write a review</Link>
-            </div>
+            {account ? (
+                <div className="text-center mt-3">
+                    <Link className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" to={`/ratings/${recipeId}`}>Write a review</Link>
+                </div>
+            ) :
+                <Link className="btn btn-primary" to={"/login"}>Login to write a review</Link>
+            }
 
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -113,9 +117,9 @@ function RecipeDetails() {
                             <p>
                                 {rating.comments} {rating.rating}
                                 <div>
-                                <small>
-                                    {rating.account_first_name} {rating.account_last_name}
-                                </small>
+                                    <small>
+                                        {rating.account_first_name} {rating.account_last_name}
+                                    </small>
                                 </div>
                             </p>
                         </div>
