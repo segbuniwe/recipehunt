@@ -20,7 +20,7 @@ export const recipeHuntApi = createApi({
                 method: 'DELETE',
                 credentials: 'include'
             }),
-            invalidatesTags: ['Account']
+            invalidatesTags: ['Account', "Favorites", "Ingredient"]
         }),
         signup: builder.mutation({
             query: (body) => ({
@@ -35,7 +35,7 @@ export const recipeHuntApi = createApi({
             invalidatesTags: ['Account']
         }),
         login: builder.mutation({
-            query: ({username, password}) => {
+            query: ({ username, password }) => {
                 const body = new FormData();
                 body.append('username', username);
                 body.append('password', password);
@@ -50,43 +50,43 @@ export const recipeHuntApi = createApi({
         }),
         getIngredientByAccount: builder.query({
             query: () => ({
-              url: `/api/ingredients/mine`,
-              credentials: "include",
+                url: `/api/ingredients/mine`,
+                credentials: "include",
             }),
             providesTags: ["Ingredient"],
             transformResponse: (response) => response.ingredients,
-          }),
-          createIngredient: builder.mutation({
+        }),
+        createIngredient: builder.mutation({
             query: (body) => ({
-              url: `/api/ingredients`,
-              method: "POST",
-              body,
-              credentials: "include",
-              headers: {
-                "Content-Type": "application/json",
-              },
+                url: `/api/ingredients`,
+                method: "POST",
+                body,
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json",
+                },
             }),
             invalidatesTags: ["Ingredient"],
-          }),
-          deleteIngredient: builder.mutation({
+        }),
+        deleteIngredient: builder.mutation({
             query: (ingredient_id) => ({
-              url: `/api/ingredients/${ingredient_id}`,
-              method: "DELETE",
-              credentials: "include",
+                url: `/api/ingredients/${ingredient_id}`,
+                method: "DELETE",
+                credentials: "include",
             }),
             invalidatesTags: ["Ingredient"],
-          }),
-          updateIngredient: builder.mutation({
+        }),
+        updateIngredient: builder.mutation({
             query: ({ body: body, ingredient_id: ingredient_id }) => ({
-              url: `/api/ingredients/${ingredient_id}`,
-              body,
-              method: "PUT",
-              credentials: "include",
+                url: `/api/ingredients/${ingredient_id}`,
+                body,
+                method: "PUT",
+                credentials: "include",
             }),
-            transformResponse: (response) => response.ratings,
+            transformResponse: (response) => response.ingredients,
             invalidatesTags: ["Ingredient"],
-          }),
-          getRecipeById: builder.query({
+        }),
+        getRecipeById: builder.query({
             query: (recipeId) => ({
                 url: `/api/tasty-recipes/${recipeId}`,
                 credentials: "include",
@@ -97,6 +97,8 @@ export const recipeHuntApi = createApi({
                 url: "/api/tasty-recipes",
                 credentials: "include",
             }),
+            providesTags: ["Recipes"],
+            transformResponse: (response) => response.recipes,
         }),
         getFavorites: builder.query({
             query: () => ({
@@ -135,7 +137,7 @@ export const recipeHuntApi = createApi({
             providesTags: ["Ratings"],
         }),
         ratings: builder.mutation({
-            query: ({body: body, recipe_id: recipe_id}) => ({
+            query: ({ body: body, recipe_id: recipe_id }) => ({
                 url: `/api/recipes/${recipe_id}/ratings`,
                 method: "POST",
                 body,

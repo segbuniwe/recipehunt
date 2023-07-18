@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from queries.client import Queries
 import requests
 from keys import TASTY_API_KEY
-from typing import Optional
+from typing import Optional, List
 
 
 class TastyRecipesIn(BaseModel):
@@ -26,8 +26,8 @@ class TastyRecipesOut(TastyRecipesIn):
     # total_time_minutes: int
 
 
-# class TastyRecipesList(BaseModel):
-#     recipes: list[TastyRecipesIn]
+class TastyRecipesList(BaseModel):
+    recipes: List[TastyRecipesOut]
 
 
 class TastyRecipesRepo(Queries):
