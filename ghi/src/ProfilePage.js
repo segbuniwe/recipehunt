@@ -1,12 +1,10 @@
 import { useGetFavoritesQuery } from "./app/recipeSlice";
-import { useGetFavoritesQuery } from "./app/recipeSlice";
 import { useGetAccountQuery } from "./app/apiSlice";
 import { Link } from "react-router-dom";
 
 function ProfilePage() {
   const { data: favorites, isLoading } = useGetFavoritesQuery();
   const { data: account } = useGetAccountQuery();
-  console.log(favorites);
   console.log(favorites);
 
   if (isLoading) {
