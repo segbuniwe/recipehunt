@@ -2,7 +2,6 @@
 
 Journal Entry: Today was fairly tough. I felt like I was flying a bit by the seat of my pants. I fell a bit behind last week with the learn modules, so a lot of the work felt like information that I had not gone through before. My partners definitely led the way when it came to the backend authentication portion of this project. I'm going to be working today to catch up on learns so I can provide more use during upcoming days. We got our backend authentication sorted out, and so tomorrow we plan on getting our backend CRUD paths sorted.
 
-
 6/27/2023
 
 Standup:
@@ -26,7 +25,6 @@ Standup:
     - Raise DuplicateAccount Error ✅
     - Depends Favorites (Needed for log in required) ✅
     - Finish up CRUD for Ingredients ✅
-
 
 Today was a bit more tough for me. Initially Riley went through an Authentication discussion which was very thorough, and from there my group (partiulcarly Sophia) took notes and we were able to make adjustments and have our authentication measures completed quickly. Riley had also gone through creating a Favorites Query and Route in his discussion which was a key component for our website. We had that built out with Sophia covering the main coding part, and we had a strong start. In the afternoon, fatigue hit me pretty hard and I felt like I became a bit quieter in order to understand what was happening. Sophia and Javier took on creating a ratings query and route, and they did a great job with following the bug trail in order to get it to functionally work. It makes sense with how they built it out, but we are going to check if the functionality is correctly formatted with Riley just because the code we have now causes us to fill in a receipe_id vs. automatically pulling it from the recipe collection. We might be pulling that on the front end with hooks and then pulling back the information with the backend.
 
@@ -52,7 +50,6 @@ Standup:
     - Building out signup and login pages ✅
     - Log in, Sign up, and Log out via frontend ✅
 
-
 We were able to get a good amount done today after Riley's lectures. We decided to use Redux vs just going to separate States to build out our frontend, and with this we were able to get our login, signup, and logout funtionalities working on the frontend. Sophia took a majority of the day coding while the rest of us observed. We went back through Riley's code sequences to figure out what we needed for our frontend authentication, and we adjusted the initial code that we had in order to build out the authentication functionality. We also built our a basic home page for our routes to route to for logging in, logging out, and signing up.
 
 7/12/2023
@@ -76,7 +73,6 @@ Standup:
     - Build out the Recipes List (on search page) ✅
     - Build out a Search Page(initial) ✅
 
-
 Today we started off by building out a redux path to pull a list of the recipes from our API using redux for the initial search page. From there, we built out a Search function utilizing useDispatch and useSelector to handle the submit for the search click, grab that returned value, and compare to the list to bring back our filtered list with the search criteria. After this, we moved towards creating the favorities functionality where we utilized our backend favorites functions to pull the recipe_id and add the recipe to our favorites list via a favorites button. We struggled a bit with the favorites button and the unfavorite button because our buttons were not toggling correctly at first once we got the recipe to be added to a favorites list. We spoke with Riley, and he assisted with getting our toggle switch to work by changing the exactness of type were were checking with our filter, and he helped us with the unfavorite button by correcting the the input that we were putting in (initially an objectID when we just needed a string).
 
 7/14/2023
@@ -87,12 +83,16 @@ Standup:
     - Unit Tests (individual commits) ✅
     - Tasty API backend ✅
 
-
+Today all four of us worked on getting a unit test created. We each took turns at the wheel working on creating a unit test: Javier did the test for the Tasty list test, Sophia did the create for ingredients, I did the test for listing ingredients, and David took over the test for deleting an ingredient. From there, we realized that we did not like how our API pictures were looking, so we decided to change the API we were using to the Tasty API. We had the list recipes query and router done, but we needed to do the get recipe by ID query and router. David took over doing the backend while we helped him through getting that finished up, and we were able to pull the data by EoD.
 
 7/17/2023
 
 Standup:
 
     Goals:
-    - Replace Spoonacular with Tasty
+    - Replace Spoonacular with Tasty ✅
+    - Reviews on the backend ✅
+    - Ratings and Reviews on the Details Page ✅
     - Profile Page (Favorites List and Ingredients List, add Ingredients Form)
+
+We started off today by working to replace the Spoonacular API with the Tasty API on the frontend. We were working on adjusting all of the different variables and changing the calls based off the array that was in the recipe by id information (shout out to Javier for his amazing work with figuring out the nested loop to access ingredients that were in different components in the API). David took charge of doing this. Once we got this completed, we moved onto creating reviews and ratings for our webpage where Sophia took charge. We started off on getting the backend for reviews completed by adding comments as a str variable on the backend. Once we finsihed this, we were working to get all ratings and reviews to show on a recipe regardless of the person writing the review. We were able to gain a list of ratings and reviews regardless of the the account by connecting it with the account_id, so you can only write a review with an account. From here, we went back to backend to add a first name and last name that we pulled from the authenticator to populate the person's name that wrote the review. We built out a modal for the ratings and review form that pops up when someone wants to write a review, and it autopopulates to the page once it is written. We are going to figure out a way for the modal to close once the review is finished, but we decided to save this for later. At the end of the day, we started the profile page that we wanted to create. We initially wanteed to figure out a way to grab the picture URL and the name of the recipe that was favorited in order to build out a carousel of recipes that were favorited based off the profule. We struggled a bit as we were trying to utilize props since we were not calling that information on the backend, but we struggled with this approach and decided to add these variables to the backend and information going in, and then we assigned it to those variables in the create a favorite by grabbing the recipe name and picture URL from the get recipe by ID query. We are still working on getting the carousel finished, but we were able to pull that information to grab a list of favorites with name and picture URL included.
