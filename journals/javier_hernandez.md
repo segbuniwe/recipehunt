@@ -28,3 +28,12 @@ Implementations we made today -
 4. Implemented search page for recipes.
 
 I feel really good about today. I've been slacking on Redux knowledge but I took it head on today to gain some experience. Thankful for my knowledgable team members who were able to help me through every step of the way. Even though using the Redux library isn't natural to me, some troubleshooting aspects are. Really starting to see my programming skills come to life because of Redux troubleshooting. We got a lot done today, Realized Spoonacular's API is a bit lackluster when it comes to the images of their recipes, so that leaves the debate of wether or not to focus on our other API resource, Tasty. Tasty alone also has its drawbacks but that's up for discussion with the team. Favorites button was fun to implement, I can't believe we got stuck on the delete URL and that Riley was able to identify the problem almost immediately. Overall super productive day, and I'm we can see the app coming to life.
+
+
+7/14/23
+
+Today we just made some unit tests. At first I was reluctant because I truly just did not get it. After speaking to my team, they helped me realize how it works and we got to it. Pretty simple day.
+
+7/17/23
+
+Amazing day we got A LOT done. We were able to implement reviews on the back and front end for recipes, and tie those reviews to a user. Sophia is truly a wizard when it comes to Redux as she took the lead on this one without hesitation. We had to map a lot today and we learned how nested maps work. In one of our components we had objects within objects that were buried deep in there so I figured that nested map would be the best approach, and it worked. We also made the switch from pulling from spoonaculars API to Tastys API. Spoonacular wasn't cutting it for us, its images were way too low quality, plus they had no video. 
