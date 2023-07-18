@@ -36,8 +36,8 @@ function ProfilePage() {
             </div>
             {favorites.map((favorite) => {
               return (
-                <div className="carousel-item">
-                  <div key={favorite.id} className="card mb-3 shadow">
+                <div className="carousel-item" key={favorite.id}>
+                  <div className="card mb-3 shadow">
                     <img
                       src={favorite.thumbnail_url}
                       className="card-img-top"
