@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGetRecipesQuery } from "./app/recipeSlice";
+import { useGetRecipesQuery } from "./app/apiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { reset, filter } from "./app/searchSlice";
 import { Link } from "react-router-dom";

@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
-import {
-  useGetRecipeByIdQuery,
-  useGetAllRatingsQuery,
-} from "./app/recipeSlice";
 import FavoritesButton from "./FavoritesButton";
-import { useGetAccountQuery } from "./app/apiSlice";
 import { Link } from "react-router-dom";
 import RatingsForm from "./RatingsForm";
+import {
+  useGetAccountQuery,
+  useGetRecipeByIdQuery,
+  useGetAllRatingsQuery,
+} from "./app/apiSlice";
 
 function RecipeDetails() {
   const { recipeId } = useParams();

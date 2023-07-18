@@ -1,19 +1,11 @@
-import { useState, useEffect } from "react";
-import { useCreateIngredientMutation } from "./app/ingredientSlice";
-import { useParams, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useCreateIngredientMutation } from "./app/apiSlice";
 
 function IngredientForm() {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [unit, setUnit] = useState("");
   const [ingredient] = useCreateIngredientMutation();
-  const navigate = useNavigate();
-
-  // useEffect(() => {
-  //     if (reviewResult.isSuccess) {
-  //         navigate(`/recipe/${recipeId}`);
-  //     }
-  // }, [reviewResult]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,20 +1,20 @@
-import { useGetFavoritesQuery } from "./app/recipeSlice";
-import { useGetAccountQuery } from "./app/apiSlice";
+import { Link } from "react-router-dom";
+import IngredientForm from "./IngredientForm";
 import {
+  useGetAccountQuery,
+  useGetFavoritesQuery,
   useGetIngredientByAccountQuery,
   useDeleteIngredientMutation,
   useUpdateIngredientMutation,
-} from "./app/ingredientSlice";
-import { Link } from "react-router-dom";
-import IngredientForm from "./IngredientForm";
+} from "./app/apiSlice";
 
 function ProfilePage() {
   const { data: favorites, isLoading } = useGetFavoritesQuery();
   const { data: account } = useGetAccountQuery();
-  const { data: ingredients } = useGetIngredientByAccountQuery();
-  console.log(ingredients);
+  const { data: ingredients, isLoading: ingredientsLoading } =
+    useGetIngredientByAccountQuery();
 
-  if (isLoading) {
+  if (isLoading || ingredientsLoading) {
     return <p>Loading...</p>;
   }
   return (
@@ -85,17 +85,20 @@ function ProfilePage() {
           </button>
         </div>
       )}
+
       <h1>My Ingredients</h1>
-      {ingredients.length > 0 ? (
+      {ingredients.length >= 1 ? (
         ingredients.map((ingredient) => {
           return (
             <div key={ingredient.id}>
-              {ingredient.amount} {ingredient.unit} {ingredient.name}
+              <p>
+                {ingredient.name} - {ingredient.amount} {ingredient.unit}
+              </p>
             </div>
           );
         })
       ) : (
-        <p>No comments for this recipe</p>
+        <p>No ingredients added yet</p>
       )}
       {account ? (
         <div className="text-center mt-3">

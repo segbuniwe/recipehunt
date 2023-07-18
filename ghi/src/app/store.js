@@ -1,21 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
+import { recipeHuntApi } from "./apiSlice";
 
-import { accountApi } from "./apiSlice";
-import { recipeApi } from "./recipeSlice";
-import { ingredientApi } from "./ingredientSlice";
 
 export const store = configureStore({
   reducer: {
-    [accountApi.reducerPath]: accountApi.reducer,
-    [recipeApi.reducerPath]: recipeApi.reducer,
-    [ingredientApi.reducerPath]: ingredientApi.reducer,
+    [recipeHuntApi.reducerPath]: recipeHuntApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
-      .concat(accountApi.middleware)
-      .concat(recipeApi.middleware)
-      .concat(ingredientApi.middleware),
+      .concat(recipeHuntApi.middleware)
 });
 
 setupListeners(store.dispatch);
