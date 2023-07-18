@@ -97,3 +97,17 @@ Today we worked as a group to add to more aspects of our front-end through React
 Goals For Tomorrow:
 - Finish working on carousel of favorites on profile page
 - Add ingredients list and form to profile page
+
+# 07/18/2023
+Goals:
+- Got carousel of favorites to function properly
+- Added ingredients table
+- Added ability to update and delete ingredient
+- Fixed error in search page
+- created singular slice to work out of in redux so that we can easily invalidate tags when needed
+
+Today we worked as a group to add to more aspects of our front-end through React. We started off with trying to get our carousel to work properly and I was able to figure out that with bootstrap we would need a base image to be active for the carosuel to really function as it should. We then talked to Riley and realized that having one slice file is for the best to ensure that the tags can be invalidated properly when needed. Javier shared his screen and we all worked together to consolidate our slices into one apiSlice. We then started working on the ingredients section of the profile page and got the list of ingredients mapped out. Shashwath shared his screen and we worked on creating an ingredients form and adding more detail to our ingredients list. I then shared my screen and took charge in leading us through fixing some errors we found in our search page. Our search page stopped functioning properly after we switched from the spoonacular api to the tasty api so I figured out a way to get the search page to function properly again by adding a useEffect that changes/filters as the form is submitted with a search term. David then shared his screen and we worked on adding the delete functionality to a specific ingredient. We then got stuck on adding the edit functionality since we were trying to do it in a modal form style on the profile page which complicated how we could access the ingredient_id for each ingredient (since we couldn't useParams it), but after talking with Riley about it, we were able to figure out how to start working on the issue by passing the id in as a props from the mapped out list in the profile page to the modal jsx file that we made. It was a very productive day and we all got to do a lot of coding.
+
+Goals For Tomorrow:
+- Add more functionality to our search page so one can hopefully search through recipes by ingredients
+- Start working on adding more bootstrap CSS to make our webpage look more professional

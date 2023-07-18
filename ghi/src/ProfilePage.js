@@ -5,7 +5,6 @@ import {
     useGetFavoritesQuery,
     useGetIngredientByAccountQuery,
     useDeleteIngredientMutation,
-    useUpdateIngredientMutation,
 } from "./app/apiSlice";
 import IngredientEditModal from "./IngredientEditModal";
 
@@ -15,7 +14,6 @@ function ProfilePage() {
     const { data: ingredients, isLoading: ingredientsLoading } =
         useGetIngredientByAccountQuery();
     const [deleteIngredient] = useDeleteIngredientMutation();
-    const [updateIngredient] = useUpdateIngredientMutation();
 
     if (isLoading || ingredientsLoading) {
         return <p>Loading...</p>;
@@ -116,7 +114,7 @@ function ProfilePage() {
                     </td>
                     <td>
                       <button
-                        className="btn btn-danger"
+                        className="btn btn-success"
                         data-bs-toggle="modal"
                         data-bs-target={`#editIngredientModal${ingredient.id}`}
                       >
