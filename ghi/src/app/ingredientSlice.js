@@ -6,11 +6,12 @@ export const ingredientApi = createApi({
     baseUrl: process.env.REACT_APP_API_HOST,
   }),
   endpoints: (builder) => ({
-    geIngredientByAccount: builder.query({
+    getIngredientByAccount: builder.query({
       query: () => ({
         url: `/api/ingredients/mine`,
         credentials: "include",
       }),
+      providesTags: ["Ingredient"],
     }),
     createIngredient: builder.mutation({
       query: (body) => ({
@@ -33,19 +34,20 @@ export const ingredientApi = createApi({
       invalidatesTags: ["Ingredient"],
     }),
     updateIngredient: builder.mutation({
-      query: (ingredient_id) => ({
+      query: ({ body: body, ingredient_id: ingredient_id }) => ({
         url: `/api/ingredients/${ingredient_id}`,
+        body,
         method: "PUT",
         credentials: "include",
       }),
       transformResponse: (response) => response.ratings,
-      providesTags: ["Ingredient"],
+      invalidatesTags: ["Ingredient"],
     }),
   }),
 });
 
 export const {
-  useGeIngredientByAccountQuery,
+  useGetIngredientByAccountQuery,
   useCreateIngredientMutation,
   useDeleteIngredientMutation,
   useUpdateIngredientMutation,

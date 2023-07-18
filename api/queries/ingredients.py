@@ -1,13 +1,13 @@
 from pydantic import BaseModel
 from queries.client import Queries
-from typing import List
+from typing import List, Optional
 from bson.objectid import ObjectId
 
 
 class IngredientsIn(BaseModel):
     name: str
     amount: int
-    unit: str
+    unit: Optional[str]
 
 
 class IngredientsOut(IngredientsIn):
@@ -37,26 +37,17 @@ class IngredientsRepo(Queries):
 
     def delete(self, ingredient_id: str, account_id: str):
         result = self.collection.delete_one(
-            {
-                "_id": ObjectId(ingredient_id),
-                "account_id": account_id
-            }
+            {"_id": ObjectId(ingredient_id), "account_id": account_id}
         )
         return result.deleted_count > 0
 
     def update(
-            self,
-            ingredient_id: str,
-            ingredient: IngredientsIn,
-            account_id: str
+        self, ingredient_id: str, ingredient: IngredientsIn, account_id: str
     ):
         updated_ingredient = ingredient
         self.collection.update_one(
-            {
-                "_id": ObjectId(ingredient_id),
-                "account_id": account_id
-            },
-            {"$set": updated_ingredient}
+            {"_id": ObjectId(ingredient_id), "account_id": account_id},
+            {"$set": updated_ingredient},
         )
         updated_ingredient["id"] = ingredient_id
         updated_ingredient["account_id"] = account_id

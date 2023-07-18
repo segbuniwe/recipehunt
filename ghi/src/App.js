@@ -12,56 +12,46 @@ import RecipeDetails from "./RecipeDetails.js";
 import SearchPage from "./searchPage.js";
 import RatingsForm from "./RatingsForm.js";
 import ProfilePage from "./ProfilePage.js";
+import IngredientForm from "./IngredientForm.js";
 
 function App() {
-    return (
-        <>
-            <BrowserRouter>
-                <div className="container">
-                    <Nav />
-                    <AuthProvider>
-                        {/* <TitleBar /> */}
-                        <Routes>
-                            <Route
-                                exact
-                                path="/"
-                                element={<MainPage />}
-                            ></Route>
-                            <Route
-                                exact
-                                path="/signup"
-                                element={<SignUpForm />}
-                            ></Route>
-                            <Route
-                                exact
-                                path="/login"
-                                element={<LoginForm />}
-                            ></Route>
-                            <Route
-                                exact
-                                path="/recipe/:recipeId"
-                                element={<RecipeDetails />}
-                            ></Route>
-                            <Route
-                                exact
-                                path="/search"
-                                element={<SearchPage />}
-                            ></Route>
-                            <Route
-                                exact
-                                path="/ratings/:recipeId"
-                                element={<RatingsForm />}
-                            ></Route>
-                            <Route
-                                exact
-                                path = "/profile/mine"
-                                element={<ProfilePage />}
-                            ></Route>
-                        </Routes>
-                    </AuthProvider>
-                </div>
-            </BrowserRouter>
-        </>
-    );
+  return (
+    <>
+      <BrowserRouter>
+        <div className="container">
+          <Nav />
+          <AuthProvider>
+            {/* <TitleBar /> */}
+            <Routes>
+              <Route exact path="/" element={<MainPage />}></Route>
+              <Route exact path="/signup" element={<SignUpForm />}></Route>
+              <Route exact path="/login" element={<LoginForm />}></Route>
+              <Route
+                exact
+                path="/recipe/:recipeId"
+                element={<RecipeDetails />}
+              ></Route>
+              <Route exact path="/search" element={<SearchPage />}></Route>
+              <Route
+                exact
+                path="/ratings/:recipeId"
+                element={<RatingsForm />}
+              ></Route>
+              <Route
+                exact
+                path="/profile/mine"
+                element={<ProfilePage />}
+              ></Route>
+              <Route
+                exact
+                path="/ingredients"
+                element={<IngredientForm />}
+              ></Route>
+            </Routes>
+          </AuthProvider>
+        </div>
+      </BrowserRouter>
+    </>
+  );
 }
 export default App;
