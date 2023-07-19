@@ -9,13 +9,12 @@ function SearchPage() {
   const { data, isLoading } = useGetRecipesQuery();
   const dispatch = useDispatch();
   const [filteredList, setFilteredList] = useState([]);
-  console.log(data);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("handleSubmit", search);
     const filteredRecipes = data.filter((recipe) =>
-      recipe.name.toLowerCase().includes(search.toLowerCase()));
+      recipe.name.toLowerCase().includes(search.toLowerCase())
+    );
     setFilteredList(filteredRecipes);
   };
 
@@ -38,10 +37,7 @@ function SearchPage() {
           />
         </div>
         <div className="col">
-          <button
-            className="btn btn-lg btn-success"
-            type="submit"
-          >
+          <button className="btn btn-lg btn-success" type="submit">
             Search
           </button>
           <button
@@ -59,18 +55,13 @@ function SearchPage() {
       </form>
       <div className="mt-3">
         <h1>
-          Recipe List{" "}
-          <small className="text-body-secondary">
-            {search}
-          </small>
+          Recipe List <small className="text-body-secondary">{search}</small>
         </h1>
         <div className="row mt-3">
           {filteredList && filteredList.length > 0 ? (
             filteredList.map((recipe) => (
               <div key={recipe.id}>
-                <Link to={`/recipe/${recipe.id}`}>
-                  {recipe.name}
-                </Link>
+                <Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
               </div>
             ))
           ) : (
