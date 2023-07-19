@@ -24,7 +24,7 @@ export const recipeHuntApi = createApi({
         }),
         signup: builder.mutation({
             query: (body) => ({
-                url: `${process.env.REACT_APP_API_HOST}/api/accounts`,
+                url: `/api/accounts`,
                 method: 'POST',
                 body,
                 credentials: 'include',
