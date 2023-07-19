@@ -10,6 +10,7 @@ function SearchPage() {
   const dispatch = useDispatch();
   const [filteredList, setFilteredList] = useState([]);
   const [sort, setSort] = useState("");
+  // const [sortList, setSortList] = useState([]);
   const navigate = useNavigate();
 
   const handleSearchSubmit = (e) => {
@@ -20,19 +21,25 @@ function SearchPage() {
     setFilteredList(filteredRecipes);
   };
 
-  const handleSortSubmit = () => {
-    const len = data.length;
-    for (let i = 0; i < len - 1; i++) {
-      for (let j = i + 1; j < len; j++) {
-        if (data[i].name.localeCompare(data[j].name) > 0) {
-          const temp = data[i];
-          data[i] = data[j];
-          data[j] = temp;
+  console.log(sort);
+
+  const handleSortSubmit = (e) => {
+    e.preventDefault();
+    if (sort === "alphabetical") {
+      const copyData = [...filteredList]
+      const len = copyData.length;
+      for (let i = 0; i < len - 1; i++) {
+        for (let j = i + 1; j < len; j++) {
+          if (copyData[i].name.localeCompare(copyData[j].name) > 0) {
+            const temp = copyData[i];
+            copyData[i] = copyData[j];
+            copyData[j] = temp;
+          }
         }
       }
+      setFilteredList(copyData);
     }
-    setFilteredList(data);
-  };
+  }
 
   const handleSurpriseSubmit = () => {
     const recipeListLength = data.length;
@@ -70,30 +77,35 @@ function SearchPage() {
             onClick={() => {
               dispatch(reset());
               setSearch("");
+              setSort("");
               setFilteredList(data);
             }}
           >
             Reset
           </button>
-          <button onClick={() => handleSurpriseSubmit()}>Surprise me!</button>
+          <button className="btn btn-primary" onClick={() => handleSurpriseSubmit()}>Surprise me!</button>
         </div>
 
         <div>
-          <select
-            className="form-select"
-            onChange={(e) => {
-              setSort(e.target.value);
-              handleSortSubmit(e.target.value);
-            }}
-            id="sortSelect"
-            value={sort}
-          >
-            <option value="">Sort by...</option>
-            <option value="alphabetical">Alphabetical</option>
-            <option value="ingredients">Ingredients</option>
-          </select>
         </div>
       </form>
+      <div>
+      <form onSubmit={handleSortSubmit}>
+        <select
+          className="form-select"
+          value={sort}
+          onChange={(e) => {
+            setSort(e.target.value);
+          }}
+          id="sortSelect"
+        >
+          <option value="">Sort by...</option>
+          <option value="alphabetical">Alphabetical</option>
+          <option value="ingredients">Ingredients</option>
+        </select>
+        <input className="btn btn-outline-secondary btn-sm" type="submit" value="Submit"/>
+      </form>
+      </div>
       <div className="mt-3">
         <h1>Recipe List</h1>
         <div className="row mt-3">
