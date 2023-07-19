@@ -1,11 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCreateIngredientMutation } from "./app/apiSlice";
+import AlertMessage from "./AlertMessage";
 
 function IngredientForm() {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [unit, setUnit] = useState("");
-  const [ingredient] = useCreateIngredientMutation();
+  const [ingredient, ingredientResult] = useCreateIngredientMutation();
+  const [alertMessage, setAlertMessage] = useState("");
+
+  useEffect(() => {
+    if (ingredientResult.error) {
+      if (ingredientResult.error.status == 422) {
+        setAlertMessage(ingredientResult.error.data.detail[0].msg);
+      }
+    }
+    if (ingredientResult.isSuccess) {
+      setName("");
+      setAmount("");
+      setUnit("");
+      setAlertMessage("");
+      alert("Ingredient added successfully.");
+    }
+  }, [ingredientResult]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,10 +32,6 @@ function IngredientForm() {
       unit: unit,
     };
     ingredient(body);
-    setName("");
-    setAmount("");
-    setUnit("");
-    alert("Ingredient added successfully.");
   };
 
   return (
@@ -26,6 +39,7 @@ function IngredientForm() {
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
           <h1>Add an Ingredient</h1>
+          {alertMessage && <AlertMessage>{alertMessage}</AlertMessage>}
           <form onSubmit={handleSubmit} id="create-hat-form">
             <div className="form-floating mb-3">
               <input

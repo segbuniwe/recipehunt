@@ -1,11 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useUpdateIngredientMutation } from "./app/apiSlice";
+import AlertMessage from "./AlertMessage";
 
 function IngredientEditModal({ ingredient }) {
   const [name, setName] = useState(ingredient.name);
   const [amount, setAmount] = useState(ingredient.amount);
   const [unit, setUnit] = useState(ingredient.unit);
-  const [updateIngredient] = useUpdateIngredientMutation();
+  const [updateIngredient, ingredientResult] = useUpdateIngredientMutation();
+  const [alertMessage, setAlertMessage] = useState("");
+
+  useEffect(() => {
+    if (ingredientResult.error) {
+      if (ingredientResult.error.status == 422) {
+        setAlertMessage(ingredientResult.error.data.detail[0].msg);
+      }
+    }
+    if (ingredientResult.isSuccess) {
+      setAlertMessage("");
+      alert("Ingredient updated successfully.");
+    }
+  }, [ingredientResult]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +33,6 @@ function IngredientEditModal({ ingredient }) {
       body,
       ingredient_id: ingredient.id,
     });
-    alert("Ingredient updated successfully.");
   };
 
   return (
@@ -47,6 +60,7 @@ function IngredientEditModal({ ingredient }) {
             ></button>
           </div>
           <div className="modal-body">
+            {alertMessage && <AlertMessage>{alertMessage}</AlertMessage>}
             <form onSubmit={handleSubmit}>
               <div className="form-floating mb-3">
                 <input
