@@ -30,3 +30,6 @@ Added apiSlice, recipeSlice, searchSlice. Javier and Sophia were able to dice ou
 We created the test units for RecipeHunt such as test_create, test_delete, test_get_all_ingredients. We added backend functionality for the TastyAPI to get a single recipe.
 
 7/17
+The team decided that spoonacular's recipe image quality was subpar and so we replaced all of the recipe endpoints from spoonacular to tastyAPI's endpoints.
+
+7/18
