@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useGetRecipesQuery } from "./app/apiSlice";
+import { useGetRecipesQuery, useGetIngredientByAccountQuery } from "./app/apiSlice";
 import { useDispatch } from "react-redux";
 import { reset } from "./app/searchSlice";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,8 +10,8 @@ function SearchPage() {
   const dispatch = useDispatch();
   const [filteredList, setFilteredList] = useState([]);
   const [sort, setSort] = useState("");
-  // const [sortList, setSortList] = useState([]);
   const navigate = useNavigate();
+  const { data: ingredients } = useGetIngredientByAccountQuery();
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -38,6 +38,24 @@ function SearchPage() {
         }
       }
       setFilteredList(copyData);
+    } else if (sort === "ingredients") {
+      const ingredientNames = ingredients.map((ingredient) =>
+        ingredient.name.toLowerCase()
+      );
+      console.log(ingredientNames);
+      if (!ingredientNames || ingredientNames.length === 0) {
+        setFilteredList(filteredList);
+      } else {
+        const recipes = [...filteredList];
+        const filteredRecipes = recipes.filter((recipe) =>
+          recipe.sections.some((section) =>
+          section.components.some((component) =>
+            ingredientNames.some((ingredientName) =>
+              component.raw_text.toLowerCase().includes(ingredientName))
+          )
+          ));
+        setFilteredList(filteredRecipes);
+      }
     }
   }
 
@@ -90,21 +108,21 @@ function SearchPage() {
         </div>
       </form>
       <div>
-      <form onSubmit={handleSortSubmit}>
-        <select
-          className="form-select"
-          value={sort}
-          onChange={(e) => {
-            setSort(e.target.value);
-          }}
-          id="sortSelect"
-        >
-          <option value="">Sort by...</option>
-          <option value="alphabetical">Alphabetical</option>
-          <option value="ingredients">Ingredients</option>
-        </select>
-        <input className="btn btn-outline-secondary btn-sm" type="submit" value="Submit"/>
-      </form>
+        <form onSubmit={handleSortSubmit}>
+          <select
+            className="form-select"
+            value={sort}
+            onChange={(e) => {
+              setSort(e.target.value);
+            }}
+            id="sortSelect"
+          >
+            <option value="">Sort by...</option>
+            <option value="alphabetical">Alphabetical</option>
+            <option value="ingredients">Ingredients</option>
+          </select>
+          <input className="btn btn-outline-secondary btn-sm" type="submit" value="Submit" />
+        </form>
       </div>
       <div className="mt-3">
         <h1>Recipe List</h1>
