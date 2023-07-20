@@ -96,3 +96,19 @@ Standup:
     - Profile Page (Favorites List and Ingredients List, add Ingredients Form)
 
 We started off today by working to replace the Spoonacular API with the Tasty API on the frontend. We were working on adjusting all of the different variables and changing the calls based off the array that was in the recipe by id information (shout out to Javier for his amazing work with figuring out the nested loop to access ingredients that were in different components in the API). David took charge of doing this. Once we got this completed, we moved onto creating reviews and ratings for our webpage where Sophia took charge. We started off on getting the backend for reviews completed by adding comments as a str variable on the backend. Once we finsihed this, we were working to get all ratings and reviews to show on a recipe regardless of the person writing the review. We were able to gain a list of ratings and reviews regardless of the the account by connecting it with the account_id, so you can only write a review with an account. From here, we went back to backend to add a first name and last name that we pulled from the authenticator to populate the person's name that wrote the review. We built out a modal for the ratings and review form that pops up when someone wants to write a review, and it autopopulates to the page once it is written. We are going to figure out a way for the modal to close once the review is finished, but we decided to save this for later. At the end of the day, we started the profile page that we wanted to create. We initially wanteed to figure out a way to grab the picture URL and the name of the recipe that was favorited in order to build out a carousel of recipes that were favorited based off the profule. We struggled a bit as we were trying to utilize props since we were not calling that information on the backend, but we struggled with this approach and decided to add these variables to the backend and information going in, and then we assigned it to those variables in the create a favorite by grabbing the recipe name and picture URL from the get recipe by ID query. We are still working on getting the carousel finished, but we were able to pull that information to grab a list of favorites with name and picture URL included.
+
+7/18/2023
+
+Standup:
+
+    Goals:
+    - Profile Page (Ingredients List and Form/Modal) ✅
+    - Search Page (by Ingredients List)
+
+7/19/2023
+
+Standup:
+
+    Goals:
+    - Search Page - Sort Functions (Alphabetical) ✅
+    - Surprise Me Function on Search Page ✅

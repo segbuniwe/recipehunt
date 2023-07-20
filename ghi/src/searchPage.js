@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
-import { useGetRecipesQuery, useGetIngredientByAccountQuery } from "./app/apiSlice";
+import {
+  useGetRecipesQuery,
+  useGetIngredientByAccountQuery,
+} from "./app/apiSlice";
 import { useDispatch } from "react-redux";
 import { reset } from "./app/searchSlice";
 import { Link, useNavigate } from "react-router-dom";
@@ -26,7 +29,7 @@ function SearchPage() {
   const handleSortSubmit = (e) => {
     e.preventDefault();
     if (sort === "alphabetical") {
-      const copyData = [...filteredList]
+      const copyData = [...filteredList];
       const len = copyData.length;
       for (let i = 0; i < len - 1; i++) {
         for (let j = i + 1; j < len; j++) {
@@ -46,18 +49,64 @@ function SearchPage() {
       if (!ingredientNames || ingredientNames.length === 0) {
         setFilteredList(filteredList);
       } else {
-        const recipes = [...filteredList];
-        const filteredRecipes = recipes.filter((recipe) =>
-          recipe.sections.some((section) =>
-          section.components.some((component) =>
-            ingredientNames.some((ingredientName) =>
-              component.raw_text.toLowerCase().includes(ingredientName))
-          )
-          ));
-        setFilteredList(filteredRecipes);
+        const recipes = [];
+        //This line maps out the recipe data
+        data.map((recipe) => {
+          //This is creating a temporary list of objects to include a count variable
+          let index = 0;
+          recipes.push({
+            id: recipe.id,
+            count: 0,
+          });
+          //This line will map through each ingredient
+          ingredientNames.map((ingredient) => {
+            //These lines are to check if the ingredient is in the recipe
+            const filteredRecipes = recipe.sections.filter((section) =>
+              section.components.some((component) =>
+                component.raw_text.toLowerCase().includes(ingredient)
+              )
+            );
+
+            console.log(filteredRecipes);
+            //If the recipe is in the ingredient, it adds a count to that specific recipe
+            if (filteredRecipes.length !== 0) {
+              filteredRecipes.components.map((component) => {
+                if (component.raw_text.toLowerCase().includes(ingredient)) {
+                  recipes[index].count++;
+                }
+              });
+            }
+          });
+          index++;
+        });
+        //moves the index of the temporary recipes list forward
+
+        console.log(recipes);
+        //Sorts the temporary recipe list with counts
+        const len = recipes.length;
+        for (let i = 0; i < len - 1; i++) {
+          for (let j = i + 1; j < len; j++) {
+            if (recipes[i].count > recipes[j].count) {
+              const temp = recipes[i];
+              recipes[i] = recipes[j];
+              recipes[j] = temp;
+            }
+          }
+        }
+
+        //Compares the temporary recipe list to the original data file
+        const filteredRecipeList = [];
+        recipes.map((recipe) => {
+          data.map((r) => {
+            if (recipe.id == r.id) {
+              filteredRecipeList.push(r);
+            }
+          });
+        });
+        setFilteredList(filteredRecipeList);
       }
     }
-  }
+  };
 
   const handleSurpriseSubmit = () => {
     const recipeListLength = data.length;
@@ -101,11 +150,15 @@ function SearchPage() {
           >
             Reset
           </button>
-          <button className="btn btn-primary" onClick={() => handleSurpriseSubmit()}>Surprise me!</button>
+          <button
+            className="btn btn-primary"
+            onClick={() => handleSurpriseSubmit()}
+          >
+            Surprise me!
+          </button>
         </div>
 
-        <div>
-        </div>
+        <div></div>
       </form>
       <div>
         <form onSubmit={handleSortSubmit}>
@@ -121,7 +174,11 @@ function SearchPage() {
             <option value="alphabetical">Alphabetical</option>
             <option value="ingredients">Ingredients</option>
           </select>
-          <input className="btn btn-outline-secondary btn-sm" type="submit" value="Submit" />
+          <input
+            className="btn btn-outline-secondary btn-sm"
+            type="submit"
+            value="Submit"
+          />
         </form>
       </div>
       <div className="mt-3">
