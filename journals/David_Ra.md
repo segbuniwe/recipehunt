@@ -49,3 +49,12 @@ what to look at:
 -react/jsx methods/hooks
 -how to run a submithandler un-asynchronusously
 -look back at react forms and pages
+
+7/20
+Shash and Sophia lead the charge today by figuring out how to sort recipes through the amount of ingredients a user has selected.
+
+-move signup and login on navbar
+-figure out how to do the ingredient ordered search
+-add a list for favorites
+
+-
