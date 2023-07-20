@@ -18,6 +18,10 @@ lint-test-job:
 # api-unit-tests-job:
 #   image: python:3-bullseye
 #   stage: test
+    # variables:
+    #   MONGO_URL: "string"
+    #   MONGO_DB: "string"
+    #   SIGNING_KEY: "string"
 #   needs:
 #     - lint-test-job
 #   script:

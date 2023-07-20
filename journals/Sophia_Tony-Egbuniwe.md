@@ -2,10 +2,10 @@
 Today, we worked as a group to create the backend authentication. Javier shared his screen and the four of us talked through what we believed would be the way to start building the authentication file. It was very difficult since there were a lot of moving parts to authentication in the backend, but it seems like we were able to figure it out. It was great since as soon as anyone had an idea, we tried it out to see if it worked. So far, the creating an account, logining in, and logging out functionality seems to work when we run the code on FastAPI. We also built up our database using MongoDB before we started anything else.
 
 # 06/27/2023
-Goals:
-- Make calls to TastyAPI in GET request
-- Make calls to SpoonacularAPI in GET request
-- Start CRUD for ingredients model
+Achieved:
+- Made calls to TastyAPI in GET request
+- Made calls to SpoonacularAPI in GET request
+- Started CRUD for ingredients model
 
 Today we worked as a group to create a GET request to our apis (TastyAPI and SpoonacularAPI) to get the necessary fields that we think that we would like for our project. This was difficult as we had problems accessing the spoonacular website at first since they were upgrading their infrastructure. We were finally able to get that working even though we had to deal with some key errors initially. Accessing the tasty api was easier and more straightforward once I made my API key. We also were able to start working on the CRUD for the ingredients model that the user will have access to. This was also difficult since we were kind of confused on where to start, but I think my idea of starting by creating a new key to hold the account_id helped and we were able to go from there until we made it work. After talking with Riley, we realized that it would be better if the ingredients were automatically associated with an account/logged in user so we added a aoccount_data = Depends(authenticator) parameter to our router.post so that it is gotten simulataneously and parsed through the account_data to get the specific id. My group seems to have a really good setup so far that even though one person is sharing their screen and typing, we are all contributing to what is goinf on, which is nice.
 
@@ -15,7 +15,7 @@ Goals For Tomorrow:
 - Start CRUD for favorites
 
 # 06/28/2023
-Goals:
+Achieved:
 - Finished authentication (DuplicateError message was added to specifiy unique email/username, GetToken)
 - Finished CRUD for ingredients
 - Finished CRUD for favorites
@@ -29,7 +29,7 @@ Goals For Tomorrow:
 - Possibly work on backend to make calls to youtube through spoonacular
 
 # 06/29/2023
-Goals:
+Achieved:
 - Made our ratings routers fit the RESTful schema with their endpoints
 - Added query and router to get ratings for specific account user
 - Fixed update ratings to be updated solely by the ratings id
@@ -41,7 +41,7 @@ Goals For Tomorrow:
 - Add bootstrap to signup page on React to practice using bootstrap
 
 # 07/11/2023
-Goals:
+Achieved:
 - Made a signup form using React Redux
 - Made a login form using React Redux
 - Made a simple functional main page for project
@@ -54,7 +54,7 @@ Goals For Tomorrow:
 - Create detail page for specific recipe
 
 # 07/12/2023
-Goals:
+Achieved:
 - Made a recipe detail page to see details for specific recipe using React Redux
 - Used useParams to get recipeId from the url path and based off of that recipeId the recipe's title and image for now is shown
 
@@ -64,7 +64,7 @@ Goals For Tomorrow:
 - Create search page for recipes that have filter and sort options
 
 # 07/13/2023
-Goals:
+Achieved:
 - Created a favorites button that when clicked on toggles between Add Favorite (POST to favorites list) and Remove Favorite (DELETE from favorites list)
 - Added ability to see button on basis of if you have an account or not
 - Added error handling to login and signup forms
@@ -76,7 +76,7 @@ Goals For Tomorrow:
 - Create profile page for each account
 
 # 07/14/2023
-Goals:
+Achieved:
 - Created unit tests for tasty api and ingredients
 
 Today we worked as a group to get make our unit tests since we went over that in lecture today. This went well for us. We each took a turn sharing our screen and writing one component of the unit tests required for the grade. In total we wrote unit tests for CRD for ingredients and GET for the tasty api list.
@@ -86,7 +86,7 @@ Goals For Tomorrow:
 - Switch from spoonacular api to tasty api since the images are better on tasty
 
 # 07/17/2023
-Goals:
+Achieved:
 - Created reviews modal form on front end
 - Mapped out reviews to see comments and ratings that all users left for a specific recipe
 - Added ability to see account user's first and last name for the rating they left
@@ -99,15 +99,39 @@ Goals For Tomorrow:
 - Add ingredients list and form to profile page
 
 # 07/18/2023
-Goals:
+Achieved:
 - Got carousel of favorites to function properly
 - Added ingredients table
 - Added ability to update and delete ingredient
 - Fixed error in search page
-- created singular slice to work out of in redux so that we can easily invalidate tags when needed
+- Created singular slice to work out of in redux so that we can easily invalidate tags when needed
 
 Today we worked as a group to add to more aspects of our front-end through React. We started off with trying to get our carousel to work properly and I was able to figure out that with bootstrap we would need a base image to be active for the carosuel to really function as it should. We then talked to Riley and realized that having one slice file is for the best to ensure that the tags can be invalidated properly when needed. Javier shared his screen and we all worked together to consolidate our slices into one apiSlice. We then started working on the ingredients section of the profile page and got the list of ingredients mapped out. Shashwath shared his screen and we worked on creating an ingredients form and adding more detail to our ingredients list. I then shared my screen and took charge in leading us through fixing some errors we found in our search page. Our search page stopped functioning properly after we switched from the spoonacular api to the tasty api so I figured out a way to get the search page to function properly again by adding a useEffect that changes/filters as the form is submitted with a search term. David then shared his screen and we worked on adding the delete functionality to a specific ingredient. We then got stuck on adding the edit functionality since we were trying to do it in a modal form style on the profile page which complicated how we could access the ingredient_id for each ingredient (since we couldn't useParams it), but after talking with Riley about it, we were able to figure out how to start working on the issue by passing the id in as a props from the mapped out list in the profile page to the modal jsx file that we made. It was a very productive day and we all got to do a lot of coding.
 
 Goals For Tomorrow:
 - Add more functionality to our search page so one can hopefully search through recipes by ingredients
 - Start working on adding more bootstrap CSS to make our webpage look more professional
+
+# 07/19/2023
+Achieved:
+- Added ability to click on a "Surprise Me!" button and react will automatically navigate you to a random surprise recipe
+- Added sort by functionality to sort the list of recipes alphabetically
+- Added error handling on some forms
+
+Today we worked as a group to add more functionality to our search page. I started off sharing my screen and working through adding some error handling to our ingredients, ratings, and ingredients edit forms. David then shared his screen and we talked through how we were going to add a surprise me button that shows a random recipe from the recipe list. While at first the idea seemed challenging since I only knew a Math.random() method for numbers instead of strings like we needed, we were able to find a way to use that Math.random() method to access the indices of the recipe array randomly. Now when you click on the surprise me button, it will navigate you to a random recipe each time. Shashwath then shared his screen, and we then decided to start on adding a sort by feature that will sort the recipe list alphabetically or by ingredients when clicked on. We started with alphabetically since that seemed simpler but ended up hitting a lot of snags trying to implement this feature. First, we used the wrong event handler for the <select> html tag. We tried onSelect then onClick and then finally realized that we should be using an onChange. We then tried to implement the function that would handleSortSubmit. We tried various methods to sort the array of dictionaries by the name value such as a .sort() and .sort((a,b) => {(...)}) but ended up still getting errors. Eventually we landed on sorting the array with a bubble sort like we had learned in class. However, we were still getting the same error about the object Array being unable to be read. I started sharing my screen at this point and led with writing the code. I felt like all our sort functions should have been working and ended up looking up the error we were getting to see if anyone else had seen it, and we found out that the error was in reference to us trying to directly mutate the data aray for recipes even though it was just a READ query. After making a copy of the data and running that through the sort we were able to get rid of the error and get the sort by alphabetical to work somewhat. We then ran into another error where our sort useState variable that we created had a mismatch with the option values, so the list was being sorted alphabetically but only when the user clicked on "Ingredients" or "Sort by..." from the dropdown instead of "Alphabetical". After talking with Riley, we realized that this issue was most likely a result of having 2 functions in a single onChange handler so they were both conflicting and running async. I had the idea of adding a form to or select for now to move our handleSortSubmit out of the onChange handler and into an onSubmit handler. This thankfully worked for us and now only when you select "Alphabetical" and hit submit will the list be ordered alphabetically. The alphabetical ordering still works well in conjunction with the search bar so you can search by a term and order the list that appears alphabetically.
+
+Goals For Tomorrow:
+- Add more functionality to our search page so one can hopefully search through recipes by ingredients
+- Start working on adding more bootstrap CSS to make our webpage look more professional
+
+# 07/20/2023
+Achieved:
+- Added sort by functionality to sort the list of recipes by ingredients in the current logged in user's ingredients list
+- Added text color distinction on recipe details page for whether an ingredient is in the user's ingredient list (green if yes, red if no)
+- Started working on a possible stretch goal to have the returned sorted list of recipes to be ordered by which one has the most of the user's ingredients list as apart of their ingredients
+
+Today we worked as a group to add more functionality to our search page. I was in charge of typing the code while working on the sort by ingredients function. We were able to get the sort by ingredients to work when someone chooses the Ingredients option in the dropdown and submits the form. The list filters by the ingredients that you have provided and returns only the recipes that have ingredients that have the same name as the ones listed in the user's list. We then added a color distinction to the recipe details page so that if the ingredients match those in your list their text color becomes green and if they're not in the user's list then their text color will be red. Shashwath started sharing his screen and we worked on trying to have the return sorted list be ordered by how many values from the ingredients list that they match. This was very difficult for us, so we decided to make it a stretch goal that we could come back to since our main/original desire was just to get back a list with the shared ingredients.
+
+Goals For Tomorrow:
+- Start working on adding more bootstrap CSS to make our webpage look more professional
+- Add a few more design changes like placement on nav bar, a basic favorites list, changes in view of search page and profile page if you get logged out/timed out
