@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import {
   useGetRecipesQuery,
   useGetIngredientByAccountQuery,
+  useGetAccountQuery,
 } from "./app/apiSlice";
 import { useDispatch } from "react-redux";
 import { reset } from "./app/searchSlice";
@@ -15,6 +16,7 @@ function SearchPage() {
   const [sort, setSort] = useState("");
   const navigate = useNavigate();
   const { data: ingredients } = useGetIngredientByAccountQuery();
+  const { data: account, isLoading: isAccountLoading } = useGetAccountQuery();
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -78,11 +80,13 @@ function SearchPage() {
 
   if (isLoading) {
     return <p>Loading...</p>;
+  } else if (!isAccountLoading && !account) {
+    navigate("/");
   }
   return (
     <>
-      <form className="row" onSubmit={handleSearchSubmit}>
-        <div className="col">
+      <form className="row g-3" onSubmit={handleSearchSubmit}>
+        <div className="col-md-6">
           <input
             className="form-control form-control-lg"
             type="text"
@@ -90,8 +94,8 @@ function SearchPage() {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <div className="col">
-          <button className="btn btn-lg btn-success" type="submit">
+        <div className="col-md-6">
+          <button className="btn btn-sm btn-success" type="submit">
             Search
           </button>
           <button
@@ -112,14 +116,19 @@ function SearchPage() {
           >
             Surprise me!
           </button>
+          <button
+            className="btn btn-sm btn-primary"
+            onClick={() => handleSurpriseSubmit()}
+          >
+            Surprise me!
+          </button>
         </div>
-
         <div></div>
       </form>
       <div>
-        <form onSubmit={handleSortSubmit}>
+        <form className="d-flex align-items-center" onSubmit={handleSortSubmit}>
           <select
-            className="form-select"
+            className="form-select me-2"
             value={sort}
             onChange={(e) => {
               setSort(e.target.value);
@@ -136,6 +145,20 @@ function SearchPage() {
             value="Submit"
           />
         </form>
+      </div>
+      <div className="mt-3">
+        <button
+          className="btn btn-sm btn-outline-secondary me-2"
+          type="button"
+          onClick={() => {
+            dispatch(reset());
+            setSearch("");
+            setSort("");
+            setFilteredList(data);
+          }}
+        >
+          Reset
+        </button>
       </div>
       <div className="mt-3">
         <h1>Recipe List</h1>

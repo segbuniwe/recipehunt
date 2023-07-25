@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useLoginMutation } from "./app/apiSlice";
 import AlertMessage from "./AlertMessage";
 
@@ -59,6 +59,9 @@ const LoginForm = () => {
             <input className="btn btn-primary" type="submit" value="Login" />
           </div>
         </form>
+        <div className="text-center">
+          Don't already have an account? <Link to={"/signup"}>Sign up here</Link>
+        </div>
       </div>
     </div>
   );
