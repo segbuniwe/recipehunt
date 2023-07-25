@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useGetRecipesQuery, useGetIngredientByAccountQuery } from "./app/apiSlice";
+import { useGetRecipesQuery, useGetIngredientByAccountQuery, useGetAccountQuery } from "./app/apiSlice";
 import { useDispatch } from "react-redux";
 import { reset } from "./app/searchSlice";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,6 +12,7 @@ function SearchPage() {
   const [sort, setSort] = useState("");
   const navigate = useNavigate();
   const { data: ingredients } = useGetIngredientByAccountQuery();
+  const { data: account, isLoading: isAccountLoading } = useGetAccountQuery();
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -73,6 +74,8 @@ function SearchPage() {
 
   if (isLoading) {
     return <p>Loading...</p>;
+  } else if (!isAccountLoading && !account) {
+      navigate("/");
   }
   return (
     <>

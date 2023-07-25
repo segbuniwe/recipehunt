@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import IngredientForm from "./IngredientForm";
 import {
   useGetAccountQuery,
@@ -10,14 +10,17 @@ import IngredientEditModal from "./IngredientEditModal";
 
 function ProfilePage() {
   const { data: favorites, isLoading } = useGetFavoritesQuery();
-  const { data: account } = useGetAccountQuery();
+  const { data: account, isLoading: isAccountLoading } = useGetAccountQuery();
   const { data: ingredients, isLoading: ingredientsLoading } =
     useGetIngredientByAccountQuery();
   const [deleteIngredient] = useDeleteIngredientMutation();
+  const navigate = useNavigate();
 
   if (isLoading || ingredientsLoading) {
     return <p>Loading...</p>;
-  }
+  } else if (!isAccountLoading && !account) {
+    navigate("/");
+}
   return (
     <>
       <h1>Favorites</h1>

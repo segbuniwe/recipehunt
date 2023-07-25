@@ -1,6 +1,5 @@
-import { useParams } from "react-router-dom";
 import FavoritesButton from "./FavoritesButton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import RatingsForm from "./RatingsForm";
 import {
     useGetAccountQuery,
@@ -12,9 +11,10 @@ import {
 function RecipeDetails() {
     const { recipeId } = useParams();
     const { data, isLoading } = useGetRecipeByIdQuery(recipeId);
-    const { data: account } = useGetAccountQuery();
+    const { data: account, isLoading: isAccountLoading } = useGetAccountQuery();
     const { data: ratings } = useGetAllRatingsQuery(recipeId);
     const { data: ingredients } = useGetIngredientByAccountQuery();
+    const navigate = useNavigate();
 
     const ingredient = (i) => {
         if (ingredients) {
@@ -26,6 +26,8 @@ function RecipeDetails() {
 
     if (isLoading) {
         return <p>Loading...</p>;
+    } else if (!isAccountLoading && !account) {
+        navigate("/");
     }
     return (
         <div className="container">
