@@ -43,7 +43,7 @@ function RecipeDetails() {
     <div className="container">
       <h1 className="text-center mt-3">{data.name}</h1>
       {ratings.length > 0 ? (
-        <p className="text-center">{calculateAverage(ratings)}/5</p>
+        <p className="text-center">Overall Rating: {calculateAverage(ratings)}/5</p>
       ) : (
         <p className="text-center">No ratings for this recipe</p>
       )}
