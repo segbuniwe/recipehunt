@@ -7,6 +7,7 @@ import {
   useGetAllRatingsQuery,
   useGetIngredientByAccountQuery,
 } from "./app/apiSlice";
+import "./App.css";
 
 function RecipeDetails() {
   const { recipeId } = useParams();
@@ -131,25 +132,6 @@ function RecipeDetails() {
           <p>This video does not exist</p>
         )}
       </div>
-      <div className="text-center mt-3">
-        <h3>Reviews</h3>
-      </div>
-      {account ? (
-        <div className="text-center mt-5 mb-3">
-          <Link
-            className="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-            to={`/ratings/${recipeId}`}
-          >
-            Write a review
-          </Link>
-        </div>
-      ) : (
-        <Link className="btn btn-primary" to={"/login"}>
-          Login to write a review
-        </Link>
-      )}
 
       <div
         className="modal fade"
@@ -177,6 +159,27 @@ function RecipeDetails() {
           </div>
         </div>
       </div>
+      <div className="container-fluid">
+      <div className="comments-box">
+      <div className="text-center mt-3">
+        <h3>Reviews</h3>
+      </div>
+      {account ? (
+        <div className="text-center mb-3">
+          <Link
+            className="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            to={`/ratings/${recipeId}`}
+          >
+            Write a review
+          </Link>
+        </div>
+      ) : (
+        <Link className="btn btn-primary" to={"/login"}>
+          Login to write a review
+        </Link>
+      )}
       {ratings.length > 0 ? (
         ratings.map((rating) => {
           return (
@@ -209,6 +212,8 @@ function RecipeDetails() {
       ) : (
         <p className="text-center mt-5">No comments for this recipe</p>
       )}
+      </div>
+      </div>
     </div>
   );
 }
