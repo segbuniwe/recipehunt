@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
-import { useGetRecipesQuery, useGetIngredientByAccountQuery } from "./app/apiSlice";
+import {
+  useGetRecipesQuery,
+  useGetIngredientByAccountQuery,
+} from "./app/apiSlice";
 import { useDispatch } from "react-redux";
 import { reset } from "./app/searchSlice";
 import { Link, useNavigate } from "react-router-dom";
@@ -26,7 +29,7 @@ function SearchPage() {
   const handleSortSubmit = (e) => {
     e.preventDefault();
     if (sort === "alphabetical") {
-      const copyData = [...filteredList]
+      const copyData = [...filteredList];
       const len = copyData.length;
       for (let i = 0; i < len - 1; i++) {
         for (let j = i + 1; j < len; j++) {
@@ -49,15 +52,17 @@ function SearchPage() {
         const recipes = [...filteredList];
         const filteredRecipes = recipes.filter((recipe) =>
           recipe.sections.some((section) =>
-          section.components.some((component) =>
-            ingredientNames.some((ingredientName) =>
-              component.raw_text.toLowerCase().includes(ingredientName))
+            section.components.some((component) =>
+              ingredientNames.some((ingredientName) =>
+                component.raw_text.toLowerCase().includes(ingredientName)
+              )
+            )
           )
-          ));
+        );
         setFilteredList(filteredRecipes);
       }
     }
-  }
+  };
 
   const handleSurpriseSubmit = () => {
     const recipeListLength = data.length;
@@ -101,11 +106,15 @@ function SearchPage() {
           >
             Reset
           </button>
-          <button className="btn btn-primary" onClick={() => handleSurpriseSubmit()}>Surprise me!</button>
+          <button
+            className="btn btn-primary"
+            onClick={() => handleSurpriseSubmit()}
+          >
+            Surprise me!
+          </button>
         </div>
 
-        <div>
-        </div>
+        <div></div>
       </form>
       <div>
         <form onSubmit={handleSortSubmit}>
@@ -121,7 +130,11 @@ function SearchPage() {
             <option value="alphabetical">Alphabetical</option>
             <option value="ingredients">Ingredients</option>
           </select>
-          <input className="btn btn-outline-secondary btn-sm" type="submit" value="Submit" />
+          <input
+            className="btn btn-outline-secondary btn-sm"
+            type="submit"
+            value="Submit"
+          />
         </form>
       </div>
       <div className="mt-3">
