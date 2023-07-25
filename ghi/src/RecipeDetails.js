@@ -1,26 +1,52 @@
-import { useParams } from "react-router-dom";
 import FavoritesButton from "./FavoritesButton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import RatingsForm from "./RatingsForm";
 import {
   useGetAccountQuery,
   useGetRecipeByIdQuery,
   useGetAllRatingsQuery,
+  useGetIngredientByAccountQuery,
 } from "./app/apiSlice";
+import "./App.css";
 
 function RecipeDetails() {
   const { recipeId } = useParams();
   const { data, isLoading } = useGetRecipeByIdQuery(recipeId);
-  const { data: account } = useGetAccountQuery();
+  const { data: account, isLoading: isAccountLoading } = useGetAccountQuery();
   const { data: ratings } = useGetAllRatingsQuery(recipeId);
+  const { data: ingredients } = useGetIngredientByAccountQuery();
+  const navigate = useNavigate();
+  function calculateAverage (ratings) {
+    let sum = 0;
+    let average = 0;
+    for (let i = 0; i < ratings.length; i++) {
+        sum += ratings[i].rating;
+    }
+    average = sum / ratings.length;
+    return average.toFixed(1);
+  }
+  const ingredient = (i) => {
+    if (ingredients) {
+      return ingredients.some((item) =>
+        i.toLowerCase().includes(item.name.toLowerCase())
+      );
+    }
+  };
 
   if (isLoading) {
     return <p>Loading...</p>;
+  } else if (!isAccountLoading && !account) {
+    navigate("/");
   }
+  console.log(ratings)
   return (
     <div className="container">
       <h1 className="text-center mt-3">{data.name}</h1>
-      <p className="text-center">Rating/Stars Goes Here</p>
+      {ratings.length > 0 ? (
+        <p className="text-center">{calculateAverage(ratings)}/5</p>
+      ) : (
+        <p className="text-center">No ratings for this recipe</p>
+      )}
       <div className="text-center mt-3">
         <img
           className="img-thumbnail"
@@ -41,7 +67,7 @@ function RecipeDetails() {
         )}
       </div>
       <div className="mt-4">
-        <div className="border border-primary p-3">
+        <div className="border border-5 border-success p-4 mb-4 rounded-pill">
           <div className="row">
             <div className="col text-left">
               <p>Ready in Minutes: {data.total_time_minutes}</p>
@@ -60,17 +86,28 @@ function RecipeDetails() {
           </div>
         </div>
       </div>
+
       <div className="mt-4">
         <div className="row">
           <div className="col">
             <h3>Ingredients</h3>
             <ul>
               {data.sections.map((section) =>
-                section.components.map((component) => (
-                  <div key={component.id}>
-                    <li>{component.raw_text}</li>
-                  </div>
-                ))
+                section.components.map((component) => {
+                  const ingredientName = component.raw_text;
+                  const ingredientInRecipe = ingredient(ingredientName);
+                  return (
+                    <div key={component.id}>
+                      <li
+                        className={
+                          ingredientInRecipe ? "text-success" : "text-danger"
+                        }
+                      >
+                        {component.raw_text}
+                      </li>
+                    </div>
+                  );
+                })
               )}
             </ul>
           </div>
@@ -95,25 +132,6 @@ function RecipeDetails() {
           <p>This video does not exist</p>
         )}
       </div>
-      <div className="text-center mt-3">
-        <h3>Reviews</h3>
-      </div>
-      {account ? (
-        <div className="text-center mt-3">
-          <Link
-            className="btn btn-primary"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-            to={`/ratings/${recipeId}`}
-          >
-            Write a review
-          </Link>
-        </div>
-      ) : (
-        <Link className="btn btn-primary" to={"/login"}>
-          Login to write a review
-        </Link>
-      )}
 
       <div
         className="modal fade"
@@ -141,24 +159,61 @@ function RecipeDetails() {
           </div>
         </div>
       </div>
+      <div className="container-fluid">
+      <div className="comments-box">
+      <div className="text-center mt-3">
+        <h3>Reviews</h3>
+      </div>
+      {account ? (
+        <div className="text-center mb-3">
+          <Link
+            className="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            to={`/ratings/${recipeId}`}
+          >
+            Write a review
+          </Link>
+        </div>
+      ) : (
+        <Link className="btn btn-primary" to={"/login"}>
+          Login to write a review
+        </Link>
+      )}
       {ratings.length > 0 ? (
         ratings.map((rating) => {
           return (
-            <div key={rating.id}>
-              <div>
-                {rating.comments} {rating.rating}
+            <div key={rating.id}
+            className="border border-5 border-success p-4 mb-4">
+              <div className="row">
+                <div className="col text-left">
                 <p>
-                  <small>
+                    <small>
                     {rating.account_first_name} {rating.account_last_name}
-                  </small>
+                    </small>
+                </p>
+                </div>
+                <div className="col text-end">
+                <p>
+                    {rating.rating}/5
                 </p>
               </div>
+            </div>
+            <div className="row">
+                <div className="col text-center">
+                <p>
+                    {rating.comments}
+                </p>
+            </div>
+            </div>
             </div>
           );
         })
       ) : (
-        <p>No comments for this recipe</p>
+        <p className="text-center mt-5">No comments for this recipe</p>
       )}
+      </div>
+      </div>
     </div>
   );
 }
