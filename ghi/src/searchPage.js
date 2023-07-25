@@ -116,12 +116,6 @@ function SearchPage() {
           >
             Surprise me!
           </button>
-          <button
-            className="btn btn-sm btn-primary"
-            onClick={() => handleSurpriseSubmit()}
-          >
-            Surprise me!
-          </button>
         </div>
         <div></div>
       </form>
