@@ -1,8 +1,25 @@
 import { Link } from "react-router-dom";
-
+import videoSource from "./food.mp4";
 function MainPage() {
     return (
         <>
+              <video
+        style={{
+          position: "absolute",
+          width: "100%",
+          left: "50%",
+          top: "50%",
+          height: "100%",
+          objectFit: "cover",
+          transform: "translate(-50%, -50%)",
+          zIndex: "-1",
+        }}
+        autoPlay
+        loop
+        muted
+        src={videoSource}
+        type="video/mp4"
+      />
             <div className="px-4 py-5 my-5 mt-0 text-center bg-info">
                 <img
                     className="bg-white rounded shadow d-block mx-auto mb-4"

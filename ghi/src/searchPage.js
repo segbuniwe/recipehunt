@@ -99,19 +99,7 @@ function SearchPage() {
             Search
           </button>
           <button
-            className="btn btn-lg btn-link"
-            type="button"
-            onClick={() => {
-              dispatch(reset());
-              setSearch("");
-              setSort("");
-              setFilteredList(data);
-            }}
-          >
-            Reset
-          </button>
-          <button
-            className="btn btn-primary"
+            className="btn btn-sm btn-primary"
             onClick={() => handleSurpriseSubmit()}
           >
             Surprise me!
