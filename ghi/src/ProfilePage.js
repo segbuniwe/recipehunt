@@ -111,7 +111,7 @@ function ProfilePage() {
                   <td>{ingredient.unit}</td>
                   <td>
                     <button
-                      className="btn btn-danger"
+                      className="btn btn-sm btn-danger"
                       onClick={() => deleteIngredient(ingredient.id)}
                     >
                       Remove Ingredient
@@ -119,7 +119,7 @@ function ProfilePage() {
                   </td>
                   <td>
                     <button
-                      className="btn btn-success"
+                      className="btn btn-sm btn-success"
                       data-bs-toggle="modal"
                       data-bs-target={`#editIngredientModal${ingredient.id}`}
                     >

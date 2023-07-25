@@ -12,10 +12,16 @@ function MainPage() {
                 />
                 <h1 className="display-5 fw-bold">RecipeHunt</h1>
                 <div className="col-lg-6 mx-auto">
-                    {/* <p className="lead mb-4">
-                        The only resource you'll ever need to plan an run your in-person or
-                        virtual conference for thousands of attendees and presenters.
-                    </p> */}
+                    <p className="lead mb-4">
+                    Welcome to RecipeHunt, your ultimate destination for culinary
+                    inspiration! Sign up or log in to access a vast collection of
+                    mouthwatering recipes. Customize your cooking experience by
+                    creating your ingredient list on your profile page, ensuring you never
+                    miss a key ingredient. Discover recipes that match your pantry with
+                    our advanced search feature. Save your favorite finds for easy access,
+                    and embark on a culinary journey filled with delicious flavors.
+                    Happy hunting with RecipeHunt!
+                    </p>
                     <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
                         <Link
                             to="/signup"
