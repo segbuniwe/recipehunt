@@ -57,4 +57,9 @@ Shash and Sophia lead the charge today by figuring out how to sort recipes throu
 -figure out how to do the ingredient ordered search
 -add a list for favorites
 
--
+7/24
+-We took a day to reflect and rest up after the practice assessment
+
+-work on the making the website look better with bootstrap and css
+
+7/25
