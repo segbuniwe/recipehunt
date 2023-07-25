@@ -50,10 +50,10 @@ function SearchPage() {
         const recipes = [...filteredList];
         const filteredRecipes = recipes.filter((recipe) =>
           recipe.sections.some((section) =>
-          section.components.some((component) =>
-            ingredientNames.some((ingredientName) =>
-              component.raw_text.toLowerCase().includes(ingredientName))
-          )
+            section.components.some((component) =>
+              ingredientNames.some((ingredientName) =>
+                component.raw_text.toLowerCase().includes(ingredientName))
+            )
           ));
         setFilteredList(filteredRecipes);
       }
@@ -75,12 +75,12 @@ function SearchPage() {
   if (isLoading) {
     return <p>Loading...</p>;
   } else if (!isAccountLoading && !account) {
-      navigate("/");
+    navigate("/");
   }
   return (
     <>
-      <form className="row" onSubmit={handleSearchSubmit}>
-        <div className="col">
+      <form className="row g-3" onSubmit={handleSearchSubmit}>
+        <div className="col-md-6">
           <input
             className="form-control form-control-lg"
             type="text"
@@ -88,32 +88,19 @@ function SearchPage() {
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
-        <div className="col">
-          <button className="btn btn-lg btn-success" type="submit">
+        <div className="col-md-6">
+          <button className="btn btn-sm btn-success" type="submit">
             Search
           </button>
-          <button
-            className="btn btn-lg btn-link"
-            type="button"
-            onClick={() => {
-              dispatch(reset());
-              setSearch("");
-              setSort("");
-              setFilteredList(data);
-            }}
-          >
-            Reset
-          </button>
-          <button className="btn btn-primary" onClick={() => handleSurpriseSubmit()}>Surprise me!</button>
+          <button className="btn btn-sm btn-primary" onClick={() => handleSurpriseSubmit()}>Surprise me!</button>
         </div>
-
         <div>
         </div>
       </form>
       <div>
-        <form onSubmit={handleSortSubmit}>
+        <form className="d-flex align-items-center" onSubmit={handleSortSubmit}>
           <select
-            className="form-select"
+            className="form-select me-2"
             value={sort}
             onChange={(e) => {
               setSort(e.target.value);
@@ -126,6 +113,20 @@ function SearchPage() {
           </select>
           <input className="btn btn-outline-secondary btn-sm" type="submit" value="Submit" />
         </form>
+      </div>
+      <div className="mt-3">
+        <button
+          className="btn btn-sm btn-outline-secondary me-2"
+          type="button"
+          onClick={() => {
+            dispatch(reset());
+            setSearch("");
+            setSort("");
+            setFilteredList(data);
+          }}
+        >
+          Reset
+        </button>
       </div>
       <div className="mt-3">
         <h1>Recipe List</h1>

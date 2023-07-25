@@ -59,7 +59,7 @@ const LoginForm = () => {
             <input className="btn btn-primary" type="submit" value="Login" />
           </div>
         </form>
-        <div>
+        <div className="text-center">
           Don't already have an account? <Link to={"/signup"}>Sign up here</Link>
         </div>
       </div>
