@@ -66,7 +66,7 @@ Shash and Sophia lead the charge today by figuring out how to sort recipes throu
 Javier and Sophia added CSS styling to the recipe ratings and comments. I am reminded about how jsx syntax is like sorta convienient with how you implement features onto the frontend portion of the application. The group did really well coordinating what changes we wanted to implement. I feel like I'm not really sure what I'm doing.
 
 7/26
-Today we added more CSS and styling into our profile page, the search page. We added a background for the main page but that seems prone for change. I've started to made css for a dark/light mode theme but am struggling to implement it. I'll ask for help later.
+Today we added more CSS and styling into our profile page, the search page. We added a background for the main page but that seems prone for change. I've started to made css for a dark/light mode theme but am struggling to implement it. I'll ask for help later. But to be honest not sure if it will even work.
 
 -add an image url for the backend for the profile page
 -move surprise me to right of the recipe list
