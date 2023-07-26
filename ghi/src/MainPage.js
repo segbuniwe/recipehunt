@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import videoSource from "./food.mp4";
 function MainPage() {
   return (

@@ -5,9 +5,19 @@
   .navbar-collapse ul {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.nav-link {
+/* .navbar-nav {
+  display: flex;
+  justify-content: center;
+}
+
+#logout {
+  justify-content: end !important;
+} */
+
+/* .nav-link {
     font-size: 18.8px;
   }
 
@@ -18,4 +28,4 @@
 
   .navbar-brand {
     font-size: 25px;
-  }
+  } */
