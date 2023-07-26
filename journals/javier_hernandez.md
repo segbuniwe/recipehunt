@@ -38,12 +38,25 @@ Today we just made some unit tests. At first I was reluctant because I truly jus
 Amazing day we got A LOT done. We were able to implement reviews on the back and front end for recipes, and tie those reviews to a user. Sophia is truly a wizard when it comes to Redux as she took the lead on this one without hesitation. We had to map a lot today and we learned how nested maps work. In one of our components we had objects within objects that were buried deep in there so I figured that nested map would be the best approach, and it worked. We also made the switch from pulling from spoonaculars API to Tastys API. Spoonacular wasn't cutting it for us, its images were way too low quality, plus they had no video.
 
 7/18/23
+
 Today we were able to implement the carousel on the front end. I wish we would have made it so that you can see multiple images at a time, but who knew CSS is a beast of its own. Other than that we added an ingredients table to show the user their inputted ingredients.
 
 7/19/23
+
 We got the surprise me button to work. We used some math in our code to generate a random number and we then used that random numner in an api call to display to the user who's mind can't be made up on dinner, a recipe without thinking about it. We were also able to implement a sort for the recipes in alphabetical order.
 
 7/20/23
+
 Today was kind of light. We implenteded color distinction to show the recipes ingredients vs what the users ingredients "fridge". If they had them, it'd be highlighted green, if not it's red. We were stuck and still are actually because we are trying to filter ingredients based on what the users fridge looks like. ie, the recipes with the most match ingredients in the users list, after trying for hours my team and I were not able to figure it out. Hopefully tomorrow is a better day.
 
+7/24/23
 
+Today we decided to just study CSS on our own.
+
+7/25/23
+Pretty easy day. We made redirects back to the home page when the user logs out. Made a favorites list to see the logged in users favorites and a link to take them back to that recipe. Added almost like an about me to main page but realized it took up too much space so we are figuring out where else we can showcase this information.
+
+7/26/23
+
+I got to work immediately today styling the profile page.
+Styling the carousel is difficult, I got it to center to where I wanted but then realized the arrows were off. Then the images being rendered in were off. It's a mess. But then Sophia came in and helped me out she was able to get it more centered as far as the arrows go. Images still come in wonky but its not the worst. Main page looks awesome, we got a nice lil food video that we display on navigation to our page, and I removed the navbar box and it looks so much cleaner. Also added in two new fonts to use throughout our website. One of them is only targeted towards the nav-brand icon, and the rest is utilized through the body of the homepage. Lastly, we created a card that once the surprise me button is clicked, it displays a visual representation of a recipe to the user who is unsure of what to have for dinner. Great day, CSS is a lot of fun until you're working with carousels...
