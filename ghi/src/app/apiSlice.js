@@ -37,7 +37,7 @@ export const recipeHuntApi = createApi({
                     'Content-Type': 'application/json',
                 },
             }),
-            invalidatesTags: ['Account']
+            invalidatesTags: ['Account', "Favorites", "Ingredient"]
         }),
         login: builder.mutation({
             query: ({ username, password }) => {
@@ -51,7 +51,7 @@ export const recipeHuntApi = createApi({
                     credentials: 'include'
                 }
             },
-            invalidatesTags: ['Account']
+            invalidatesTags: ['Account', "Favorites", "Ingredient"]
         }),
         getIngredientByAccount: builder.query({
             query: () => ({
@@ -71,7 +71,7 @@ export const recipeHuntApi = createApi({
                     "Content-Type": "application/json",
                 },
             }),
-            invalidatesTags: ["Ingredient"],
+            invalidatesTags: ["Ingredient", "Account"],
         }),
         deleteIngredient: builder.mutation({
             query: (ingredient_id) => ({
@@ -79,7 +79,7 @@ export const recipeHuntApi = createApi({
                 method: "DELETE",
                 credentials: "include",
             }),
-            invalidatesTags: ["Ingredient"],
+            invalidatesTags: ["Ingredient", "Account"],
         }),
         updateIngredient: builder.mutation({
             query: ({ body: body, ingredient_id: ingredient_id }) => ({
@@ -89,7 +89,7 @@ export const recipeHuntApi = createApi({
                 credentials: "include",
             }),
             transformResponse: (response) => response.ingredients,
-            invalidatesTags: ["Ingredient"],
+            invalidatesTags: ["Ingredient", "Account"],
         }),
         getRecipeById: builder.query({
             query: (recipeId) => ({
@@ -123,7 +123,7 @@ export const recipeHuntApi = createApi({
                     "Content-Type": "application/json",
                 },
             }),
-            invalidatesTags: ["Favorites"],
+            invalidatesTags: ["Favorites", "Account"],
         }),
         deleteFavorites: builder.mutation({
             query: (favorite_id) => ({
@@ -131,7 +131,7 @@ export const recipeHuntApi = createApi({
                 method: "DELETE",
                 credentials: "include",
             }),
-            invalidatesTags: ["Favorites"],
+            invalidatesTags: ["Favorites", "Account"],
         }),
         getAllRatings: builder.query({
             query: (recipe_id) => ({
