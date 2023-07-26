@@ -52,22 +52,26 @@ function ProfilePage() {
                   return (
                     <div className="carousel-item" key={favorite.id}>
                       <div className="card mb-3 shadow">
+                        <div className="card-img-container">
                         <img
                           src={favorite.thumbnail_url}
                           className="card-img-top"
                           alt={favorite.name}
                         />
+                        </div>
                         <div className="card-body">
                           <h5 className="card-title text-center">
                             {favorite.name}
                           </h5>
                         </div>
+                        <div className="card-link-container">
                         <Link
                           className="btn btn-info"
                           to={`/recipe/${favorite.recipe_id}`}
                         >
                           Go to Recipe
                         </Link>
+                        </div>
                       </div>
                     </div>
                   );

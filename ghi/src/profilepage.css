@@ -7,11 +7,14 @@
 
   .carousel-container {
     width: 75%;
-    height: 100%;
+    height: 400px;
   }
 
   .carousel-inner {
     height: 100%;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
   }
 
   .carousel-item {
@@ -24,8 +27,8 @@
   }
 
   .custom-carousel .carousel-item {
-    height: 75%;
-    width: 75%;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
   }
 
@@ -71,4 +74,39 @@
 
   .profile-details {
     margin-top: 3em;
+}
+
+.card {
+  margin: 10px;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-container {
+  height: 275px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-title {
+  margin-bottom: 0;
+  font-size: 1.5rem;
+}
+
+.card-link-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
