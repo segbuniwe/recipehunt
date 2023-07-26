@@ -51,9 +51,7 @@ class TastyRecipesRepo(Queries):
         return data["results"]
 
     def get_recipe_by_id(self, id: str):
-        url = (
-            f"https://tasty.p.rapidapi.com/recipes/get-more-info?id={id}"
-        )
+        url = f"https://tasty.p.rapidapi.com/recipes/get-more-info?id={id}"
 
         headers = {
             "X-RapidAPI-Key": TASTY_API_KEY,

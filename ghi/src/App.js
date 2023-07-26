@@ -21,8 +21,6 @@ function App() {
       <BrowserRouter>
         <div className="container">
           <Nav />
-          <AuthProvider>
-            {/* <TitleBar /> */}
             <Routes>
               <Route exact path="/" element={<MainPage />}></Route>
               <Route exact path="/signup" element={<SignUpForm />}></Route>
@@ -55,7 +53,6 @@ function App() {
               >
               </Route>
             </Routes>
-          </AuthProvider>
         </div>
       </BrowserRouter>
     </>
