@@ -7,6 +7,7 @@ import {
 import { useDispatch } from "react-redux";
 import { reset } from "./app/searchSlice";
 import { Link, useNavigate } from "react-router-dom";
+import "./searchpage.css";
 
 function SearchPage() {
   const [search, setSearch] = useState("");
@@ -109,6 +110,7 @@ function SearchPage() {
   }
   return (
     <>
+    <div className="header">
       <form className="row g-3" onSubmit={handleSearchSubmit}>
         <div className="col-md-6">
           <input
@@ -148,7 +150,7 @@ function SearchPage() {
             <option value="ingredients">Ingredients</option>
           </select>
           <input
-            className="btn btn-outline-secondary btn-sm"
+            className="btn btn-light btn-sm"
             type="submit"
             value="Submit"
           />
@@ -156,7 +158,7 @@ function SearchPage() {
       </div>
       <div className="mt-3">
         <button
-          className="btn btn-sm btn-outline-secondary me-2"
+          className="btn btn-sm btn-light me-2"
           type="button"
           onClick={() => {
             dispatch(reset());
@@ -168,13 +170,14 @@ function SearchPage() {
           Reset
         </button>
       </div>
-      <div className="mt-3">
-        <h1>Recipe List</h1>
+      </div>
+      <div className="recipe-list">
+        <h1 className="text-center recipe-title">Recipe List</h1>
         <div className="row mt-3">
           {filteredList && filteredList.length > 0 ? (
             filteredList.map((recipe) => (
               <div key={recipe.id}>
-                <Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
+                <Link to={`/recipe/${recipe.id}`} className="recipe-link">{recipe.name}</Link>
               </div>
             ))
           ) : (
