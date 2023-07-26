@@ -151,3 +151,23 @@ Today we worked as a group to add more functionality to our overall webpage. We 
 
 Goals For Tomorrow:
 - Continue working on adding more bootstrap CSS/personal CSS to make our webpage look more professional
+
+# 07/26/2023
+Achieved:
+- Fixed invalidatesTags so that when a user logouts their content is automatically invalidated
+- Fixed component error that used to happen when logging out/timing out
+- Fixed 401 unauthorized error that used to happen when logging out/timing out and trying to log back in under a different account
+- Fixed syntax error
+- Added ability to sort by your list of ingredients and return a list of recipes ordered from least to most in terms of ingredient list length
+- Added css to most of webpage (nav, profile, search, main)
+- Changed surprise me button to function in conjunction with a card
+
+Today we worked as a group to add more functionality to our overall webpage. We were able to fix our issues with invalidation. Shashwath noticed that we were not invalidating tags for "Account" when we invalidate our "Favorites" or "Ingredient" tags and that helped sync the data and stop the 401 unauthorized error we kept seeing. I also was able to get the redirect to home when someone logs out/times out fully functional. At first this functionality would work, but if you look at the console you would see a conponent error because the useNavigate was being called in the wrong location. Moving the useNavigate call to a useEffect, helped solve that error and someone can be redirected properly. After talking with Riley, we were also able to resolve our syntax error problem that we were seeing throughout our duration of working on the frontend. It turns out that we forgot to remove the AuthProvider tag from the App.js when we still thought that we'd be using jwt-down completely for frontend authentication. After removing that tag, the error disappeared. Shashwath and I started working on trying to get our sorting ingredients to be more precise while Javier and David worked on more CSS aspects of our project. It took some time, but Shashwath and I were able to figure out a way to filter the recipe list by whether or not that include ingredients from the user's ingredients list, sort those filtered recipes by the length of their ingredients list, and return a final list that has the desired ingredients and is sorted by length of recipe ingredient list from shortest to longest. We all then started working on adding more CSS to the webpage and Javier was really helpful in leading us in how to most effectively input the CSS. We then decided that instead of just a surprise me button that navigates someone to a different page when clicked, we wanted a rotating card feature that changes to a random recipe every time the button is clicked. We were able to figure this out by using the filteredRecipesID that we already had and finding that specific random recipe by comparing the recipe id to the filteredRecipesID.
+
+Goals For Tomorrow:
+- Figure out scrollable main page feature (either that or separate About Me page)
+- Add image_url to backend for account_data to be used on profile page
+- Move surprise me card from bottom of page to right next to recipes list
+- Add more css as we see fit
+- README.md (wireframing/ghi, api.md, data model, integrations)
+- Start cleaning up code (deleting unused data, commented out data, console.logs, prints)
