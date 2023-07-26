@@ -189,7 +189,7 @@ function SearchPage() {
         </div>
       </div>
       {surpriseRecipe ? (
-        <div className="card mb-3 shadow">
+        <div className="card mb-3 shadow w-25 p-3 h-25 d-inline-block align-items-center">
           <div className="card-img-container">
             <img
               src={surpriseRecipe.thumbnail_url}
@@ -213,7 +213,7 @@ function SearchPage() {
           </button>
         </div>
       ) : (
-        <div className="card mb-3 shadow">
+        <div className="card mb-3 shadow w-25 p-3 h-25 d-inline-block">
           <div className="card-img-container">
             <img
               src="https://st3.depositphotos.com/2777531/12741/v/950/depositphotos_127410624-stock-illustration-surprise-inscription-with-sunrays.jpg"

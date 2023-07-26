@@ -28,7 +28,7 @@ function ProfilePage() {
   if (isLoading || ingredientsLoading) {
     return <p>Loading...</p>;
   }
-  console.log(account)
+  console.log(account);
 
   return (
     <>
@@ -53,11 +53,11 @@ function ProfilePage() {
                     <div className="carousel-item" key={favorite.id}>
                       <div className="card mb-3 shadow">
                         <div className="card-img-container">
-                        <img
-                          src={favorite.thumbnail_url}
-                          className="card-img-top"
-                          alt={favorite.name}
-                        />
+                          <img
+                            src={favorite.thumbnail_url}
+                            className="card-img-top"
+                            alt={favorite.name}
+                          />
                         </div>
                         <div className="card-body">
                           <h5 className="card-title text-center">
@@ -65,12 +65,12 @@ function ProfilePage() {
                           </h5>
                         </div>
                         <div className="card-link-container">
-                        <Link
-                          className="btn btn-info"
-                          to={`/recipe/${favorite.recipe_id}`}
-                        >
-                          Go to Recipe
-                        </Link>
+                          <Link
+                            className="btn btn-info"
+                            to={`/recipe/${favorite.recipe_id}`}
+                          >
+                            Go to Recipe
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -107,7 +107,9 @@ function ProfilePage() {
         <div className="profile-indicator text-center mt-3">
           <img src={favicon} alt="Profile" className="profile-picture" />
           <div className="profile-details">
-            <p>{account.first_name} {account.last_name}</p>
+            <p>
+              {account.first_name} {account.last_name}
+            </p>
             <p>Total Favorite Recipes: {favorites.length}</p>
           </div>
           <div className="profile-footer">
