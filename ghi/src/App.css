@@ -12,3 +12,13 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.comments-box {
+  max-height: 200px;
+  max-width: 80vw;
+  margin-top: 2em;
+  overflow-y: auto;
+  margin-bottom: 1em;
+  padding: 1em;
+  background-color: white;
+}

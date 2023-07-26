@@ -2,7 +2,6 @@
 
 JWTDOWN was indeed a challenge. After the team and I realized that all we had to do to create an account was to insert it in to the database the rest was smooth sailing. Or so I thought. I was definitely stumped on how to make the functions work since ideally, right after creation, you'd want that user to be signed in. It did not occur to me that after creation we had their info in the database. After the 15 minute break I came back and was able to find the account we just created and sign in. I'm happy my team is helpful, and excited for the challenges to come.
 
-
 6/27/2023
 
 Today went really well! We were able to integrate the usage of both Spoontacular and Tasty API's. We dove even deeper to accomplish the task of having a new collection in our db named ingredients, and having the current signed in user post their list of ingredients on to the database. At first we had done so in a way which was redundant, as per Riley. Through his guidelines we were able to manipulate our code so that we didn't need the extra code we wrote, instead we used the JWTDown library to assist us with the task. Overall an excellent day and I feel as if we're making huge progress early on in our project. Hopefully we can keep the ball rolling when it comes to the front end, because at this pace we'll be there in no time.
@@ -22,6 +21,7 @@ Understanding React Redux a bit more thanks to my teammates. It does seem much s
 7/13/23
 
 Implementations we made today -
+
 1. Fixed vaildation error when calling List Tasty API Recipes.
 2. We worked as a team on to complete the Favorites button.
 3. I styled the recipe details page a bit more.
@@ -29,11 +29,21 @@ Implementations we made today -
 
 I feel really good about today. I've been slacking on Redux knowledge but I took it head on today to gain some experience. Thankful for my knowledgable team members who were able to help me through every step of the way. Even though using the Redux library isn't natural to me, some troubleshooting aspects are. Really starting to see my programming skills come to life because of Redux troubleshooting. We got a lot done today, Realized Spoonacular's API is a bit lackluster when it comes to the images of their recipes, so that leaves the debate of wether or not to focus on our other API resource, Tasty. Tasty alone also has its drawbacks but that's up for discussion with the team. Favorites button was fun to implement, I can't believe we got stuck on the delete URL and that Riley was able to identify the problem almost immediately. Overall super productive day, and I'm we can see the app coming to life.
 
-
 7/14/23
 
 Today we just made some unit tests. At first I was reluctant because I truly just did not get it. After speaking to my team, they helped me realize how it works and we got to it. Pretty simple day.
 
 7/17/23
 
-Amazing day we got A LOT done. We were able to implement reviews on the back and front end for recipes, and tie those reviews to a user. Sophia is truly a wizard when it comes to Redux as she took the lead on this one without hesitation. We had to map a lot today and we learned how nested maps work. In one of our components we had objects within objects that were buried deep in there so I figured that nested map would be the best approach, and it worked. We also made the switch from pulling from spoonaculars API to Tastys API. Spoonacular wasn't cutting it for us, its images were way too low quality, plus they had no video. 
+Amazing day we got A LOT done. We were able to implement reviews on the back and front end for recipes, and tie those reviews to a user. Sophia is truly a wizard when it comes to Redux as she took the lead on this one without hesitation. We had to map a lot today and we learned how nested maps work. In one of our components we had objects within objects that were buried deep in there so I figured that nested map would be the best approach, and it worked. We also made the switch from pulling from spoonaculars API to Tastys API. Spoonacular wasn't cutting it for us, its images were way too low quality, plus they had no video.
+
+7/18/23
+Today we were able to implement the carousel on the front end. I wish we would have made it so that you can see multiple images at a time, but who knew CSS is a beast of its own. Other than that we added an ingredients table to show the user their inputted ingredients.
+
+7/19/23
+We got the surprise me button to work. We used some math in our code to generate a random number and we then used that random numner in an api call to display to the user who's mind can't be made up on dinner, a recipe without thinking about it. We were also able to implement a sort for the recipes in alphabetical order.
+
+7/20/23
+Today was kind of light. We implenteded color distinction to show the recipes ingredients vs what the users ingredients "fridge". If they had them, it'd be highlighted green, if not it's red. We were stuck and still are actually because we are trying to filter ingredients based on what the users fridge looks like. ie, the recipes with the most match ingredients in the users list, after trying for hours my team and I were not able to figure it out. Hopefully tomorrow is a better day.
+
+

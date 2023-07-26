@@ -26,10 +26,11 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login({username, password});
+    login({ username, password });
   };
 
   return (
+    <div className="container">
     <div className="card text-bg-light mb-3">
       <h5 className="card-header">Login</h5>
       {alertMessage && <AlertMessage>{alertMessage}</AlertMessage>}
@@ -55,14 +56,15 @@ const LoginForm = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          <div className="text-center">
+            Don't have an account? <Link to={"/signup"}>Sign up here</Link>
+          </div>
           <div>
             <input className="btn btn-primary" type="submit" value="Login" />
           </div>
         </form>
-        <div className="text-center">
-          Don't already have an account? <Link to={"/signup"}>Sign up here</Link>
-        </div>
       </div>
+    </div>
     </div>
   );
 };

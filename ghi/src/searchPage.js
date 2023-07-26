@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
-import { useGetRecipesQuery, useGetIngredientByAccountQuery, useGetAccountQuery } from "./app/apiSlice";
+import {
+  useGetRecipesQuery,
+  useGetIngredientByAccountQuery,
+  useGetAccountQuery,
+} from "./app/apiSlice";
 import { useDispatch } from "react-redux";
 import { reset } from "./app/searchSlice";
 import { Link, useNavigate } from "react-router-dom";
@@ -27,7 +31,7 @@ function SearchPage() {
   const handleSortSubmit = (e) => {
     e.preventDefault();
     if (sort === "alphabetical") {
-      const copyData = [...filteredList]
+      const copyData = [...filteredList];
       const len = copyData.length;
       for (let i = 0; i < len - 1; i++) {
         for (let j = i + 1; j < len; j++) {
@@ -39,7 +43,8 @@ function SearchPage() {
         }
       }
       setFilteredList(copyData);
-    } else if (sort === "ingredients") {
+    }
+    else if (sort === "ingredients") {
       const ingredientNames = ingredients.map((ingredient) =>
         ingredient.name.toLowerCase()
       );
@@ -52,13 +57,34 @@ function SearchPage() {
           recipe.sections.some((section) =>
             section.components.some((component) =>
               ingredientNames.some((ingredientName) =>
-                component.raw_text.toLowerCase().includes(ingredientName))
+                component.raw_text.toLowerCase().includes(ingredientName)
+              )
             )
-          ));
-        setFilteredList(filteredRecipes);
+          )
+        );
+        const mapped = filteredRecipes.map((recipe) => {
+          if (recipe.sections.length > 1) {
+            let sum = 0;
+            recipe.sections.map((section) => {
+              sum += section.components.length
+            }
+            )
+            return { length: sum, id: recipe.id };
+          } else {
+            return { length: recipe.sections[0].components.length, id: recipe.id };
+          }
+        }
+        );
+        console.log(mapped);
+        mapped.sort((a, b) => a.length - b.length);
+        console.log(mapped);
+        const result = mapped.map((v) => filteredRecipes.filter((recipe) => recipe.id == v.id));
+        const finalRecipes = result.map((r) => r[0])
+        console.log(finalRecipes);
+        setFilteredList(finalRecipes);
       }
     }
-  }
+  };
 
   const handleSurpriseSubmit = () => {
     const recipeListLength = data.length;
@@ -69,13 +95,17 @@ function SearchPage() {
   };
 
   useEffect(() => {
+    if (!isAccountLoading && !account) {
+      navigate("/");
+    }
+  }, [isAccountLoading, account, navigate]);
+
+  useEffect(() => {
     setFilteredList(data);
   }, [data]);
 
   if (isLoading) {
     return <p>Loading...</p>;
-  } else if (!isAccountLoading && !account) {
-    navigate("/");
   }
   return (
     <>
@@ -92,8 +122,14 @@ function SearchPage() {
           <button className="btn btn-sm btn-success" type="submit">
             Search
           </button>
-          <button className="btn btn-sm btn-primary" onClick={() => handleSurpriseSubmit()}>Surprise me!</button>
+          <button
+            className="btn btn-sm btn-primary"
+            onClick={() => handleSurpriseSubmit()}
+          >
+            Surprise me!
+          </button>
         </div>
+
         <div>
         </div>
       </form>
@@ -111,7 +147,11 @@ function SearchPage() {
             <option value="alphabetical">Alphabetical</option>
             <option value="ingredients">Ingredients</option>
           </select>
-          <input className="btn btn-outline-secondary btn-sm" type="submit" value="Submit" />
+          <input
+            className="btn btn-outline-secondary btn-sm"
+            type="submit"
+            value="Submit"
+          />
         </form>
       </div>
       <div className="mt-3">
