@@ -30,6 +30,7 @@ const LoginForm = () => {
   };
 
   return (
+    <div className="container">
     <div className="card text-bg-light mb-3">
       <h5 className="card-header">Login</h5>
       {alertMessage && <AlertMessage>{alertMessage}</AlertMessage>}
@@ -63,6 +64,7 @@ const LoginForm = () => {
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
 };

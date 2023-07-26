@@ -8,6 +8,8 @@ import {
 } from "./app/apiSlice";
 import IngredientEditModal from "./IngredientEditModal";
 import { useEffect } from "react";
+import "./profilepage.css";
+import favicon from "./favicon.ico";
 
 function ProfilePage() {
   const { data: favorites, isLoading } = useGetFavoritesQuery();
@@ -26,76 +28,91 @@ function ProfilePage() {
   if (isLoading || ingredientsLoading) {
     return <p>Loading...</p>;
   }
+  console.log(account)
+
   return (
     <>
-      <h1>Favorites</h1>
-      {account && (
-        <div
-          id="carouselExampleControls"
-          className="carousel slide"
-          data-bs-ride="carousel"
-        >
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img
-                src="https://cdn.thememylogin.com/uploads/edd/2019/03/favorites.png"
-                className="d-block w-100"
-                alt="Favorites"
-              />
-            </div>
-            {favorites.map((favorite) => {
-              return (
-                <div className="carousel-item" key={favorite.id}>
-                  <div className="card mb-3 shadow">
-                    <img
-                      src={favorite.thumbnail_url}
-                      className="card-img-top"
-                      alt={favorite.name}
-                    />
-                    <div className="card-body">
-                      <h5 className="card-title text-center">
-                        {favorite.name}
-                      </h5>
-                    </div>
-                    <Link
-                      className="btn btn-info"
-                      to={`/recipe/${favorite.recipe_id}`}
-                    >
-                      Go to Recipe
-                    </Link>
-                  </div>
+      <div className="profile-page-container">
+        {account && (
+          <div className="carousel-container mt-3">
+            <div
+              id="carouselExampleControls"
+              className="carousel slide custom-carousel"
+              data-bs-ride="carousel"
+            >
+              <div className="carousel-inner">
+                <div className="carousel-item active">
+                  <img
+                    src="https://cdn.thememylogin.com/uploads/edd/2019/03/favorites.png"
+                    className="d-block w-100"
+                    alt="Favorites"
+                  />
                 </div>
-              );
-            })}
+                {favorites.map((favorite) => {
+                  return (
+                    <div className="carousel-item" key={favorite.id}>
+                      <div className="card mb-3 shadow">
+                        <img
+                          src={favorite.thumbnail_url}
+                          className="card-img-top"
+                          alt={favorite.name}
+                        />
+                        <div className="card-body">
+                          <h5 className="card-title text-center">
+                            {favorite.name}
+                          </h5>
+                        </div>
+                        <Link
+                          className="btn btn-info"
+                          to={`/recipe/${favorite.recipe_id}`}
+                        >
+                          Go to Recipe
+                        </Link>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <button
+                className="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev"
+              >
+                <span
+                  className="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="visually-hidden">Previous</span>
+              </button>
+              <button
+                className="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleControls"
+                data-bs-slide="next"
+              >
+                <span
+                  className="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="visually-hidden">Next</span>
+              </button>
+            </div>
           </div>
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev"
-          >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleControls"
-            data-bs-slide="next"
-          >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Next</span>
-          </button>
+        )}
+        <div className="profile-indicator text-center mt-3">
+          <img src={favicon} alt="Profile" className="profile-picture" />
+          <div className="profile-details">
+            <p>{account.first_name} {account.last_name}</p>
+            <p>Total Favorite Recipes: {favorites.length}</p>
+          </div>
+          <div className="profile-footer">
+            <h2>{account.name}</h2>
+          </div>
         </div>
-      )}
+      </div>
 
-      <h1>My Ingredients</h1>
+      <h1 className="text-center mb-2">My Ingredients</h1>
       {ingredients.length >= 1 ? (
         <table className="table table-striped">
           <thead>
