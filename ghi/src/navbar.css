@@ -1,3 +1,21 @@
 .navbar-brand {
     font-family: 'EB Garamond', serif;
   }
+
+  .navbar-collapse ul {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-link {
+    font-size: 18.8px;
+  }
+
+  .btn {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .navbar-brand {
+    font-size: 25px;
+  }
