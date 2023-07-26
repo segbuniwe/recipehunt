@@ -105,6 +105,8 @@ Standup:
     - Profile Page (Ingredients List and Form/Modal) ✅
     - Search Page (by Ingredients List)
 
+Today we focused on buulding out the profile page. We started with Sophia crushing it and figuring out
+
 7/19/2023
 
 Standup:
@@ -112,3 +114,22 @@ Standup:
     Goals:
     - Search Page - Sort Functions (Alphabetical) ✅
     - Surprise Me Function on Search Page ✅
+
+7/20/2023
+
+Standup:
+
+    Goals:
+    - Search Page - Sort Functions (Ingredients List) ✅
+
+7/24/2023
+
+Standup:
+
+We decided to use this day to study on our own.
+
+7/25/2023
+
+Standup:
+
+    Goals:

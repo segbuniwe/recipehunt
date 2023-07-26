@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useLoginMutation } from "./app/apiSlice";
 import AlertMessage from "./AlertMessage";
 
@@ -26,7 +26,7 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login({username, password});
+    login({ username, password });
   };
 
   return (
@@ -54,6 +54,9 @@ const LoginForm = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+          </div>
+          <div className="text-center">
+            Don't have an account? <Link to={"/signup"}>Sign up here</Link>
           </div>
           <div>
             <input className="btn btn-primary" type="submit" value="Login" />

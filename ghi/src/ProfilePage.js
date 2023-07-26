@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import IngredientForm from "./IngredientForm";
 import {
   useGetAccountQuery,
@@ -7,13 +7,21 @@ import {
   useDeleteIngredientMutation,
 } from "./app/apiSlice";
 import IngredientEditModal from "./IngredientEditModal";
+import { useEffect } from "react";
 
 function ProfilePage() {
   const { data: favorites, isLoading } = useGetFavoritesQuery();
-  const { data: account } = useGetAccountQuery();
+  const { data: account, isLoading: isAccountLoading } = useGetAccountQuery();
   const { data: ingredients, isLoading: ingredientsLoading } =
     useGetIngredientByAccountQuery();
   const [deleteIngredient] = useDeleteIngredientMutation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAccountLoading && !account) {
+      navigate("/");
+    }
+  }, [isAccountLoading, account, navigate]);
 
   if (isLoading || ingredientsLoading) {
     return <p>Loading...</p>;
@@ -108,7 +116,7 @@ function ProfilePage() {
                   <td>{ingredient.unit}</td>
                   <td>
                     <button
-                      className="btn btn-danger"
+                      className="btn btn-sm btn-danger"
                       onClick={() => deleteIngredient(ingredient.id)}
                     >
                       Remove Ingredient
@@ -116,7 +124,7 @@ function ProfilePage() {
                   </td>
                   <td>
                     <button
-                      className="btn btn-success"
+                      className="btn btn-sm btn-success"
                       data-bs-toggle="modal"
                       data-bs-target={`#editIngredientModal${ingredient.id}`}
                     >

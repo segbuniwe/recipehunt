@@ -13,6 +13,7 @@ import SearchPage from "./searchPage.js";
 import RatingsForm from "./RatingsForm.js";
 import ProfilePage from "./ProfilePage.js";
 import IngredientForm from "./IngredientForm.js";
+import FavoritesList from "./FavoritesList.js";
 
 function App() {
   return (
@@ -20,8 +21,6 @@ function App() {
       <BrowserRouter>
         <div className="container">
           <Nav />
-          <AuthProvider>
-            {/* <TitleBar /> */}
             <Routes>
               <Route exact path="/" element={<MainPage />}></Route>
               <Route exact path="/signup" element={<SignUpForm />}></Route>
@@ -47,8 +46,13 @@ function App() {
                 path="/ingredients"
                 element={<IngredientForm />}
               ></Route>
+              <Route
+                exact
+                path="/favorites"
+                element={<FavoritesList />}
+              >
+              </Route>
             </Routes>
-          </AuthProvider>
         </div>
       </BrowserRouter>
     </>
