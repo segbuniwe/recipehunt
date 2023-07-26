@@ -135,3 +135,19 @@ Today we worked as a group to add more functionality to our search page. I was i
 Goals For Tomorrow:
 - Start working on adding more bootstrap CSS to make our webpage look more professional
 - Add a few more design changes like placement on nav bar, a basic favorites list, changes in view of search page and profile page if you get logged out/timed out
+
+# 07/25/2023
+Achieved:
+- Added a redirect to home page if user logs out or gets timed out while on recipe details page, search page, profile page, or favorites page
+- Added link to signup form on login form if user has no account
+- Added link to login form on signup form if user already has an account
+- Created a basic favorites list that's separate from profile page carosuel
+- Added recipehunt blurb/about to main page
+- Added background video to main page
+- Added some css to recipe details page and search page
+- Added ratings averaging
+
+Today we worked as a group to add more functionality to our overall webpage. We spent the day before looking up potential CSS that we want to add to our project, and we started implementing them today. We made sure that if a user logs out or accidentally gets logged out, then the webpage will redirect them back to the home page. We also were able to map over our list of ratings  and display the average of the list as the overall rating. We created a basic favorites list that showcases the image and name of a user's favorited recipe. Clicking on the name leads the user to be redirected to that specific recipe's details page. We added an about message about our website RecipeHunt and a video that will play in the background. We also added some basic CSS to some pages like the recipes details page and serach page.
+
+Goals For Tomorrow:
+- Continue working on adding more bootstrap CSS/personal CSS to make our webpage look more professional

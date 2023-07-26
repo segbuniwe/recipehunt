@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useSignupMutation } from "./app/apiSlice";
 import AlertMessage from "./AlertMessage";
 
@@ -104,6 +104,9 @@ const SignUpForm = () => {
                 setConfirmPassword(e.target.value);
               }}
             />
+          </div>
+          <div className="text-center">
+            Already have an account? Click here to <Link to={"/login"}>login</Link>
           </div>
           <div>
             <input className="btn btn-primary" type="submit" value="Register" />

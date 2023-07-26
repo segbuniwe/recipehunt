@@ -1,15 +1,20 @@
 import { useGetFavoritesQuery, useGetAccountQuery } from "./app/apiSlice";
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function FavoritesList() {
     const { data: favorites, isLoading } = useGetFavoritesQuery();
     const { data: account, isLoading: isAccountLoading } = useGetAccountQuery();
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if (!isAccountLoading && !account) {
+            navigate("/");
+        }
+    }, [isAccountLoading, account, navigate]);
+
     if (isLoading) {
         return <p>Loading...</p>
-    } else if (!isAccountLoading && !account) {
-        navigate("/");
     }
     return (
         <>
