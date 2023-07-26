@@ -43,7 +43,8 @@ function SearchPage() {
         }
       }
       setFilteredList(copyData);
-    } else if (sort === "ingredients") {
+    }
+    else if (sort === "ingredients") {
       const ingredientNames = ingredients.map((ingredient) =>
         ingredient.name.toLowerCase()
       );
@@ -61,7 +62,26 @@ function SearchPage() {
             )
           )
         );
-        setFilteredList(filteredRecipes);
+        const mapped = filteredRecipes.map((recipe) => {
+          if (recipe.sections.length > 1) {
+            let sum = 0;
+            recipe.sections.map((section) => {
+              sum += section.components.length
+            }
+            )
+            return { length: sum, id: recipe.id };
+          } else {
+            return { length: recipe.sections[0].components.length, id: recipe.id };
+          }
+        }
+        );
+        console.log(mapped);
+        mapped.sort((a, b) => a.length - b.length);
+        console.log(mapped);
+        const result = mapped.map((v) => filteredRecipes.filter((recipe) => recipe.id == v.id));
+        const finalRecipes = result.map((r) => r[0])
+        console.log(finalRecipes);
+        setFilteredList(finalRecipes);
       }
     }
   };
@@ -109,7 +129,9 @@ function SearchPage() {
             Surprise me!
           </button>
         </div>
-        <div></div>
+
+        <div>
+        </div>
       </form>
       <div>
         <form className="d-flex align-items-center" onSubmit={handleSortSubmit}>
