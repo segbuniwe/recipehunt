@@ -5,6 +5,7 @@ export const recipeHuntApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: process.env.REACT_APP_API_HOST
     }),
+    tagTypes: ["Account", "Favorites", "Ingredient", "Recipes", "Ratings"],
     endpoints: (builder) => ({
         getAccount: builder.query({
             query: () => ({
@@ -20,7 +21,11 @@ export const recipeHuntApi = createApi({
                 method: 'DELETE',
                 credentials: 'include'
             }),
-            invalidatesTags: ['Account', "Favorites", "Ingredient"]
+            invalidatesTags: [
+                { type: "Account" },
+                { type: "Favorites", id: "mine" },
+                { type: "Ingredient", id: "mine" }
+            ]
         }),
         signup: builder.mutation({
             query: (body) => ({

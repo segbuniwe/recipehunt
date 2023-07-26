@@ -7,6 +7,7 @@ import {
   useDeleteIngredientMutation,
 } from "./app/apiSlice";
 import IngredientEditModal from "./IngredientEditModal";
+import { useEffect } from "react";
 
 function ProfilePage() {
   const { data: favorites, isLoading } = useGetFavoritesQuery();
@@ -16,11 +17,15 @@ function ProfilePage() {
   const [deleteIngredient] = useDeleteIngredientMutation();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!isAccountLoading && !account) {
+      navigate("/");
+    }
+  }, [isAccountLoading, account, navigate]);
+
   if (isLoading || ingredientsLoading) {
     return <p>Loading...</p>;
-  } else if (!isAccountLoading && !account) {
-    navigate("/");
-}
+  }
   return (
     <>
       <h1>Favorites</h1>

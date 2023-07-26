@@ -8,6 +8,7 @@ import {
     useGetIngredientByAccountQuery,
 } from "./app/apiSlice";
 import "./App.css";
+import { useEffect } from "react";
 
 function RecipeDetails() {
     const { recipeId } = useParams();
@@ -33,10 +34,14 @@ function RecipeDetails() {
         }
     };
 
+    useEffect(() => {
+        if (!isAccountLoading && !account) {
+            navigate("/");
+        }
+    }, [isAccountLoading, account, navigate]);
+
     if (isLoading) {
         return <p>Loading...</p>;
-    } else if (!isAccountLoading && !account) {
-        navigate("/");
     }
     console.log(ratings)
     return (

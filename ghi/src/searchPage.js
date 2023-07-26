@@ -75,13 +75,17 @@ function SearchPage() {
   };
 
   useEffect(() => {
+    if (!isAccountLoading && !account) {
+      navigate("/");
+    }
+  }, [isAccountLoading, account, navigate]);
+
+  useEffect(() => {
     setFilteredList(data);
   }, [data]);
 
   if (isLoading) {
     return <p>Loading...</p>;
-  } else if (!isAccountLoading && !account) {
-    navigate("/");
   }
   return (
     <>
