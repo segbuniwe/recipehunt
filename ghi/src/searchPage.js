@@ -42,71 +42,6 @@ function SearchPage() {
       }
       setFilteredList(copyData);
     }
-    // } else if (sort === "ingredients") {
-    //   const ingredientNames = ingredients.map((ingredient) =>
-    //     ingredient.name.toLowerCase()
-    //   );
-    //   console.log(ingredientNames);
-    //   if (!ingredientNames || ingredientNames.length === 0) {
-    //     setFilteredList(filteredList);
-    //   } else {
-    //     const recipes = [];
-    //     //This line maps out the recipe data
-    //     data.map((recipe) => {
-    //       //This is creating a temporary list of objects to include a count variable
-    //       let index = 0;
-    //       recipes.push({
-    //         id: recipe.id,
-    //         count: 0,
-    //       });
-    //       //This line will map through each ingredient
-    //       ingredientNames.map((ingredient) => {
-    //         //These lines are to check if the ingredient is in the recipe
-    //         const filteredRecipes = recipe.sections.filter((section) =>
-    //           section.components.some((component) =>
-    //             component.raw_text.toLowerCase().includes(ingredient)
-    //           )
-    //         );
-
-    //         console.log(filteredRecipes);
-    //         //If the recipe is in the ingredient, it adds a count to that specific recipe
-    //         if (filteredRecipes.length !== 0) {
-    //           filteredRecipes.components.map((component) => {
-    //             if (component.raw_text.toLowerCase().includes(ingredient)) {
-    //               recipes[index].count++;
-    //             }
-    //           });
-    //         }
-    //       });
-    //       index++;
-    //     });
-    //     //moves the index of the temporary recipes list forward
-
-    //     console.log(recipes);
-    //     //Sorts the temporary recipe list with counts
-    //     const len = recipes.length;
-    //     for (let i = 0; i < len - 1; i++) {
-    //       for (let j = i + 1; j < len; j++) {
-    //         if (recipes[i].count > recipes[j].count) {
-    //           const temp = recipes[i];
-    //           recipes[i] = recipes[j];
-    //           recipes[j] = temp;
-    //         }
-    //       }
-    //     }
-
-    //     //Compares the temporary recipe list to the original data file
-    //     const filteredRecipeList = [];
-    //     recipes.map((recipe) => {
-    //       data.map((r) => {
-    //         if (recipe.id == r.id) {
-    //           filteredRecipeList.push(r);
-    //         }
-    //       });
-    //     });
-    //     setFilteredList(filteredRecipeList);
-    //   }
-    // }
     else if (sort === "ingredients") {
       const ingredientNames = ingredients.map((ingredient) =>
         ingredient.name.toLowerCase()
@@ -125,18 +60,16 @@ function SearchPage() {
             )
           )
         );
-        const mapped = filteredRecipes.map((recipe) =>
-        {
+        const mapped = filteredRecipes.map((recipe) => {
           if (recipe.sections.length > 1) {
             let sum = 0;
-            recipe.sections.map((section) =>
-            {
+            recipe.sections.map((section) => {
               sum += section.components.length
             }
             )
-            return {length: sum, id: recipe.id};
+            return { length: sum, id: recipe.id };
           } else {
-            return {length: recipe.sections[0].components.length, id: recipe.id};
+            return { length: recipe.sections[0].components.length, id: recipe.id };
           }
         }
         );
