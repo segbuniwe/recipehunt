@@ -55,11 +55,7 @@ function RecipeDetails() {
         <p className="text-center">No ratings for this recipe</p>
       )}
       <div className="text-center mt-3">
-        <img
-          className="img-thumbnail"
-          src={data.thumbnail_url}
-          alt={data.name}
-        />
+        <img className="top-picture" src={data.thumbnail_url} alt={data.name} />
       </div>
       <div className="row mx-md-n5 mt-5">
         <p className="text-center">{data.description}</p>
@@ -132,7 +128,7 @@ function RecipeDetails() {
       </div>
       <div className="text-center mt-3">
         {data.original_video_url ? (
-          <video width="320" height="240" controls>
+          <video controls className="details-video">
             <source src={data.original_video_url} type="video/mp4" />
           </video>
         ) : (

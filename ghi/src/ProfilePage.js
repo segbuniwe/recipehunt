@@ -41,35 +41,41 @@ function ProfilePage() {
             >
               <div className="carousel-inner">
                 <div className="carousel-item active">
-                  <img
-                    src="https://cdn.thememylogin.com/uploads/edd/2019/03/favorites.png"
-                    className="d-block w-100"
-                    alt="Favorites"
-                  />
+                  <div className="image-container">
+                    <img
+                      src="https://cdn.thememylogin.com/uploads/edd/2019/03/favorites.png"
+                      className="d-block w-100"
+                      alt="Favorites"
+                    />
+                  </div>
                 </div>
                 {favorites.map((favorite) => {
                   return (
                     <div className="carousel-item" key={favorite.id}>
-                      <div className="card mb-3 shadow">
-                        <div className="card-img-container">
-                          <img
-                            src={favorite.thumbnail_url}
-                            className="card-img-top"
-                            alt={favorite.name}
-                          />
-                        </div>
-                        <div className="card-body">
-                          <h5 className="card-title text-center">
-                            {favorite.name}
-                          </h5>
-                        </div>
-                        <div className="card-link-container">
-                          <Link
-                            className="btn btn-info"
-                            to={`/recipe/${favorite.recipe_id}`}
-                          >
-                            Go to Recipe
-                          </Link>
+                      <div className="image-container">
+                        <div className="card mb-3 shadow">
+                          <div className="card-color">
+                            <div className="card-img-container mt-2">
+                              <img
+                                src={favorite.thumbnail_url}
+                                className="card-img-top"
+                                alt={favorite.name}
+                              />
+                            </div>
+                            <div className="card-body">
+                              <h5 className="card-title text-center text-white">
+                                {favorite.name}
+                              </h5>
+                            </div>
+                            <div className="card-link-container mb-3">
+                              <Link
+                                className="btn btn-info btn-dark"
+                                to={`/recipe/${favorite.recipe_id}`}
+                              >
+                                Go to Recipe
+                              </Link>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -120,7 +126,7 @@ function ProfilePage() {
       <h1 className="text-center mb-2">My Ingredients</h1>
       {ingredients.length >= 1 ? (
         <table className="table table-striped">
-          <thead>
+          <thead className="text-center">
             <tr>
               <th>Name</th>
               <th>Amount</th>
@@ -163,7 +169,7 @@ function ProfilePage() {
         <p>No ingredients added yet</p>
       )}
       {account ? (
-        <div className="text-center mt-3">
+        <div className="text-center mt-3 mb-4">
           <Link
             className="btn btn-primary"
             data-bs-toggle="modal"

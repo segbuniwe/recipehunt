@@ -7,3 +7,13 @@
   padding: 1em;
   background-color: white;
 }
+
+.top-picture {
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.details-video {
+  max-width: 500px;
+  max-height: 500px;
+}
