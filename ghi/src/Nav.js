@@ -34,17 +34,6 @@ function Nav() {
                   Home
                 </NavLink>
               </li>
-              {!account && (
-                <li>
-                  <NavLink
-                    className="nav-link"
-                    aria-current="page"
-                    to="/signup"
-                  >
-                    Sign Up
-                  </NavLink>
-                </li>
-              )}
               {account && (
                 <li>
                   <NavLink
@@ -53,17 +42,6 @@ function Nav() {
                     to="/search"
                   >
                     Search Recipes
-                  </NavLink>
-                </li>
-              )}
-              {account && (
-                <li>
-                  <NavLink
-                    className="nav-link"
-                    aria-current="page"
-                    to="/profile/mine"
-                  >
-                    My Account
                   </NavLink>
                 </li>
               )}
@@ -83,11 +61,33 @@ function Nav() {
               {!account && (
                 <li>
                   <NavLink
+                    className="nav-link"
+                    aria-current="page"
+                    to="/signup"
+                  >
+                    Sign Up
+                  </NavLink>
+                </li>
+              )}
+              {!account && (
+                <li>
+                  <NavLink
                     className="nav-link text-dark"
                     aria-current="page"
                     to="/login"
                   >
                     Login
+                  </NavLink>
+                </li>
+              )}
+              {account && (
+                <li>
+                  <NavLink
+                    className="nav-link"
+                    aria-current="page"
+                    to="/profile/mine"
+                  >
+                    My Account
                   </NavLink>
                 </li>
               )}
