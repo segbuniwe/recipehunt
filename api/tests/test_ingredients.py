@@ -91,7 +91,6 @@ def test_delete_ingredient():
 
     res = client.delete("/api/ingredients/98765")
     data = res.json()
-    print(data)
 
     assert res.status_code == 200
     assert data is True

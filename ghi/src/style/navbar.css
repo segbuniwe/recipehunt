@@ -1,0 +1,9 @@
+.navbar-brand {
+  font-family: "EB Garamond", serif;
+}
+
+.navbar-collapse ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

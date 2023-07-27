@@ -8,8 +8,8 @@ import {
 } from "./app/apiSlice";
 import IngredientEditModal from "./IngredientEditModal";
 import { useEffect } from "react";
-import "./profilepage.css";
-import favicon from "./favicon.ico";
+import "./style/profilepage.css";
+import favicon from "./style/favicon.ico";
 
 function ProfilePage() {
   const { data: favorites, isLoading } = useGetFavoritesQuery();
@@ -28,7 +28,6 @@ function ProfilePage() {
   if (isLoading || ingredientsLoading) {
     return <p>Loading...</p>;
   }
-  console.log(account);
 
   return (
     <>

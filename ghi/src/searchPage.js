@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import {
   useGetRecipesQuery,
-  useGetRecipeByIdQuery,
   useGetIngredientByAccountQuery,
   useGetAccountQuery,
 } from "./app/apiSlice";
 import { useDispatch } from "react-redux";
 import { reset } from "./app/searchSlice";
 import { Link, useNavigate } from "react-router-dom";
-import "./searchpage.css";
+import "./style/searchpage.css";
 
 function SearchPage() {
   const [search, setSearch] = useState("");
@@ -20,7 +19,6 @@ function SearchPage() {
   const { data: ingredients } = useGetIngredientByAccountQuery();
   const { data: account, isLoading: isAccountLoading } = useGetAccountQuery();
   const [surpriseRecipe, setSurpriseRecipe] = useState("");
-  const { data: recipe } = useGetRecipeByIdQuery();
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -29,8 +27,6 @@ function SearchPage() {
     );
     setFilteredList(filteredRecipes);
   };
-
-  console.log(sort);
 
   const handleSortSubmit = (e) => {
     e.preventDefault();
@@ -51,7 +47,7 @@ function SearchPage() {
       const ingredientNames = ingredients.map((ingredient) =>
         ingredient.name.toLowerCase()
       );
-      console.log(ingredientNames);
+
       if (!ingredientNames || ingredientNames.length === 0) {
         setFilteredList(filteredList);
       } else {
@@ -79,20 +75,18 @@ function SearchPage() {
             };
           }
         });
-        console.log(mapped);
+
         mapped.sort((a, b) => a.length - b.length);
-        console.log(mapped);
         const result = mapped.map((v) =>
           filteredRecipes.filter((recipe) => recipe.id == v.id)
         );
         const finalRecipes = result.map((r) => r[0]);
-        console.log(finalRecipes);
         setFilteredList(finalRecipes);
       }
     }
   };
 
-  const handleSurpriseSubmit = async () => {
+  const handleSurpriseSubmit = () => {
     const recipeListLength = data.length;
     let value = Math.random() * recipeListLength;
     const indexValue = Math.floor(value);

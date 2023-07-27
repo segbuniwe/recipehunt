@@ -11,10 +11,8 @@ class TastyRecipesIn(BaseModel):
 
 class TastyRecipesOut(TastyRecipesIn):
     id: int
-    # cook_time_minutes: int
     tags: list
     original_video_url: Optional[str]
-    # prep_time_minutes: int
     thumbnail_url: str
     num_servings: int
     instructions: list
@@ -23,7 +21,6 @@ class TastyRecipesOut(TastyRecipesIn):
     cook_time_minutes: Optional[int]
     prep_time_minutes: Optional[int]
     total_time_minutes: Optional[int]
-    # total_time_minutes: int
 
 
 class TastyRecipesList(BaseModel):

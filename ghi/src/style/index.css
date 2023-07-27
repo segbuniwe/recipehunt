@@ -3,7 +3,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  font-family: 'EB Garamond', serif;
+  font-family: "EB Garamond", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url("./marble.jpeg");
@@ -16,11 +16,6 @@ code {
     monospace;
 }
 
-.multi-carousel-item {
-  width: 33.3333%;
-  margin-left: 0px;
-}
-
 .form-group {
-  color:black;
+  color: black;
 }
