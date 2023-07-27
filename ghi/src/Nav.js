@@ -30,8 +30,8 @@ function Nav() {
           >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li>
-                <NavLink className="nav-link" aria-current="page" to="/">
-                  Home
+                <NavLink className="nav-link" aria-current="page" to="/about">
+                  About
                 </NavLink>
               </li>
               {account && (

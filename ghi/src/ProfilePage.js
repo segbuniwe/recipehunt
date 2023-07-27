@@ -109,16 +109,20 @@ function ProfilePage() {
           </div>
         )}
         <div className="profile-indicator text-center mt-5">
-          <img src={account.profile_picture} alt="Profile Pic" className="profile-picture" />
-          <div className="profile-details">
-            <p>
-              {account.first_name} {account.last_name}
-            </p>
-            <p>Total Favorite Recipes: {favorites.length}</p>
-          </div>
-          <div className="profile-footer">
-            <h2>{account.name}</h2>
-          </div>
+          {account && (
+            <>
+              <img src={account.profile_picture} alt="Profile Pic" className="profile-picture" />
+              <div className="profile-details">
+                <p>
+                  {account.first_name} {account.last_name}
+                </p>
+                <p>Total Favorite Recipes: {favorites.length}</p>
+              </div>
+              <div className="profile-footer">
+                <h2>{account.name}</h2>
+              </div>
+            </>
+          )}
         </div>
       </div>
 

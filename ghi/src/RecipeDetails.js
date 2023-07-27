@@ -43,6 +43,7 @@ function RecipeDetails() {
   if (isLoading) {
     return <p>Loading...</p>;
   }
+  console.log(data)
 
   return (
     <div className="container">
@@ -70,7 +71,7 @@ function RecipeDetails() {
         )}
       </div>
       <div className="mt-4">
-        <div className="border border-5 border-success p-4 mb-4 rounded-pill">
+        <div className="border border-5 border-dark p-4 mb-4 rounded-pill w-50 mx-auto">
           <div className="row">
             <div className="col text-left">
               <p>Ready in Minutes: {data.total_time_minutes}</p>
@@ -79,22 +80,14 @@ function RecipeDetails() {
               <p>Servings: {data.num_servings}</p>
             </div>
           </div>
-          <div className="row">
-            <div className="col text-left">
-              <p>whatever you want here </p>
-            </div>
-            <div className="col text-end">
-              <p>Whatever you want here</p>
-            </div>
-          </div>
         </div>
       </div>
 
       <div className="mt-4">
         <div className="row">
           <div className="col">
-            <h3>Ingredients</h3>
-            <ul>
+          <h3><u>Ingredients</u></h3>
+            <ul className="mt-2">
               {data.sections.map((section) =>
                 section.components.map((component) => {
                   const ingredientName = component.raw_text;
@@ -115,11 +108,11 @@ function RecipeDetails() {
             </ul>
           </div>
           <div className="col text-end">
-            <h3>Instructions</h3>
+            <h3><u>Instructions</u></h3>
             <ol>
               {data.instructions.map((step) => (
                 <div key={step.id}>
-                  <li>{step.display_text}</li>
+                  <li className="mt-2">{step.display_text}</li>
                 </div>
               ))}
             </ol>
@@ -188,7 +181,7 @@ function RecipeDetails() {
               return (
                 <div
                   key={rating.id}
-                  className="border border-5 border-success p-4 mb-4"
+                  className="border border-5 border-dark p-4 mb-5"
                 >
                   <div className="row">
                     <div className="col text-left">

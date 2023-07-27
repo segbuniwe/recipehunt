@@ -5,7 +5,7 @@ function AboutPage() {
         <>
             <header className="header-main">
                 <h1 className="text-center">Welcome to RecipeHunt!</h1>
-                <p>
+                <p className="aboutmedetails">
                     Welcome to RecipeHunt, your ultimate destination for culinary
                     inspiration! Sign up or log in to access a vast collection of
                     mouthwatering recipes. Customize your cooking experience by creating

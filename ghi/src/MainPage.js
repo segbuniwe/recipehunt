@@ -4,8 +4,10 @@ import "./style/mainpage.css";
 import addFood from "./style/add-food.png";
 import searchFood from "./style/search-food.jpeg";
 import makeFood from "./style/make-food.jpeg";
+import { useGetAccountQuery } from "./app/apiSlice";
 
 function MainPage() {
+    const { data: account } = useGetAccountQuery();
     return (
         <>
             <div className="container">
@@ -29,7 +31,7 @@ function MainPage() {
                 />
                 <div className="content-main">
                     <h1 className="title-main">RecipeHunt</h1>
-                    <Link className="link-main" to={"/signup"}>Sign Up</Link>
+                    {!account && <Link className="link-main" to={"/signup"}>Sign Up</Link>}
                 </div>
             </div>
 
