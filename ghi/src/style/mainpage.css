@@ -9,29 +9,6 @@ li {
     padding: 0;
 }
 
-.header-main {
-    background-color: #f9f9f9;
-    padding: 20px;
-    text-align: center;
-}
-
-.header-main h1 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.header-main p {
-    font-size: 18px;
-    color: gray;
-    line-height: 1.6;
-}
-
-.header-main>* {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
 .content-main {
     position: absolute;
     top: 110px;
@@ -76,6 +53,7 @@ li {
     min-height: 100vh;
     padding-top: 100vh;
     background-color: transparent;
+    z-index: -1;
 }
 
 .features {

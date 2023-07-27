@@ -10,6 +10,7 @@ import RatingsForm from "./RatingsForm.js";
 import ProfilePage from "./ProfilePage.js";
 import IngredientForm from "./IngredientForm.js";
 import FavoritesList from "./FavoritesList.js";
+import AboutPage from "./AboutPage.js";
 
 function App() {
   return (
@@ -39,6 +40,11 @@ function App() {
               element={<IngredientForm />}
             ></Route>
             <Route exact path="/favorites" element={<FavoritesList />}></Route>
+            <Route
+              exact
+              path="/about"
+              element={<AboutPage />}
+            ></Route>
           </Routes>
         </div>
       </BrowserRouter>
