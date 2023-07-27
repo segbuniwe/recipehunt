@@ -51,7 +51,7 @@
 .profile-indicator {
   width: 25%;
   height: 60%;
-  background-color: rgb(125, 133, 141);
+  background-color: rgba(125, 133, 141, 0); /* 50% transparent */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -59,7 +59,10 @@
   padding: 20px;
   box-sizing: border-box;
   border-radius: 20px;
+  font-weight: bold;
+  font-size: 18px;
 }
+
 
 .profile-picture {
   width: 100px;
@@ -109,4 +112,13 @@
   display: flex;
   justify-content: center;
   margin-top: 10px;
+}
+
+
+.table-striped tbody tr {
+  border-bottom: 1px solid black;
+}
+
+.table-striped tbody tr td {
+  text-align: center;
 }

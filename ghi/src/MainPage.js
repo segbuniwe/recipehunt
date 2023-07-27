@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import videoSource from "./style/food.mp4";
 import "./style/mainpage.css";
+import addFood from "./style/add-food.png";
+import searchFood from "./style/search-food.jpeg";
+import makeFood from "./style/make-food.jpeg";
 
 function MainPage() {
     return (
@@ -26,17 +29,14 @@ function MainPage() {
                 />
                 <div className="content-main">
                     <h1 className="title-main">RecipeHunt</h1>
-                    <Link className="link" to={"/signup"}>Sign Up</Link>
+                    <Link className="link-main" to={"/signup"}>Sign Up</Link>
                 </div>
             </div>
-            {/* <div
-                style={{
-                    position: "relative",
-                    minHeight: "100vh",
-                    paddingTop: "100vh",
-                }}
+
+            <div
+                className="features-container"
             >
-                <header className="header-main" style={{ position: "relative" }}>
+                {/* <header className="header-main" style={{ position: "relative" }}>
                     <h1 className="text-center">Welcome to RecipeHunt!</h1>
                     <p>
                         Welcome to RecipeHunt, your ultimate destination for culinary
@@ -48,8 +48,26 @@ function MainPage() {
                         and embark on a culinary journey filled with delicious flavors.
                         Happy hunting with RecipeHunt!
                     </p>
-                </header>
-            </div> */}
+                </header> */}
+                <div className="features">
+                    <div className="feature">
+                        <h2>Add. </h2>
+                        <img src={addFood} alt="Add" />
+                    </div>
+                    <div className="feature">
+                        <h2>Search. </h2>
+                        <img src={searchFood} alt="Search" />
+                    </div>
+                    <div className="feature">
+                        <h2>Make. </h2>
+                        <img src={makeFood} alt="Make" />
+                    </div>
+                </div>
+
+                <div className="text-center">
+                    <Link className="about-link">Learn More</Link>
+                </div>
+            </div>
         </>
     );
 }

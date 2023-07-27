@@ -108,52 +108,51 @@ function SearchPage() {
     return <p>Loading...</p>;
   }
   return (
-    <>
+    <div className="flex-container">
       <div className="header">
-        <form className="row g-3" onSubmit={handleSearchSubmit}>
-          <div className="col-md-6">
+        <form className="row g-3 search-form" onSubmit={handleSearchSubmit}>
+          <div className="col-12">
             <input
               className="form-control form-control-lg"
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search By Name"
             />
           </div>
-          <div className="col-md-6">
+          <div className="col-m12 text-center">
             <button className="btn btn-sm btn-success" type="submit">
               Search
             </button>
           </div>
-
-          <div></div>
         </form>
-        <div>
-          <form
-            className="d-flex align-items-center"
-            onSubmit={handleSortSubmit}
+
+        <form
+          className="d-flex align-items-center mt-3 sort-form"
+          onSubmit={handleSortSubmit}
+        >
+          <select
+            className="form-select me-2"
+            value={sort}
+            onChange={(e) => {
+              setSort(e.target.value);
+            }}
+            id="sortSelect"
           >
-            <select
-              className="form-select me-2"
-              value={sort}
-              onChange={(e) => {
-                setSort(e.target.value);
-              }}
-              id="sortSelect"
-            >
-              <option value="">Sort by...</option>
-              <option value="alphabetical">Alphabetical</option>
-              <option value="ingredients">Ingredients</option>
-            </select>
-            <input
-              className="btn btn-light btn-sm"
-              type="submit"
-              value="Submit"
-            />
-          </form>
-        </div>
-        <div className="mt-3">
+            <option value="">Sort by...</option>
+            <option value="alphabetical">Alphabetical</option>
+            <option value="ingredients">Ingredients</option>
+          </select>
+          <input
+            className="btn btn-light btn-sm mt-2"
+            type="submit"
+            value="Submit"
+          />
+        </form>
+
+        <div className="mt-3 reset-form">
           <button
-            className="btn btn-sm btn-light me-2"
+            className="btn btn-sm btn-light me-2 w-75 "
             type="button"
             onClick={() => {
               dispatch(reset());
@@ -166,9 +165,10 @@ function SearchPage() {
           </button>
         </div>
       </div>
+
       <div className="recipe-list">
         <h1 className="text-center recipe-title">Recipe List</h1>
-        <div className="row mt-3">
+        <div className="row mt-3 text-center">
           {filteredList && filteredList.length > 0 ? (
             filteredList.map((recipe) => (
               <div key={recipe.id}>
@@ -182,47 +182,50 @@ function SearchPage() {
           )}
         </div>
       </div>
-      {surpriseRecipe ? (
-        <div className="card mb-3 shadow w-25 p-3 h-25 d-inline-block align-items-center">
-          <div className="card-img-container">
-            <img
-              src={surpriseRecipe.thumbnail_url}
-              className="card-img-top"
-              alt={surpriseRecipe.name}
-            />
+
+      <div className="surprise-section text-center">
+        {surpriseRecipe ? (
+          <div className="card-search mb-3 shadow p-3 d-inline-block align-items-center">
+            <div className="card-img-container">
+              <img
+                src={surpriseRecipe.thumbnail_url}
+                className="card-img-top"
+                alt={surpriseRecipe.name}
+              />
+            </div>
+            <div className="card-body">
+              <h5 className="card-title text-center">{surpriseRecipe.name}</h5>
+            </div>
+            <div className="card-link-container">
+              <Link className="btn btn-info" to={`/recipe/${surpriseRecipe.id}`}>
+                Go to Recipe
+              </Link>
+            </div>
+            <button
+              className="btn btn-sm btn-primary mt-3"
+              onClick={() => handleSurpriseSubmit()}
+            >
+              Surprise me!
+            </button>
           </div>
-          <div className="card-body">
-            <h5 className="card-title text-center">{surpriseRecipe.name}</h5>
+        ) : (
+          <div className="card-search mb-3 shadow p-3 d-inline-block">
+            <div className="card-img-container">
+              <img
+                src="https://st3.depositphotos.com/2777531/12741/v/950/depositphotos_127410624-stock-illustration-surprise-inscription-with-sunrays.jpg"
+                className="card-img-top"
+              />
+            </div>
+            <button
+              className="btn btn-sm btn-primary mt-3"
+              onClick={() => handleSurpriseSubmit()}
+            >
+              Surprise me!
+            </button>
           </div>
-          <div className="card-link-container">
-            <Link className="btn btn-info" to={`/recipe/${surpriseRecipe.id}`}>
-              Go to Recipe
-            </Link>
-          </div>
-          <button
-            className="btn btn-sm btn-primary align-items-center mt-3"
-            onClick={() => handleSurpriseSubmit()}
-          >
-            Surprise me!
-          </button>
-        </div>
-      ) : (
-        <div className="card mb-3 shadow w-25 p-3 h-25 d-inline-block">
-          <div className="card-img-container">
-            <img
-              src="https://st3.depositphotos.com/2777531/12741/v/950/depositphotos_127410624-stock-illustration-surprise-inscription-with-sunrays.jpg"
-              className="card-img-top"
-            />
-          </div>
-          <button
-            className="btn btn-sm btn-primary mt-3"
-            onClick={() => handleSurpriseSubmit()}
-          >
-            Surprise me!
-          </button>
-        </div>
-      )}
-    </>
+        )}
+      </div>
+    </div>
   );
 }
 
