@@ -133,3 +133,20 @@ We decided to use this day to study on our own.
 Standup:
 
     Goals:
+    - Fixed Rating System ✅
+    - Bootstrap for ratings and reviews ✅
+    - Added Favorites List ✅
+    - Added redirects for logout to home page ✅
+    - Added video backdrop ✅
+
+7/26/2023
+
+Standup:
+
+    Goals:
+    - Adjustments to NavBar ✅
+    - Build out Home Page
+    - Fix Ingredients List Search ✅
+    - Add concrete backdrop across
+    - Add About Us page
+    - Created a Surprise Me Card ✅

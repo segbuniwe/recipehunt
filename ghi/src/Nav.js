@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useGetAccountQuery, useLogoutMutation } from "./app/apiSlice";
-import "./navbar.css";
+import "./style/navbar.css";
 
 function Nav() {
   const { data: account } = useGetAccountQuery();
@@ -24,24 +24,16 @@ function Nav() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+          <div
+            className="collapse navbar-collapse justify-content-center"
+            id="navbarSupportedContent"
+          >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li>
                 <NavLink className="nav-link" aria-current="page" to="/">
                   Home
                 </NavLink>
               </li>
-              {!account && (
-                <li>
-                  <NavLink
-                    className="nav-link"
-                    aria-current="page"
-                    to="/signup"
-                  >
-                    Sign Up
-                  </NavLink>
-                </li>
-              )}
               {account && (
                 <li>
                   <NavLink
@@ -50,17 +42,6 @@ function Nav() {
                     to="/search"
                   >
                     Search Recipes
-                  </NavLink>
-                </li>
-              )}
-              {account && (
-                <li>
-                  <NavLink
-                    className="nav-link"
-                    aria-current="page"
-                    to="/profile/mine"
-                  >
-                    My Account
                   </NavLink>
                 </li>
               )}
@@ -80,11 +61,33 @@ function Nav() {
               {!account && (
                 <li>
                   <NavLink
+                    className="nav-link"
+                    aria-current="page"
+                    to="/signup"
+                  >
+                    Sign Up
+                  </NavLink>
+                </li>
+              )}
+              {!account && (
+                <li>
+                  <NavLink
                     className="nav-link text-dark"
                     aria-current="page"
                     to="/login"
                   >
                     Login
+                  </NavLink>
+                </li>
+              )}
+              {account && (
+                <li>
+                  <NavLink
+                    className="nav-link"
+                    aria-current="page"
+                    to="/profile/mine"
+                  >
+                    My Account
                   </NavLink>
                 </li>
               )}

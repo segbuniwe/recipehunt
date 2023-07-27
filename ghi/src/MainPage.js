@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import videoSource from "./food.mp4";
-import "./mainpage.css";
-
+import videoSource from "./style/food.mp4";
 function MainPage() {
     return (
         <>

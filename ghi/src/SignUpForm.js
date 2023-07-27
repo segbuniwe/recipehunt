@@ -106,7 +106,8 @@ const SignUpForm = () => {
             />
           </div>
           <div className="text-center">
-            Already have an account? Click here to <Link to={"/login"}>login</Link>
+            Already have an account? Click here to{" "}
+            <Link to={"/login"}>login</Link>
           </div>
           <div>
             <input className="btn btn-primary" type="submit" value="Register" />
