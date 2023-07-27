@@ -9,7 +9,6 @@ import {
 import IngredientEditModal from "./IngredientEditModal";
 import { useEffect } from "react";
 import "./style/profilepage.css";
-import favicon from "./style/favicon.ico";
 
 function ProfilePage() {
   const { data: favorites, isLoading } = useGetFavoritesQuery();
@@ -109,8 +108,8 @@ function ProfilePage() {
             </div>
           </div>
         )}
-        <div className="profile-indicator text-center mt-3">
-          <img src={favicon} alt="Profile" className="profile-picture" />
+        <div className="profile-indicator text-center mt-5">
+          <img src={account.profile_picture} alt="Profile Pic" className="profile-picture" />
           <div className="profile-details">
             <p>
               {account.first_name} {account.last_name}
