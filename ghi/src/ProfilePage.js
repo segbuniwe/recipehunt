@@ -63,7 +63,7 @@ function ProfilePage() {
                             {favorite.name}
                           </h5>
                         </div>
-                        <div className="card-link-container">
+                        <div className="card-link-container mb-2">
                           <Link
                             className="btn btn-info"
                             to={`/recipe/${favorite.recipe_id}`}
@@ -120,7 +120,7 @@ function ProfilePage() {
       <h1 className="text-center mb-2">My Ingredients</h1>
       {ingredients.length >= 1 ? (
         <table className="table table-striped">
-          <thead>
+          <thead className="text-center">
             <tr>
               <th>Name</th>
               <th>Amount</th>
@@ -163,7 +163,7 @@ function ProfilePage() {
         <p>No ingredients added yet</p>
       )}
       {account ? (
-        <div className="text-center mt-3">
+        <div className="text-center mt-3 mb-4">
           <Link
             className="btn btn-primary"
             data-bs-toggle="modal"

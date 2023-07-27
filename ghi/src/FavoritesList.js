@@ -1,6 +1,7 @@
 import { useGetFavoritesQuery, useGetAccountQuery } from "./app/apiSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import "./style/favoriteslist.css";
 
 function FavoritesList() {
   const { data: favorites, isLoading } = useGetFavoritesQuery();
@@ -18,9 +19,9 @@ function FavoritesList() {
   }
   return (
     <>
-      <h1>My Favorites</h1>
+      <h1 className="text-center mt-3 mb-3">My Favorites</h1>
       <table className="table table-striped">
-        <thead>
+        <thead className="text-center">
           <tr>
             <th>Recipe Name</th>
             <th>Picture</th>

@@ -1,12 +1,11 @@
-.header {
-    background-color: #8e8b8b;
-    padding: 10px;
-}
 
 .form-control-lg {
     border: 1px solid #ced4da;
     border-radius: 5px;
     padding: 10px;
+    font-weight: 900;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .btn-success,
@@ -34,6 +33,7 @@
     background-color: #8e8b8b;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 60%;
 }
 
 .recipe-link {
@@ -51,4 +51,60 @@
 
 .recipe-title {
     color: white;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header-section {
+    flex: 1;
+  }
+
+  .surprise-section,
+  .card {
+    max-width: 1em;
+    margin: 0 auto;
+    max-width: 75vh;
+    margin-top: 10px;
+    margin-left: 1rem;
+    border-radius: 5px;
+  }
+
+.search-form,
+.sort-form,
+.reset-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.header {
+    background-color: #8e8b8b;
+    padding: 10px;
+    height: 32vh;
+    overflow: auto;
+    margin-top: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.reset-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+  }
+
+  .card {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
