@@ -43,7 +43,7 @@ body, h1, h2, h3, p, ul, li {
 }
 
 .content-main h1:hover {
-    -webkit-text-stroke: 2px #fff;
+    -webkit-text-stroke: 1px #fff;
     color: transparent;
 }
 
@@ -61,6 +61,47 @@ body, h1, h2, h3, p, ul, li {
 }
 
 .content-main .link:hover {
+    background-color: white;
+    color: black;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.feature {
+    text-align: center;
+    margin: 20px;
+    flex: 0 0 200px;
+}
+
+.feature h2 {
+    margin-bottom: 10px;
+}
+
+.feature img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.about-link {
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    font-size: 24px;
+    border: 2px solid #fff;
+    padding: 14px 70px;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+.about-link:hover {
     background-color: white;
     color: black;
 }
