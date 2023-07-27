@@ -70,3 +70,6 @@ Today we added more CSS and styling into our profile page, the search page. We a
 
 -add an image url for the backend for the profile page
 -move surprise me to right of the recipe list
+
+7/27
+We started the day cleaning up our project's code, making sure that unused code was removed and removing console logs from it as well. We adjusted the css for the recipe detail pages and the layout of the recipe carousel. We had some difficulty adjusting the card background but Sophia came to the rescue. Javier and Shash implemented the profile image on the frontend and tune it up to make it look nice. After that, Javier implemented a function to change a profile image on the backend.
