@@ -60,3 +60,19 @@ Pretty easy day. We made redirects back to the home page when the user logs out.
 
 I got to work immediately today styling the profile page.
 Styling the carousel is difficult, I got it to center to where I wanted but then realized the arrows were off. Then the images being rendered in were off. It's a mess. But then Sophia came in and helped me out she was able to get it more centered as far as the arrows go. Images still come in wonky but its not the worst. Main page looks awesome, we got a nice lil food video that we display on navigation to our page, and I removed the navbar box and it looks so much cleaner. Also added in two new fonts to use throughout our website. One of them is only targeted towards the nav-brand icon, and the rest is utilized through the body of the homepage. Lastly, we created a card that once the surprise me button is clicked, it displays a visual representation of a recipe to the user who is unsure of what to have for dinner. Great day, CSS is a lot of fun until you're working with carousels...
+
+7/27/23
+
+More styling today. Holy so much css. Today, we put the finishing touches on the styling for the website.
+
+- Cleaned project files, removed console.logs and prints. Moved css to style folder
+- Added an about page, and custom icons to the mainpage at the bottom.
+- Added about to navbar, changed its font color too.
+- Fixed carousel images, we got it to be the best we could because every image that comes in is a different size.
+- Search page before, everything was stacked on top of each other and buttons looked bad, so I implemented a flexbox, put each section in its own thirds.
+- Sophia found a buf with our css merges and fixed it
+- Changed accout models to hold profile pictures
+- Fixed redirect to home after logging out, was not working as intended
+
+With all these CSS changes in place I think we're ready to turn our project in. I'm super thankful for my teammates who are very knowledgeable and I'm very happy we made it to the end with 0 issues. Along the way I was able to familarize myself with JWTDown, Redux, and better my CSS understanding.
+- Special shout out to Riley for all the help and suggestions
