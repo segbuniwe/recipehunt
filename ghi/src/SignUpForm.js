@@ -12,6 +12,7 @@ const SignUpForm = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
   const [alertMessage, setAlertMessage] = useState("");
+  const [ profilePicture, setProfilePicture ] = useState("");
 
   useEffect(() => {
     if (signupResult.error) {
@@ -31,6 +32,7 @@ const SignUpForm = () => {
       password: password,
       first_name: first,
       last_name: last,
+      profile_picture: profilePicture,
     };
     if (password !== confirmPassword) {
       setAlertMessage("Passwords do not match");
@@ -80,6 +82,18 @@ const SignUpForm = () => {
                 setLast(e.target.value);
               }}
             />
+          <div className="mb-3">
+            <label className="form-label">Profile Picture Url</label>
+            <input
+              name="profile_picture"
+              type="text"
+              className="form-control"
+              value={profilePicture}
+              onChange={(e) => {
+                setProfilePicture(e.target.value);
+              }}
+            />
+          </div>
           </div>
           <div className="mb-3">
             <label className="form-label">Password</label>

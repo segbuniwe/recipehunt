@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from queries.client import Queries
+from typing import Optional
 
 
 class DuplicateAccountError(ValueError):
@@ -11,6 +12,7 @@ class AccountIn(BaseModel):
     password: str
     first_name: str
     last_name: str
+    profile_picture: Optional[str]
 
 
 class AccountOut(BaseModel):
@@ -18,6 +20,7 @@ class AccountOut(BaseModel):
     email: str
     first_name: str
     last_name: str
+    profile_picture: str
 
 
 class AccountOutWithPassword(AccountOut):
