@@ -1,4 +1,5 @@
-### Log in
+# Account
+### Login
 
 * Endpoint path: /token
 * Endpoint method: POST
@@ -11,15 +12,13 @@
 * Response shape (JSON):
     ```json
     {
-      "account": {
-        «key»: type»,
-      },
-      "token": string
+      "access_token": string,
+      "token_type": string
     }
     ```
 
 
-### Log out
+### Logout
 
 * Endpoint path: /token
 * Endpoint method: DELETE
@@ -34,9 +33,9 @@
     ```
 
 
-### Get one account
+### Get Token
 
-* Endpoint path: /accounts/mine
+* Endpoint path: /token
 * Endpoint method: GET
 
 * Headers:
@@ -46,20 +45,22 @@
 * Response shape:
     ```json
     {
+      "access_token": string,
+      "token_type": string,
+      "account":
         {
+          "id": string,
           "first_name": string,
           "last_name": string,
           "email": string,
-          "username": string,
-          "password": string,
         }
     }
     ```
 
 
-### Create a new Account (Sign Up)
+### Create A New Account (Sign Up)
 
-* Endpoint path: /accounts
+* Endpoint path: /api/accounts
 * Endpoint method: POST
 
 * Headers:
@@ -71,20 +72,15 @@
         "first_name": string,
         "last_name": string,
         "email": string,
-        "username": string,
         "password": string,
-        "hashed_password": string
     }
     ```
 
+# Recipes
+### Get A List Of Recipes
 
-### Get a list of Recipes
-
-* Endpoint path: /recipes
+* Endpoint path: /api/tasty-recipes
 * Endpoint method: GET
-
-* Headers:
-  * Authorization: Bearer token
 
 * Response: A list of Recipes
 * Response shape:
@@ -92,35 +88,52 @@
     {
       "recipes": [
         {
-          "title": string,
-          "image": string,
-          "servings": number,
-          "readyInMinutes": number,
-          "healthScore": number,
-          "pricePerServing": number,
-          "cheap": boolean,
-          "dairyFree": boolean,
-          "glutenFree": boolean,
-          "instructions": string,
-          "ketogenic": boolean,
-          "vegan": boolean,
-          "vegetarian": boolean,
-          "veryHealthy": boolean,
-          "veryPopular": boolean,
-          "extendedIngredients": list,
-          "summary": string,
-          "analyzedInstructions": list,
-          "cuisines": list,
-          "diets": list,
+          "name": string,
+          "id": number,
+          "tags": list,
+          "original_video_url": string,
+          "thumbnail_url": string,
+          "num_servings": number,
+          "instructions": list,
+          "description": string,
+          "sections": list,
+          "cook_time_minutes": number,
+          "prep_time_minutes": number,
+          "total_time_minutes": number,
         }
       ]
     }
     ```
 
 
-### Get a list of Ingredients
+### Get One Recipe By ID
 
-* Endpoint path: /accounts/{account_id}/ingredients
+* Endpoint path: /api/tasty-recipes/{recipe_id}
+* Endpoint method: GET
+
+* Response: A dictionary of one recipe's information
+* Response shape:
+    ```json
+    {
+          "name": string,
+          "id": number,
+          "tags": list,
+          "original_video_url": string,
+          "thumbnail_url": string,
+          "num_servings": number,
+          "instructions": list,
+          "description": string,
+          "sections": list,
+          "cook_time_minutes": number,
+          "prep_time_minutes": number,
+          "total_time_minutes": number,
+    }
+    ```
+
+# Ingredients
+### Get A List Of Ingredients
+
+* Endpoint path: /api/ingredients/mine
 * Endpoint method: GET
 
 * Headers:
@@ -132,18 +145,20 @@
     {
       "ingredients": [
         {
-           "food_item": string,
-            "quantity": number,
-            "quantity_type": string
+           "name": string,
+           "amount": number,
+           "unit": string,
+           "id": string,
+           "account_id": string,
         }
       ]
     }
     ```
 
 
-### Create a new Ingredients
+### Create A New Ingredient
 
-* Endpoint path: /accounts/{account_id}/ingredients
+* Endpoint path: /api/ingredients
 * Endpoint method: POST
 
 * Headers:
@@ -152,24 +167,27 @@
 * Request body:
     ```json
     {
-        "food_item": string,
-        "quantity": number,
-        "quantity_type": string
+        "name": string,
+        "amount": number,
+        "unit": string
     }
     ```
 
-* Response: An indication of success or failure
+* Response: A new dictionary with id and associated account id
 * Response shape:
     ```json
     {
-      "success": boolean,
-      "message": string
+      "name": string,
+      "amount": number,
+      "unit": string,
+      "id": string,
+      "account_id": string,
     }
     ```
 
-### Update an Ingredient
+### Update An Ingredient
 
-* Endpoint path: /accounts/{account_id}/ingredients/{ingredient_id}
+* Endpoint path: /api/ingredients/{ingredient_id}
 * Endpoint method: PUT
 
 * Headers:
@@ -178,25 +196,28 @@
 * Request body:
     ```json
     {
-        "food_item": string,
-        "quantity": number,
-        "quantity_type": string
+        "name": string,
+        "amount": number,
+        "unit": string
     }
     ```
 
-* Response: An indication of success or failure
+* Response: A dictionary with the updated values along with the id and associated account id
 * Response shape:
     ```json
     {
-      "success": boolean,
-      "message": string
+      "name": string,
+      "amount": number,
+      "unit": string,
+      "id": string,
+      "account_id": string,
     }
     ```
 
 
-### Delete an Ingredient
+### Delete An Ingredient
 
-* Endpoint path: /accounts/{account_id}/ingredients/{ingredient_id}
+* Endpoint path: /api/ingredients/{ingredient_id}
 * Endpoint method: DELETE
 
 * Headers:
@@ -207,16 +228,13 @@
 * Response: An indication of success or failure
 * Response shape:
     ```json
-    {
-      "success": boolean,
-      "message": string
-    }
+    true
     ```
 
+# Favorites
+### Get A List Of Favorites
 
-### Get a list of Favorites
-
-* Endpoint path: /accounts/{account_id}/favorites
+* Endpoint path: /api/favorites/mine
 * Endpoint method: GET
 
 * Headers:
@@ -228,9 +246,198 @@
     {
       "favorites": [
         {
-            "title": string,
-            "picture_url": string,
+           "recipe_id": number,
+           "name": string,
+           "thumbnail_url": string,
+           "id": string,
+           "account_id": string,
         }
       ]
+    }
+    ```
+
+
+### Create A New Favorite
+
+* Endpoint path: /api/favorites
+* Endpoint method: POST
+
+* Headers:
+  * Authorization: Bearer token
+
+* Request body:
+    ```json
+    {
+        "recipe_id": number,
+        "name": string,
+        "thumbnail_url": string,
+    }
+    ```
+
+* Response: A new dictionary with id and associated account id
+* Response shape:
+    ```json
+    {
+      "recipe_id": number,
+      "name": string,
+      "thumbnail_url": string,
+      "id": string,
+      "account_id": string,
+    }
+    ```
+
+### Update A Favorite
+
+* Endpoint path: /api/favorites/{favorite_id}
+* Endpoint method: PUT
+
+* Headers:
+  * Authorization: Bearer token
+
+* Request body:
+    ```json
+    {
+        "recipe_id": number,
+        "name": string,
+        "thumbnail_url": string,
+    }
+    ```
+
+* Response: A dictionary with the updated values along with the id and associated account id
+* Response shape:
+    ```json
+    {
+      "recipe_id": number,
+      "name": string,
+      "thumbnail_url": string,
+      "id": string,
+      "account_id": string,
+    }
+    ```
+
+
+### Delete A Favorite
+
+* Endpoint path: /api/favorites/{favorite_id}
+* Endpoint method: DELETE
+
+* Headers:
+  * Authorization: Bearer token
+
+* Request body:
+
+* Response: An indication of success or failure
+* Response shape:
+    ```json
+    true
+    ```
+
+# Ratings
+### Get List Of All Ratings On A Recipe
+
+* Endpoint path: /api/recipes/{recipe_id}/ratings
+* Endpoint method: GET
+
+* Response: A list of all ratings for a specific recipe
+* Response shape:
+    ```json
+    {
+      "ratings": [
+        {
+          "rating": number,
+          "comments": string,
+          "id": string,
+          "account_id": string,
+          "recipe_id": string,
+          "account_first_name": string,
+          "account_last_name": string,
+        }
+      ]
+    }
+    ```
+
+
+### Get List Of Ratings By Account
+
+* Endpoint path: /api/ratings/mine
+* Endpoint method: GET
+
+* Headers:
+  * Authorization: Bearer token
+
+* Response: A list of all ratings by account
+* Response shape:
+    ```json
+    {
+      "ratings": [
+        {
+          "rating": number,
+          "comments": string,
+          "id": string,
+          "account_id": string,
+          "recipe_id": string,
+          "account_first_name": string,
+          "account_last_name": string,
+        }
+      ]
+    }
+    ```
+
+
+### Create Rating For A Recipe
+
+* Endpoint path: /api/recipes/{recipe_id}/ratings
+* Endpoint method: POST
+
+* Headers:
+  * Authorization: Bearer token
+
+* Request body:
+    ```json
+    {
+        "rating": number,
+        "comments": string,
+    }
+    ```
+
+* Response: A new dictionary with id, associated account id, first name, and last name, and recipe id
+* Response shape:
+    ```json
+    {
+      "rating": number,
+      "comments": string,
+      "id": string,
+      "account_id": string,
+      "recipe_id": string,
+      "account_first_name": string,
+      "account_last_name": string,
+    }
+    ```
+
+
+### Update Rating
+
+* Endpoint path: /api/ratings/{rating_id}
+* Endpoint method: PUT
+
+* Headers:
+  * Authorization: Bearer token
+
+* Request body:
+    ```json
+    {
+        "rating": number,
+        "comments": string,
+    }
+    ```
+
+* Response: A dictionary with the updated values along with the id and associated account id
+* Response shape:
+    ```json
+    {
+      "rating": number,
+      "comments": string,
+      "id": string,
+      "account_id": string,
     }
     ```
