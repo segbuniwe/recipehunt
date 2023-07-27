@@ -1,4 +1,10 @@
-body, h1, h2, h3, p, ul, li {
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
     margin: 0;
     padding: 0;
 }
@@ -21,7 +27,7 @@ body, h1, h2, h3, p, ul, li {
     line-height: 1.6;
 }
 
-.header-main > * {
+.header-main>* {
     max-width: 800px;
     margin: 0 auto;
 }
@@ -35,19 +41,19 @@ body, h1, h2, h3, p, ul, li {
     width: 100%;
 }
 
-.content-main h1 {
+.title-main {
     font-size: 140px;
     color: #fff;
     font-weight: 600;
     transition: 0.5s;
 }
 
-.content-main h1:hover {
+.title-main:hover {
     -webkit-text-stroke: 1px #fff;
     color: transparent;
 }
 
-.content-main .link {
+.link-main {
     text-decoration: none;
     display: inline-block;
     color: #fff;
@@ -60,9 +66,16 @@ body, h1, h2, h3, p, ul, li {
     margin-top: 20px;
 }
 
-.content-main .link:hover {
+.link-main:hover {
     background-color: white;
     color: black;
+}
+
+.features-container {
+    position: relative;
+    min-height: 100vh;
+    padding-top: 100vh;
+    background-color: transparent;
 }
 
 .features {
@@ -94,6 +107,7 @@ body, h1, h2, h3, p, ul, li {
     text-decoration: none;
     display: inline-block;
     color: #fff;
+    background-color: black;
     font-size: 24px;
     border: 2px solid #fff;
     padding: 14px 70px;

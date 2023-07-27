@@ -29,16 +29,12 @@ function MainPage() {
                 />
                 <div className="content-main">
                     <h1 className="title-main">RecipeHunt</h1>
-                    <Link className="link" to={"/signup"}>Sign Up</Link>
+                    <Link className="link-main" to={"/signup"}>Sign Up</Link>
                 </div>
             </div>
 
             <div
-                style={{
-                    position: "relative",
-                    minHeight: "100vh",
-                    paddingTop: "100vh",
-                }}
+                className="features-container"
             >
                 {/* <header className="header-main" style={{ position: "relative" }}>
                     <h1 className="text-center">Welcome to RecipeHunt!</h1>
