@@ -36,9 +36,7 @@ Standup:
     - Building out basic of version of main page
     - Building out signup and login pages
 
-6/30/2023
-
-7/10/2023
+We decided that we were going to move towards building out the signup page.
 
 7/11/2023
 
@@ -105,7 +103,7 @@ Standup:
     - Profile Page (Ingredients List and Form/Modal) ✅
     - Search Page (by Ingredients List)
 
-Today we focused on buulding out the profile page. We started with Sophia crushing it and figuring out
+Today we focused on building out the profile page. We started with Sophia crushing it and figuring out how to get the carousel to work by adding an extra image to stand as the "active" image in order for the carousel to scroll through. After this, we went on to work on an ingredients list for our profile page. Sophia was initially noticing issues with the carousel when a user were to log in and out, but after we spoke with Riley he let us know that we should not have our different api slices in different folders because that would cause issues around loadability and connections to different parts of the website, Javier took over and we consolidated all of the slices into one apiSlice file. I took over to work on building out the ingredients list and adding an ingredient to the list of ingredients building it out as a modal that pops out vs. building the form in a new page. David took over afterwards and worked on the delete and edit buttons for the ingredients list. We were struggling with getting this functionality, but after speaking with Riley we were able to get both buttons working properly.
 
 7/19/2023
 
@@ -117,16 +115,20 @@ Standup:
 
 7/20/2023
 
+We decided to work on building out some functionality on the search page today. Sophia initially took over screen sharing to deal with some errors that we were having with some features, and after this David took over coding. We talked him through creating a surprise me functionality on the website that allows for a button click to navigate to a random receipe details page. Once we got this functionality to work, I took over coding to get a sort function build to alphabetically sort our recipe list. We decided to start with building out the alphabetical funciontality before sorting by the ingredients because we knew it was going to be a tough challenge to do the latter vs. the former. We initially tried creating the functionality to where the sort menu would sort based off selecting the alphabetical function in the sort drop down, but we were struggling with this functionality, so we change it a button that worked of an onClick function instead. We were also having trouble with the .sort function which trying to sort using the .sort(a,b) method. We eventually decided to just change it to a bubble sort since we had just had a lesson to get it sorted that way.
+
 Standup:
 
     Goals:
     - Search Page - Sort Functions (Ingredients List) ✅
 
+Today was a bit rough. We spent a lot of time working to get the sort function for the ingredients page. Sophia came in crushing it by figuring out how to sort the recipe page and filter it based off ingredients that were in our ingredients list. The issue was that the filtered list would not sort those ingredients in any way, so a recipe could have one ingredient or 4-5 ingredients and the list would not sort the ingredients based off the amount of ingredients. We worked to try to add a "counter" function to map through the recipe page and then map through ingredients and add a count to each recipe based off the amount of ingredients that were in the list. We were having a lot of issues with this, so we spoke with Michael, and he said we should create a separate dictionary to hold that counter along with an id for the recipe we were on, but we struggled with getting the dictionary to link with the recipes. Once we finally got them linked, we noticed that our counter function was not working well, and we finally decided to take a break to work on this going into next week. It was a big struggle day overall.
+
 7/24/2023
 
 Standup:
 
-We decided to use this day to study on our own.
+We decided to use this day to study on our own. I focused in on learning more about bootstrap CSS to get better prepared for the week.
 
 7/25/2023
 
@@ -139,6 +141,8 @@ Standup:
     - Added redirects for logout to home page ✅
     - Added video backdrop ✅
 
+Today we worked to start adding CSS into our website. Sophia started off by adding navigation functions for if a user gets logged to so that the website redirects to the home page. From here, Javier and Sophia each worked on coding to get the ratings system working to create an average of the ingredients at the top and build out the CSS for the reviews at the bottom of each recipe details page. We also worked to add a favorites list under a My Favorites tab. This is just a list of favorites that allows a user to click on the name and redirect directly to that specific recipe. At the end of the day, Javier took over and we worked on adding a video backdrop as our home page screen. We found a good video backdrop on adobe and Javier was able to figure out how to add that as our backdrop for our home page.
+
 7/26/2023
 
 Standup:
@@ -150,3 +154,26 @@ Standup:
     - Add concrete backdrop across
     - Add About Us page
     - Created a Surprise Me Card ✅
+
+Today we continued to focus on CSS for the page. Before this though, we were having one error message continuously popping up, so we asked Riley if he could assist with this error and he pointed out that we have an AuthProvider tag on our App page that was causing that error. From there, we chatted with him about our idea for the search page to sort by filter and sort by ingredients. We decided to sort our list by the recipe ingredients list length vs. the amount of ingredients that matched with the recipe list ingredients. Sophia and I worked to implement this, and once we finished all of us worked on building out the CSS. Javier and Sophia took over the screen while working on building out the backdrops to match the video backdrop on the front page for the rest of the website, and then Sophia took over coding for the surprise me button card which we built out. At the end of the day , assisted with getting the picture sizing for the surprise me button sorted so we could have it lined up and and consistent across each recipe.
+
+7/27/2023
+
+Standup:
+
+    Goals:
+    - Check through website code for code cleanliness ✅
+    - Add About Us Page ✅
+    - Fix CSS for Profile Page, Search Page, and Recipe Details ✅
+    - Add more features for Home Page ✅
+
+Today, I started off by screening sharing as the group went through all the code to make sure that we were following rubric instructions for code cleanliness. We decided to move our css sheets to a style document, and we were intially planning to move our components on the front end to a components folder, but that caused a lot of issues so we moved it back. We went through and removed any console logs, and we ensured that all the pages did pop up with any error messages. From there, Sophia took charge with adding the About Us page and doing updates on the Home page to include the title and links to the About Page. While Sophia was working on this, Javier was working on building out the CSS for the Search page to put the surprise me button, the recipe list, and the search into 3 columns. I worked on adjusting the sizing for the pictures and videos in the carousel and recipe details pages as well.
+
+7/28/2023
+
+Standup:
+
+    Goals:
+    - Finish README
+
+Today we wrapped up the last parts of the project by finishing the requirements for the ReadMe. Javier wrote out the functionality, David worked on the Project Initialization and the Intended Market, and Sophia worked on API Design, Data Models, and Integration. I went back and worked on adjusting out excalidraw documents to match our current website along with adding more pages that we built out. From there, I added screenshots of all the different excalidraw pages and built out the GHI page for the ReadMe.
