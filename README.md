@@ -1,7 +1,8 @@
 # RecipeHunt
 
 # Design
-- [Link to API docs](docs/api.md)
+- [API Design](docs/api.md)
+- [Data Models](docs/data-model.md)
 
 # Intended Market
 
