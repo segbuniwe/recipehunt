@@ -8,35 +8,41 @@ RecipeHunt - Add. Search. Make.
 
 # Design
 
-- [API Design](docs/api.md)
-- [Data Models](docs/data-model.md)
-- [GHI](docs/ghi.md)
-- [Integrations](docs/integrations.md)
+-   [API Design](docs/api.md)
+-   [Data Models](docs/data-model.md)
+-   [Integrations](docs/integrations.md)
+
+-   [API Design](docs/api.md)
+-   [Data Models](docs/data-model.md)
+-   [GHI](docs/ghi.md)
+-   [Integrations](docs/integrations.md)
 
 # Intended Market
 
+-   We are targeting an audience of consumers who are looking for a new perspective on cooking recipes or interest in finding something unfamiliar to try. Foodies and casual chefs alike are able to create, share, and explore new recipes to their taste buds content!
+
 # Functionality
 
-- Account creation
-- About page with a general welcome to the application
+-   Account creation
+-   About page with a general welcome to the application
 
-* Search recipes page where a list of recipes are fetched from Tasty API.
-  - Surprise me button onclick randomizes the fetched recipes
-  - Search function to sort by name
-  - Sort by function that allows users to sort alphabetically or by their ingredients list
-* Recipe details page
-  - Where users can see the information for a given recipe
-  - Users can create a favorites list to "save" their favorite recipes.
-  - Users can remove a favorited/saved recipe.
-  - Color coded ingredients. Red = Not in users ingredients list. Green = In users ingredients list.
-  - Review/Rating system
-* Favorites Page
-  - List style page indicating the current logged in users favorited recipes with picture and link.
-* Account Page
-  - Automatic carousel displaying favorited recipes
-  - Profile section displays current logged in users profile information
-  - Ingredients section where the user inputs their fridges content of ingredients to later sort by recipes in their ingredients collection
-  - Ability to update and delete ingredients
+*   Search recipes page where a list of recipes are fetched from Tasty API.
+    -   Surprise me button onclick randomizes the fetched recipes
+    -   Search function to sort by name
+    -   Sort by function that allows users to sort alphabetically or by their ingredients list
+*   Recipe details page
+    -   Where users can see the information for a given recipe
+    -   Users can create a favorites list to "save" their favorite recipes.
+    -   Users can remove a favorited/saved recipe.
+    -   Color coded ingredients. Red = Not in users ingredients list. Green = In users ingredients list.
+    -   Review/Rating system
+*   Favorites Page
+    -   List style page indicating the current logged in users favorited recipes with picture and link.
+*   Account Page
+    -   Automatic carousel displaying favorited recipes
+    -   Profile section displays current logged in users profile information
+    -   Ingredients section where the user inputs their fridges content of ingredients to later sort by recipes in their ingredients collection
+    -   Ability to update and delete ingredients
 
 # Project Initialization
 
