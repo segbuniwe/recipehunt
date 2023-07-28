@@ -7,11 +7,6 @@
 RecipeHunt - Add. Search. Make.
 
 # Design
-
--   [API Design](docs/api.md)
--   [Data Models](docs/data-model.md)
--   [Integrations](docs/integrations.md)
-
 -   [API Design](docs/api.md)
 -   [Data Models](docs/data-model.md)
 -   [GHI](docs/ghi.md)
@@ -19,7 +14,7 @@ RecipeHunt - Add. Search. Make.
 
 # Intended Market
 
--   We are targeting an audience of consumers who are looking for a new perspective on cooking recipes or interest in finding something unfamiliar to try. Foodies and casual chefs alike are able to create, share, and explore new recipes to their taste buds content!
+-   We are targeting an audience of consumers who are looking for a new perspective on cooking recipes or interest in finding something unfamiliar to try. We are unique in our targeted recipe search function, as you can easily find those recipes that already include ingredients found in your pantry. Foodies and casual chefs alike are able to create, share, and explore new recipes to their taste buds content!
 
 # Functionality
 
