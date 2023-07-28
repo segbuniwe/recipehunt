@@ -188,3 +188,10 @@ Today we worked as a group to add more functionality to our overall webpage. The
 
 Goals For Tomorrow:
 - README.md (wireframing/ghi, api.md, data model, integrations)
+
+# 07/28/2023
+Achieved:
+- Finished README.md
+- Added last touches to frontend (contact details, blurb on main page)
+
+Today we worked as a group to finish up the last touches on our project since it is due today. We all took a part of the README.md to get done. Javier worked on the Functionality section, David worked on the Project Initialization and Intended Market sections, and Shashwath and I split the Design sections. We all looked over each other's work and finished the set up for the full README.md file. We also added some last minute touches to our webpage so that it will have our contact information (Linkedin's) and match more of our initial design ideas from our wireframing.

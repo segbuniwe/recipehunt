@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useCreateIngredientMutation } from "./app/apiSlice";
 import AlertMessage from "./AlertMessage";
+import SuccessMessage from "./SuccessMessage";
 
 function IngredientForm() {
   const [name, setName] = useState("");
@@ -20,7 +21,6 @@ function IngredientForm() {
       setAmount("");
       setUnit("");
       setAlertMessage("");
-      alert("Ingredient added successfully.");
     }
   }, [ingredientResult]);
 
@@ -38,8 +38,8 @@ function IngredientForm() {
     <div className="row">
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
-          <h1>Add an Ingredient</h1>
           {alertMessage && <AlertMessage>{alertMessage}</AlertMessage>}
+          {ingredientResult.isSuccess && <SuccessMessage>{"Ingredient added successfully."}</SuccessMessage>}
           <form onSubmit={handleSubmit} id="create-hat-form">
             <div className="form-floating mb-3">
               <input
