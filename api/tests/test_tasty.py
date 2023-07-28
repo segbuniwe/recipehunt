@@ -13,10 +13,15 @@ class FakeTastyQueries:
                 "name": "test recipe",
                 "id": 1,
                 "tags": ["test", "recipe"],
+                "original_video_url": "string",
                 "thumbnail_url": "hi",
                 "num_servings": 1,
                 "instructions": [],
                 "description": "str",
+                "sections": [],
+                "cook_time_minutes": 1,
+                "prep_time_minutes": 1,
+                "total_time_minutes": 1,
             },
         ]
 
@@ -28,15 +33,22 @@ def test_list_recipes():
     data = res.json()
 
     assert res.status_code == 200
-    assert data == [
-        {
-            "name": "test recipe",
-            "id": 1,
-            "tags": ["test", "recipe"],
-            "thumbnail_url": "hi",
-            "video_url": None,
-            "num_servings": 1,
-            "instructions": [],
-            "description": "str",
-        }
-    ]
+    assert data == {
+        "recipes": [
+            {
+                "name": "test recipe",
+                "id": 1,
+                "tags": ["test", "recipe"],
+                "original_video_url": "string",
+                "thumbnail_url": "hi",
+                "video_url": None,
+                "num_servings": 1,
+                "instructions": [],
+                "description": "str",
+                "sections": [],
+                "cook_time_minutes": 1,
+                "prep_time_minutes": 1,
+                "total_time_minutes": 1,
+            }
+        ]
+    }
