@@ -1,4 +1,4 @@
-# Account
+# Accounts
 ### Login
 
 * Endpoint path: /token
@@ -63,9 +63,6 @@
 
 * Endpoint path: /api/accounts
 * Endpoint method: POST
-
-* Headers:
-  * Authorization: Bearer token
 
 * Request body:
     ```json
