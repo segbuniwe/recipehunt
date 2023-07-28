@@ -29,7 +29,7 @@ function IngredientForm() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setSuccessMessage("");
-    }, 1000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [successMessage]);
