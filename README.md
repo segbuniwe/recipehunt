@@ -1,10 +1,20 @@
 # RecipeHunt
 
 # Design
-- [Link to API docs](docs/api.md)
+
+-   [Link to API docs](docs/api.md)
 
 # Intended Market
 
 # Functionality
 
 # Project Initialization
+
+1. Clone the repository down to your local machine
+2. CD into the new project diretory
+3. Run `docker volume create recipehunt-db`
+4. Run `docker compose build`
+5. Run `docker compose up`
+6. Get an API key from TastyAPI
+7. Create an keys.py under the `api` folder
+8. Enjoy using recipehunt!
