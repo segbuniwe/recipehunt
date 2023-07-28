@@ -3,6 +3,7 @@
 # Design
 - [API Design](docs/api.md)
 - [Data Models](docs/data-model.md)
+- [Integrations](docs/integrations.md)
 
 # Intended Market
 
