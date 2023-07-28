@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useRatingsMutation } from "./app/apiSlice";
 import { useParams } from "react-router-dom";
 import AlertMessage from "./AlertMessage";
+import SuccessMessage from "./SuccessMessage";
 
 function RatingsForm() {
   const [rating, setRatings] = useState("");
@@ -9,6 +10,7 @@ function RatingsForm() {
   const [review, reviewResult] = useRatingsMutation();
   const { recipeId } = useParams();
   const [alertMessage, setAlertMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     if (reviewResult.error) {
@@ -20,9 +22,17 @@ function RatingsForm() {
       setRatings("");
       setComments("");
       setAlertMessage("");
-      alert("Review received successfully.");
+      setSuccessMessage("Review received successfully.");
     }
   }, [reviewResult]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSuccessMessage("");
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [successMessage]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,8 +47,8 @@ function RatingsForm() {
     <div className="row">
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
-          <h1>Review</h1>
           {alertMessage && <AlertMessage>{alertMessage}</AlertMessage>}
+          {successMessage && <SuccessMessage>{successMessage}</SuccessMessage>}
           <form onSubmit={handleSubmit} id="create-hat-form">
             <div className="form-floating mb-3">
               <input
