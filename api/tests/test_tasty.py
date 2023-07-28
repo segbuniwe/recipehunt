@@ -41,7 +41,6 @@ def test_list_recipes():
                 "tags": ["test", "recipe"],
                 "original_video_url": "string",
                 "thumbnail_url": "hi",
-                "video_url": None,
                 "num_servings": 1,
                 "instructions": [],
                 "description": "str",
