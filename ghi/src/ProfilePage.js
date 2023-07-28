@@ -116,6 +116,7 @@ function ProfilePage() {
                 <p>
                   {account.first_name} {account.last_name}
                 </p>
+                <p>{account.email}</p>
                 <p>Total Favorite Recipes: {favorites.length}</p>
               </div>
               <div className="profile-footer">
