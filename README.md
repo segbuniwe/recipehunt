@@ -1,4 +1,10 @@
 # RecipeHunt
+* Sophia Tony-Egbuniwe
+* Shashwath Nayak
+* Javier Hernandez
+* David Ra
+
+RecipeHunt - Add. Search. Make.
 
 # Design
 
