@@ -9,6 +9,7 @@ function IngredientForm() {
   const [unit, setUnit] = useState("");
   const [ingredient, ingredientResult] = useCreateIngredientMutation();
   const [alertMessage, setAlertMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     if (ingredientResult.error) {
@@ -21,8 +22,17 @@ function IngredientForm() {
       setAmount("");
       setUnit("");
       setAlertMessage("");
+      setSuccessMessage("Ingredient added successfully.");
     }
   }, [ingredientResult]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSuccessMessage("");
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [successMessage]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +49,7 @@ function IngredientForm() {
       <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4">
           {alertMessage && <AlertMessage>{alertMessage}</AlertMessage>}
-          {ingredientResult.isSuccess && <SuccessMessage>{"Ingredient added successfully."}</SuccessMessage>}
+          {successMessage && <SuccessMessage>{successMessage}</SuccessMessage>}
           <form onSubmit={handleSubmit} id="create-hat-form">
             <div className="form-floating mb-3">
               <input

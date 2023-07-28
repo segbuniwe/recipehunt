@@ -9,6 +9,7 @@ function IngredientEditModal({ ingredient }) {
   const [unit, setUnit] = useState(ingredient.unit);
   const [updateIngredient, ingredientResult] = useUpdateIngredientMutation();
   const [alertMessage, setAlertMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     if (ingredientResult.error) {
@@ -18,8 +19,17 @@ function IngredientEditModal({ ingredient }) {
     }
     if (ingredientResult.isSuccess) {
       setAlertMessage("");
+      setSuccessMessage("Ingredient updated successfully.");
     }
   }, [ingredientResult]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSuccessMessage("");
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [successMessage]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -61,7 +71,7 @@ function IngredientEditModal({ ingredient }) {
           </div>
           <div className="modal-body">
             {alertMessage && <AlertMessage>{alertMessage}</AlertMessage>}
-            {ingredientResult.isSuccess && <SuccessMessage>{"Ingredient updated successfully."}</SuccessMessage>}
+            {successMessage && <SuccessMessage>{successMessage}</SuccessMessage>}
             <form onSubmit={handleSubmit}>
               <div className="form-floating mb-3">
                 <input
