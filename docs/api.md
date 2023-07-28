@@ -75,6 +75,23 @@
     }
     ```
 
+* Response: Successful login and specific logged in user's profile
+* Response shape:
+    ```json
+    {
+      "access_token": string,
+      "token_type": string,
+      "account":
+        {
+          "id": string,
+          "first_name": string,
+          "last_name": string,
+          "email": string,
+          "profile_picture": string
+        }
+    }
+    ```
+
 # Recipes
 ### Get A List Of Recipes
 
@@ -222,8 +239,6 @@
 * Headers:
   * Authorization: Bearer token
 
-* Request body:
-
 * Response: An indication of success or failure
 * Response shape:
     ```json
@@ -322,8 +337,6 @@
 
 * Headers:
   * Authorization: Bearer token
-
-* Request body:
 
 * Response: An indication of success or failure
 * Response shape:
