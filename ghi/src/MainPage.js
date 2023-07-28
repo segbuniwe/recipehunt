@@ -31,6 +31,7 @@ function MainPage() {
                 />
                 <div className="content-main">
                     <h1 className="title-main">RecipeHunt</h1>
+                    <h2 className="blurb-main">Find What Recipes Suit You!</h2>
                     {!account && <Link className="link-main" to={"/signup"}>Sign Up</Link>}
                 </div>
             </div>

@@ -20,7 +20,6 @@ li {
 
 .title-main {
     font-size: 140px;
-    /* color: #fff; */
     font-weight: 600;
     transition: 0.5s;
 }
@@ -96,4 +95,9 @@ li {
 .about-link:hover {
     background-color: white;
     color: black;
+}
+
+.blurb-main {
+    color: white;
+    font-weight: 600;
 }

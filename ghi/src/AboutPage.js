@@ -1,9 +1,10 @@
 import "./style/aboutpage.css";
+import { Link } from "react-router-dom";
 
 function AboutPage() {
     return (
         <>
-            <header className="header-main">
+            <div className="header-main">
                 <h1 className="text-center">Welcome to RecipeHunt!</h1>
                 <p className="aboutmedetails">
                     Welcome to RecipeHunt, your ultimate destination for culinary
@@ -15,7 +16,16 @@ function AboutPage() {
                     and embark on a culinary journey filled with delicious flavors.
                     Happy hunting with RecipeHunt!
                 </p>
-            </header>
+                <div className="contact-container">
+                <h1 className="text-center contact-title">Contact</h1>
+                <p className="contact-details">
+                    <Link className="contact-link" to={"https://www.linkedin.com/in/david-ra-049943268/"}>David Ra</Link>
+                    <Link className="contact-link" to={"https://www.linkedin.com/in/javier-o-hernandez/"}>Javier Hernandez</Link>
+                    <Link className="contact-link" to={"https://www.linkedin.com/in/shashwath-nayak/"}>Shashwath Nayak</Link>
+                    <Link className="contact-link" to={"https://www.linkedin.com/in/sophia-tony-egbuniwe"}>Sophia Tony-Egbuniwe</Link>
+                </p>
+                </div>
+            </div>
         </>
     )
 }
