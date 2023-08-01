@@ -22,7 +22,7 @@ api-unit-tests-job:
     DATABASE_URL: "string"
     MONGO_DB: "string"
     SIGNING_KEY: "string"
-    TASTY_API_KEY: "string"
+    # TASTY_API_KEY: "string"
   needs:
     - lint-test-job
   script:
