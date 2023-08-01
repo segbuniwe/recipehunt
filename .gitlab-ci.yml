@@ -22,12 +22,13 @@ api-unit-tests-job:
     DATABASE_URL: "string"
     MONGO_DB: "string"
     SIGNING_KEY: "string"
+    TASTY_API_KEY: "string"
   needs:
     - lint-test-job
   script:
     - cd api
     - pip install -r requirements.txt
-    - export TASTY_API_KEY="$TASTY_API_KEY"
+    # - export TASTY_API_KEY="$TASTY_API_KEY"
     - python -m pytest
 
 # Build API Image:
