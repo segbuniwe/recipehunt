@@ -27,6 +27,7 @@ api-unit-tests-job:
   script:
     - cd api
     - pip install -r requirements.txt
+    - export TASTY_API_KEY="$TASTY_API_KEY"
     - python -m pytest
 
 # Build API Image:
