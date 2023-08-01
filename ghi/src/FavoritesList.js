@@ -42,7 +42,7 @@ function FavoritesList() {
                 <td>
                   <img
                     style={{ width: 200, borderRadius: 10 }}
-                    alt="recipe image"
+                    alt="recipe"
                     className="photo"
                     src={favorite.thumbnail_url}
                   />

@@ -13,7 +13,7 @@ function IngredientForm() {
 
   useEffect(() => {
     if (ingredientResult.error) {
-      if (ingredientResult.error.status == 422) {
+      if (ingredientResult.error.status === 422) {
         setAlertMessage(ingredientResult.error.data.detail[0].msg);
       }
     }

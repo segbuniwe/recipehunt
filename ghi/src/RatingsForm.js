@@ -14,7 +14,7 @@ function RatingsForm() {
 
   useEffect(() => {
     if (reviewResult.error) {
-      if (reviewResult.error.status == 422) {
+      if (reviewResult.error.status === 422) {
         setAlertMessage(reviewResult.error.data.detail[0].msg);
       }
     }

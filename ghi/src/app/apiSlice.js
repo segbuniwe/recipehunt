@@ -82,7 +82,7 @@ export const recipeHuntApi = createApi({
       invalidatesTags: ["Ingredient", "Account"],
     }),
     updateIngredient: builder.mutation({
-      query: ({ body: body, ingredient_id: ingredient_id }) => ({
+      query: ({ body, ingredient_id }) => ({
         url: `/api/ingredients/${ingredient_id}`,
         body,
         method: "PUT",
@@ -142,7 +142,7 @@ export const recipeHuntApi = createApi({
       providesTags: ["Ratings"],
     }),
     ratings: builder.mutation({
-      query: ({ body: body, recipe_id: recipe_id }) => ({
+      query: ({ body, recipe_id }) => ({
         url: `/api/recipes/${recipe_id}/ratings`,
         method: "POST",
         body,
