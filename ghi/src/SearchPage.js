@@ -65,7 +65,7 @@ function SearchPage() {
           if (recipe.sections.length > 1) {
             let sum = 0;
             recipe.sections.map((section) => {
-              sum += section.components.length;
+              return sum += section.components.length;
             });
             return { length: sum, id: recipe.id };
           } else {
@@ -78,7 +78,7 @@ function SearchPage() {
 
         mapped.sort((a, b) => a.length - b.length);
         const result = mapped.map((v) =>
-          filteredRecipes.filter((recipe) => recipe.id == v.id)
+          filteredRecipes.filter((recipe) => recipe.id === v.id)
         );
         const finalRecipes = result.map((r) => r[0]);
         setFilteredList(finalRecipes);
@@ -91,7 +91,7 @@ function SearchPage() {
     let value = Math.random() * recipeListLength;
     const indexValue = Math.floor(value);
     const filteredRecipesID = data[indexValue].id;
-    setSurpriseRecipe(data.find((recipe) => recipe.id == filteredRecipesID));
+    setSurpriseRecipe(data.find((recipe) => recipe.id === filteredRecipesID));
   };
 
   useEffect(() => {
@@ -213,6 +213,7 @@ function SearchPage() {
             <div className="card-img-container">
               <img
                 src="https://st3.depositphotos.com/2777531/12741/v/950/depositphotos_127410624-stock-illustration-surprise-inscription-with-sunrays.jpg"
+                alt="recipe"
                 className="card-img-top"
               />
             </div>

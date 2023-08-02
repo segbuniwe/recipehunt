@@ -16,14 +16,14 @@ const SignUpForm = () => {
 
   useEffect(() => {
     if (signupResult.error) {
-      if (signupResult.error.status == 400) {
+      if (signupResult.error.status === 400) {
         setAlertMessage(signupResult.error.data.detail);
       }
     }
     if (signupResult.isSuccess) {
       navigate("/");
     }
-  }, [signupResult]);
+  }, [signupResult, navigate]);
 
   const handleRegistration = (e) => {
     e.preventDefault();

@@ -12,16 +12,16 @@ const LoginForm = () => {
 
   useEffect(() => {
     if (loginResult.error) {
-      if (loginResult.error.status == 401) {
+      if (loginResult.error.status === 401) {
         setAlertMessage(loginResult.error.data.detail);
-      } else if (loginResult.error.status == 422) {
+      } else if (loginResult.error.status === 422) {
         setAlertMessage(loginResult.error.data.detail[0].msg);
       }
     }
     if (loginResult.isSuccess) {
       navigate("/");
     }
-  }, [loginResult]);
+  }, [loginResult, navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -12,19 +12,19 @@ function RatingsForm() {
     const [alertMessage, setAlertMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
 
-    useEffect(() => {
-        if (reviewResult.error) {
-            if (reviewResult.error.status == 422) {
-                setAlertMessage(reviewResult.error.data.detail[0].msg);
-            }
-        }
-        if (reviewResult.isSuccess) {
-            setRatings("");
-            setComments("");
-            setAlertMessage("");
-            setSuccessMessage("Review received successfully.");
-        }
-    }, [reviewResult]);
+  useEffect(() => {
+    if (reviewResult.error) {
+      if (reviewResult.error.status === 422) {
+        setAlertMessage(reviewResult.error.data.detail[0].msg);
+      }
+    }
+    if (reviewResult.isSuccess) {
+      setRatings("");
+      setComments("");
+      setAlertMessage("");
+      setSuccessMessage("Review received successfully.");
+    }
+  }, [reviewResult]);
 
     useEffect(() => {
         const timer = setTimeout(() => {

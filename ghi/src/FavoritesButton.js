@@ -21,7 +21,7 @@ const FavoritesButton = () => {
         favorites.find((favorite) => favorite.recipe_id === +recipeId) || null
       );
     }
-  }, [favorites]);
+  }, [favorites, recipeId]);
   return (
     <>
       {!favorite && (
