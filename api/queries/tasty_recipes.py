@@ -1,8 +1,11 @@
 from pydantic import BaseModel
 from queries.client import Queries
 import requests
-from keys import TASTY_API_KEY
+# from keys import TASTY_API_KEY
 from typing import Optional, List
+import os
+
+api_key = os.environ.get('TASTY_API_KEY')
 
 
 class TastyRecipesIn(BaseModel):
@@ -39,7 +42,7 @@ class TastyRecipesRepo(Queries):
         }
 
         headers = {
-            "X-RapidAPI-Key": TASTY_API_KEY,
+            "X-RapidAPI-Key": api_key,
             "X-RapidAPI-Host": "tasty.p.rapidapi.com",
         }
 
@@ -51,7 +54,7 @@ class TastyRecipesRepo(Queries):
         url = f"https://tasty.p.rapidapi.com/recipes/get-more-info?id={id}"
 
         headers = {
-            "X-RapidAPI-Key": TASTY_API_KEY,
+            "X-RapidAPI-Key": api_key,
             "X-RapidAPI-Host": "tasty.p.rapidapi.com",
         }
         res = requests.get(url, headers=headers)
