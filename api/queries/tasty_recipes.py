@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 from queries.client import Queries
 import requests
-# from keys import TASTY_API_KEY
 from typing import Optional, List
 import os
 
