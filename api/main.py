@@ -13,6 +13,12 @@ app.include_router(ingredients.router, tags=["personal ingredients"])
 app.include_router(favorites.router, tags=["personal favorites"])
 app.include_router(ratings.router, tags=["personal ratings"])
 
+
+@app.get("/")
+def home():
+    return True
+
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[os.environ.get("CORS_HOST", "http://localhost:3000")],
