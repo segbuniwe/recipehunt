@@ -6,6 +6,8 @@
 
 RecipeHunt - Add. Search. Make.
 
+Visit RecipeHunt: https://recipehunt.gitlab.io/module3-project-gamma/
+
 # Design
 -   [API Design](docs/api.md)
 -   [Data Models](docs/data-model.md)
